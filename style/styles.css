@@ -7,18 +7,73 @@
 
 body
 {
-    background: url("../images/Untitled.png");
-    background-size: 5vw;
-    background-blend-mode:darken;
+    background: url("../images/Untitled01.png");
+    background-size: 32px;
     background-attachment: fixed;
 }
 
 nav ul li
 {
     display: inline-block;
+    margin: 0px 20px;
+}
+
+nav ul li a
+{
+    text-decoration: none;
+    font-size: 32px;
+    color: #000;
 }
 
 #home
 {
+    display: block;
+    min-width: 300px;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
     height: 100vh;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    border: 2px solid #fff;
+}
+
+#home h1
+{
+    display: block;
+    min-width: 50%;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+#home .internal-container
+{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+    text-align: center;
+    margin-top: 30px;
+    border: 2px solid #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#projects
+{
+    display: block;
+    min-width: 300px;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid #fff;
+    border-radius: 25px;
 }
