@@ -7,16 +7,18 @@
 
 body
 {
-    background: url("../images/Untitled01.png");
-    background-size: 32px;
-    background-attachment: fixed;
+    background: #f2c42d;
+    color: #fff;
+    /*background: #222;*/
 }
 
 nav
 {
     position: sticky;
     top: 20px;
+    z-index: 1;
 }
+
 nav ul
 {
     width: 90%;
@@ -26,65 +28,55 @@ nav ul
     margin-right: auto;
     margin-bottom: 40px;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.3);
     border-radius: 25px;
-    border: 2px solid #fff;
+    border: 2px solid #000;
+    background: rgba(51, 51, 51, 0.5);
 }
 
 nav ul li
 {
     display: inline-block;
     padding: 5px 20px;
-    background: rgba(255, 255, 255, 0.3);
     border-radius: 20px;
-    border: 2px solid #fff;
+    border: 2px solid #000;
+    background: rgba(51, 51, 51, 0.5);
 }
 
 nav ul li a
 {
+    color: #fff;
     text-decoration: none;
     font-size: 32px;
-    color: #000;
 }
 
 #home
 {
-    display: block;
-    min-width: 300px;
-    max-width: 80vw;
-    margin-left: auto;
-    margin-right: auto;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
-    border: 2px solid #fff;
+    z-index: 0;
 }
 
 #home h1
 {
-    display: block;
-    min-width: 50%;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
-    text-align: center;
-    border-radius: 20px;
-    border: 2px solid #fff;
+    margin-bottom: 32px;
+}
+
+#home p
+{
+    margin-bottom: 16px;
 }
 
 #home .internal-container
 {
-    width: 70%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: large;
     text-align: center;
     margin-top: 30px;
-    border: 2px solid #fff;
     padding: 20px;
-    border-radius: 20px;
 }
 
 #projects
@@ -95,8 +87,25 @@ nav ul li a
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
-    border: 2px solid #fff;
+    min-height: 100vh;
+    max-height: fit-content;
+    border: 2px solid #000;
     border-radius: 25px;
+}
+
+#projects .internal-container
+{
+    display: flex;
+    justify-items: flex-end;
+    margin: 30px;
+    background: rgba(51, 51, 51, 0.5);
+    padding: 10px;
+    border-radius: 30px;
+}
+
+#projects .internal-container img
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
 }
