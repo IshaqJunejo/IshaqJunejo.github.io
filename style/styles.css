@@ -7,14 +7,20 @@
 
 body
 {
-    background: #f7b733;
-    color: #dfdce3;
-    /*background: #222;*/
+    background: #1e1e1e;
+    color: #eee;
+}
+
+#projects em
+{
+    color: #3e3e42;
 }
 
 em
 {
-    color: #fc4a1a;
+    color: #007acc;
+    font-style: normal;
+    font-weight: bolder;
 }
 
 nav
@@ -22,9 +28,7 @@ nav
     position: sticky;
     top: 0px;
     z-index: 1;
-    background: #f7b733;
-    /*filter: drop-shadow(10px 10px 5px rgba(30, 30, 30, 0.5));*/
-    filter: drop-shadow(10px 10px 5px #de8c17);
+    background: #2d2d30;
 }
 
 nav ul
@@ -43,14 +47,15 @@ nav ul li
 {
     display: inline-block;
     padding: 5px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     backdrop-filter: blur(5px);
+    transition: 0.5s;
 }
 
 nav ul li:hover
 {
     /*background: rgba(20, 20, 20, 0.1);*/
-    background: #de8c17;
+    background: #007acc;
     transition: 0.5s;
 }
 
@@ -58,7 +63,7 @@ a
 {
     color: #fff;
     text-decoration: none;
-    font-size: 32px;
+    font-size: 36px;
 }
 
 #home
@@ -93,6 +98,7 @@ a
 
 #projects
 {
+    background: #252526;
     display: block;
     min-width: 300px;
     max-width: 80vw;
@@ -102,6 +108,15 @@ a
     min-height: 100vh;
     max-height: fit-content;
     border-radius: 25px;
+    padding: 10px;
+}
+
+#projects h2
+{
+    font-size: 36px;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 #projects .internal-container
@@ -109,20 +124,54 @@ a
     display: flex;
     justify-items: flex-end;
     margin: 30px;
-    background: #4abdac;
+    background: #007acc;
     backdrop-filter: blur(5px);
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 25px;
 }
 
 #projects .internal-container img
 {
     width: 150px;
     height: 150px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 #projects .internal-container .online-presence img
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.data h4
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.data p
+{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#contact
+{
+    background: #252526;
+    display: block;
+    min-width: 300px;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    min-height: 40vh;
+    max-height: fit-content;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+#contact .social img
 {
     width: 50px;
     height: 50px;
