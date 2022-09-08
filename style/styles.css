@@ -7,30 +7,36 @@
 
 body
 {
-    background: #f2c42d;
-    color: #fff;
+    background: #f7b733;
+    color: #dfdce3;
     /*background: #222;*/
+}
+
+em
+{
+    color: #fc4a1a;
 }
 
 nav
 {
     position: sticky;
-    top: 20px;
+    top: 0px;
     z-index: 1;
+    background: #f7b733;
+    /*filter: drop-shadow(10px 10px 5px rgba(30, 30, 30, 0.5));*/
+    filter: drop-shadow(10px 10px 5px #de8c17);
 }
 
 nav ul
 {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
     padding: 10px;
-    border-radius: 25px;
-    border: 2px solid #000;
-    background: rgba(51, 51, 51, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 nav ul li
@@ -38,11 +44,17 @@ nav ul li
     display: inline-block;
     padding: 5px 20px;
     border-radius: 20px;
-    border: 2px solid #000;
-    background: rgba(51, 51, 51, 0.5);
+    backdrop-filter: blur(5px);
 }
 
-nav ul li a
+nav ul li:hover
+{
+    /*background: rgba(20, 20, 20, 0.1);*/
+    background: #de8c17;
+    transition: 0.5s;
+}
+
+a
 {
     color: #fff;
     text-decoration: none;
@@ -89,7 +101,6 @@ nav ul li a
     margin-top: 50px;
     min-height: 100vh;
     max-height: fit-content;
-    border: 2px solid #000;
     border-radius: 25px;
 }
 
@@ -98,7 +109,8 @@ nav ul li a
     display: flex;
     justify-items: flex-end;
     margin: 30px;
-    background: rgba(51, 51, 51, 0.5);
+    background: #4abdac;
+    backdrop-filter: blur(5px);
     padding: 10px;
     border-radius: 30px;
 }
@@ -108,4 +120,11 @@ nav ul li a
     width: 150px;
     height: 150px;
     border-radius: 20px;
+}
+
+#projects .internal-container .online-presence img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
