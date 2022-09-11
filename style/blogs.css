@@ -1,0 +1,105 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background: #1e1e1e;
+    color: #eee;
+}
+
+nav
+{
+    position: sticky;
+    top: 0px;
+    background: #2d2d30;
+}
+
+nav ul
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    padding: 10px;
+    backdrop-filter: blur(5px);
+}
+
+nav ul li
+{
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: 0.5s;
+}
+
+nav ul li:hover
+{
+    background: #007acc;
+    transition: 0.5s;
+}
+
+a
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 36px;
+}
+
+.main-container
+{
+    background: #3e3e42;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-width: 300px;
+    max-width: 80vw;
+    border-radius: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.main-container .banner
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 60px);
+    border-radius: 20px;
+}
+
+.main-container .title
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 36px;
+}
+
+.main-container .content
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: calc(100% - 60px);
+}
+
+.content .image
+{
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
