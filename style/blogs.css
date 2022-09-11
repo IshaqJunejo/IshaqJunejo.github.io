@@ -9,6 +9,7 @@ body
 {
     background: #1e1e1e;
     color: #eee;
+    font-family: system-ui;
 }
 
 nav
@@ -62,9 +63,8 @@ a
     margin-bottom: 30px;
     min-width: 300px;
     max-width: 80vw;
-    border-radius: 50px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    border-radius: 30px;
+    padding: 20px;
 }
 
 .main-container .banner
@@ -72,8 +72,8 @@ a
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 60px);
-    border-radius: 20px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .main-container .title
@@ -82,6 +82,7 @@ a
     margin-bottom: 20px;
     text-align: center;
     font-size: 36px;
+    color: #007acc;
 }
 
 .main-container .content
@@ -90,16 +91,16 @@ a
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
-    width: calc(100% - 60px);
+    width: 100%;
 }
 
 .content .image
 {
     display: block;
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
