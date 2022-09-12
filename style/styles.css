@@ -108,11 +108,11 @@ a
     margin-top: 50px;
     min-height: 100vh;
     max-height: fit-content;
-    border-radius: 25px;
+    border-radius: 35px;
     padding: 10px;
 }
 
-#projects h2
+.title
 {
     font-size: 36px;
     text-align: center;
@@ -162,6 +162,59 @@ a
     font-weight: normal;
 }
 
+
+#blogs
+{
+    display: block;
+    min-height: 100vh;
+    max-height: fit-content;
+    min-width: 300px;
+    max-width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background: #3e3e42;
+    border-radius: 35px;
+    padding: 10px;
+}
+
+#blogs .internal-container
+{
+    margin: 30px;
+    background: #007acc;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+#blogs .internal-container .Banner
+{
+    width: 100%;
+    border-radius: 15px;
+}
+
+#blogs .internal-container .blog-title
+{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#blogs .internal-container a
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: fit-content;
+    background: #eee;
+    color: #007acc;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px;
+}
+
 #contact
 {
     background: #3e3e42;
@@ -176,12 +229,6 @@ a
     max-height: fit-content;
     border-radius: 25px;
     padding: 10px;
-}
-
-#contact .contact
-{
-    font-size: 36px;
-    text-align: center;
 }
 
 #contact .social
@@ -214,7 +261,6 @@ a
 #contact p
 {
     text-align: center;
-    font-size: 18px;
 }
 
 #contact .mail
