@@ -48,7 +48,7 @@ nav ul li:hover
 
 a
 {
-    color: #fff;
+    color: #eee;
     text-decoration: none;
     font-size: 36px;
 }
@@ -82,7 +82,7 @@ a
     margin-bottom: 20px;
     text-align: center;
     font-size: 36px;
-    color: #007acc;
+    color: #eee;
 }
 
 .main-container .content
@@ -103,4 +103,9 @@ a
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+.content p
+{
+    margin-top: 10px;
 }
