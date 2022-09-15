@@ -105,9 +105,10 @@ a
     border-radius: 10px;
 }
 
-.content p
+p
 {
     margin-top: 10px;
+    font-size: 18px;
 }
 
 .content .showcase
@@ -122,4 +123,5 @@ a
 {
     color: #eeeeee75;
     margin: 10px;
+    font-size: 12px;
 }
