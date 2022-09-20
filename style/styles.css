@@ -24,42 +24,6 @@ em
     font-weight: bolder;
 }
 
-nav
-{
-    position: sticky;
-    top: 0px;
-    z-index: 1;
-    background: #2d2d30;
-}
-
-nav ul
-{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    padding: 10px;
-    backdrop-filter: blur(5px);
-}
-
-nav ul li
-{
-    display: inline-block;
-    padding: 5px 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    transition: 0.5s;
-}
-
-nav ul li:hover
-{
-    /*background: rgba(20, 20, 20, 0.1);*/
-    background: #007acc;
-    transition: 0.5s;
-}
-
 a
 {
     color: #fff;
