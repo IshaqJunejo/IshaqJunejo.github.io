@@ -44,14 +44,14 @@ a
 
 .main-container .title
 {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
     text-align: center;
     font-size: 36px;
     color: #eee;
 }
 
-.main-container .content
+.main-container .content p
 {
     display: block;
     margin-left: auto;
@@ -77,6 +77,11 @@ p
     font-size: 18px;
 }
 
+h3
+{
+    margin-top: 20px;
+    font-size: 24px;
+}
 .content .showcase
 {
     font-size: 18px;
@@ -90,4 +95,18 @@ p
     color: #eeeeee75;
     margin: 10px;
     font-size: 12px;
+}
+
+.code
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background: #2d2d30;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    font-size: 12px;
+    line-break:strict;
 }
