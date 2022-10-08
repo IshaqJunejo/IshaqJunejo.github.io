@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="Author" content="MIJ Games">
     <meta name="description" content="How I got into making my own Physics Engine?">
-    <meta name="keywords" content="Physics Engine, C#, Circle Collision, Line Collision, Radius2D">
+    <meta name="keywords" content="Physics Engine, C#, Soft Body, Cloth Simulation, Circle Collision, Line Collision, Radius2D">
     <link rel="stylesheet" href="../style/blogs.css">
     <link rel="stylesheet" href="../style/nav_bar.css">
     <link rel="icon" href="../images/Logo.png">
@@ -210,6 +210,77 @@ if (Vector2.Dot(v2, v3) > 0 & Vector2.Dot(v1, v4) > 0)
                     </code>
                 </pre>
             </div>
+            <h3>Attempt at Verlet Integration</h3>
+            <p>
+                My real motivation for using Verlet Integration us to make a cloth simulation,
+                because I felt that I couldn't implement joints between circles without using the Verlet integration.
+                This was mostly inspired by <a href="https://www.youtube.com/watch?v=lS_qeBy3aQI" class="showcase">Pezzza's Work</a> Video.
+            </p>
+            <p>
+                Switching from Euler's Integration to Verlet was not going to be easy and promising in the start,
+                so I made a branch in the local git repository to work on it.
+                After removing all of the stuff from Euler's Integration and attempting to implement Verlet integration,
+                the result seemed to be saddening,
+                even after having a lot of tweaks and making a lot of small changes from some undefined reasons the results were not going as expected.
+                These consequences pushed me to just delete that branch and continue working on just Euler's Integration,
+                which don't support implementing Joints but it does supports implementing Springs.
+            </p>
+            <h3>Springs, Foundation of Soft Body</h3>
+            <p>
+                This is where I had to watch Gonkee's Video again to grab the concept of implementing springs in the simulation.
+                It eventually turned out to be easier than thought it would be. Just after few steps springs turn out to work perfectly fine.
+                And that is where I started to do multiple experimentation on springs.
+                The first thing I wanted to do with springs was obviously a Soft Body Simulation inspired by Gonkee.
+                I had a hard time figuring out the algorithm to connect circles horizontally, vertically and even diagonally.
+                So that is why I decided to use a circular soft body instead.
+                I spawned a Central Circle and spawned few smaller Circles around it and tried to connect each of them to the Central Circle
+                through a Spring and connect each of those smaller circles through to a the circle spawned a few degrees before them through a Spring.
+            </p>
+            <img src="images/Soft_Body.png" alt="Circular Soft Body" class="image">
+            <h3>Elastic Cloth</h3>
+            <p>
+                After making a soft body, I thought if I could make a Cloth Simulation too.
+                I tried Verlet Integration because I wanted to make a Cloth Simulation, but it failed.
+                What if I could make one without Verlet Integration.
+                The only difference could be that instead of being Normal Cloth Simulation it would be an Elastic Cloth Simulation.
+            </p>
+            <p>
+                So I spawned some Circles in row by column manner, and the circles on the top row were given a mass of zero,
+                so that they could not move and help other Circles hang.
+                Connecting the Circles with each other was a difficult job but was done by a bit of trail and error.
+                It didn't looked good due to the circles being so visible,
+                I decided to turn their radius to zero and even stop rendering them to reduce a minor effort of processing.
+                It looks good but a cloth being perfectly square felt odd,
+                so a simple step was taken to increase the length of vertical Spring by 50% by that of horizontal Spring's Length
+                and the circles were also being spawned with vertically more distant then their horizontal distance. Much Better!
+            </p>
+            <p>
+                I also added another small feature to show the effect of wind.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="laguage-C#">
+// Iterating through the List of Balls/Circles
+foreach (Circle circle in circles)
+{
+    // Applying Force to Circles (Wind Force) to Showcase the Cloth Simulation Effect
+    if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_LEFT))
+    {
+        circle.force.X += 0.05f * circle.mass;
+    }else if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_RIGHT))
+    {
+        circle.force.X -= 0.05f * circle.mass;
+    }
+}
+                    </code>
+                </pre>
+            </div>
+            <img src="images/Cloth_Simulation.png" alt="Easy Cloth Simulation" class="image">
+            <p>
+                This is how much Radius2D currently have been developed,
+                it's source is hosted on <a href="https://github.com/MIJGames/Radius2D" class="showcase">Github</a>.
+                It might not be possible to keep working on it consistently nowadays due to studies.
+            </p>
         </div>
     </div>
 </body>
