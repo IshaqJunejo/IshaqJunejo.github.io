@@ -28,8 +28,52 @@ nav ul li
     filter: drop-shadow(4px 4px 1px #3e3e42);
 }
 
-nav ul li:hover
+
+#bars
 {
-    background: #007acc;
-    transition: 0.5s;
+    display: none;
+    margin-left: auto;
+    font-size: 36px;
+}
+
+@media screen and (max-width: 650px)
+{
+    #nav-links
+    {
+        display: none;
+    }
+
+    #bars
+    {
+        display: block;
+        filter: none;
+    }
+
+    nav ul
+    {
+        flex-direction: column;
+    }
+    nav ul #nav-links
+    {
+        margin-top: 50px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        transition: all 0.5s;
+    }
+
+    nav ul li:active
+    {
+        background: #007acc;
+        transition: 0.5s;
+    }
+}
+
+@media  screen and (min-width: 650px)
+{
+    nav ul li:hover
+    {
+        background: #007acc;
+        transition: 0.5s;
+    }
 }

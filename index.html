@@ -5,8 +5,10 @@
     <meta name="Author" content="MIJ Games">
     <meta name="description" content="It is my Personal Portfolio I made to showcase myself as a  Programmer Pixel Artist and Game Dev">
     <meta name="keywords" content="Programming, Pixel Art, Game Dev, Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="style/nav_bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="images/Logo.png">
     <title>MIJ Games - Portfolio</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -23,10 +25,11 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li id="bars"><i class="fa fa-bars" onclick="NavBar()"></i></a></li>
+            <li id="nav-links"><a href="#home" onclick="CloseNav()">Home</a></li>
+            <li id="nav-links"><a href="#projects" onclick="CloseNav()">Projects</a></li>
+            <li id="nav-links"><a href="#blogs" onclick="CloseNav()">Blogs</a></li>
+            <li id="nav-links"><a href="#contact" onclick="CloseNav()">Contact</a></li>
         </ul>
     </nav>
     <div id="home">
@@ -241,5 +244,44 @@
             ishaquejunejo33@gmail.com
         </p>
     </div>
+    <script>
+        navigation = document.querySelector("nav");
+        navItems = document.querySelectorAll("#nav-links");
+
+        function NavBar()
+        {
+            navItems.forEach(item => {
+                if (item.style.display === "inline-block")
+                {
+                    setTimeout(() =>
+                    {
+                        item.style.display = "none";
+                        navigation.style.height = "fit-content";
+                    }, 100);
+                }else
+                {
+                    setTimeout(() =>
+                    {
+                        item.style.display = "inline-block";
+                        navigation.style.height = "100vh";
+                    }, 100);
+                };
+            });
+        }
+
+        function CloseNav()
+        {
+            navItems.forEach(item => {
+                if (item.style.display === "inline-block")
+                {
+                    setTimeout(() =>
+                    {
+                        item.style.display = "none";
+                        navigation.style.height = "fit-content";
+                    }, 100);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
