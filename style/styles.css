@@ -72,8 +72,8 @@ a
     margin-top: 50px;
     min-height: 100vh;
     max-height: fit-content;
-    border-radius: 35px;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 5px;
 }
 
 .title
@@ -88,18 +88,17 @@ a
 {
     display: flex;
     justify-items: flex-end;
-    margin: 30px;
+    margin: 10px;
     background: #007acc;
-    backdrop-filter: blur(5px);
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 #projects .internal-container img
 {
     width: 150px;
     height: 150px;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 #projects .internal-container .online-presence img
@@ -138,23 +137,22 @@ a
     margin-right: auto;
     margin-top: 50px;
     background: #3e3e42;
-    border-radius: 35px;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 5px;
 }
 
 #blogs .internal-container
 {
-    margin: 30px;
+    margin: 10px;
     background: #007acc;
-    backdrop-filter: blur(5px);
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 #blogs .internal-container .Banner
 {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 #blogs .internal-container .blog-title
@@ -176,7 +174,7 @@ a
     text-transform: uppercase;
     border-radius: 10px;
     font-size: 18px;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 #contact
@@ -208,28 +206,30 @@ a
 
 #contact .social img
 {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     transition: 1s;
 }
 
 #contact .social img:hover
 {
-    width: 55px;
-    height: 55px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     transition: 1s;
 }
 
-#contact p
+#contact .guide
 {
     text-align: center;
+    font-size: 12px;
 }
 
 #contact .mail
 {
-    font-size: 36px;
+    font-size: 18px;
     margin-top: 25px;
     margin-bottom: 25px;
+    text-align: center;
 }
