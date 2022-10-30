@@ -87,8 +87,9 @@ a
 #projects .internal-container
 {
     display: flex;
+    flex-direction: column;
     justify-items: flex-end;
-    margin: 10px;
+    margin: 10px 5px;
     background: #007acc;
     padding: 10px;
     border-radius: 15px;
@@ -96,9 +97,20 @@ a
 
 #projects .internal-container img
 {
-    width: 150px;
-    height: 150px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
     border-radius: 5px;
+}
+
+#projects .internal-container .online-presence
+{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #projects .internal-container .online-presence img
@@ -106,23 +118,27 @@ a
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin: 5px;
 }
 
 #projects .internal-container .data
 {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .data h4
 {
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .data p
 {
     font-size: 18px;
     font-weight: normal;
+    margin-top: 10px;
 }
 
 
@@ -143,7 +159,7 @@ a
 
 #blogs .internal-container
 {
-    margin: 10px;
+    margin: 10px 5px;
     background: #007acc;
     padding: 10px;
     border-radius: 15px;
