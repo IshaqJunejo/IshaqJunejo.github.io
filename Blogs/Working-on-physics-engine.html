@@ -5,8 +5,10 @@
     <meta name="Author" content="MIJ Games">
     <meta name="description" content="How I got into making my own Physics Engine?">
     <meta name="keywords" content="Physics Engine, C#, Soft Body, Cloth Simulation, Circle Collision, Line Collision, Radius2D">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/blogs.css">
     <link rel="stylesheet" href="../style/nav_bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../images/Logo.png">
     <title>Working on my own Physics Engine - MIJ Games</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -22,10 +24,11 @@
 <body>
     <nav>
         <ul>
-            <li><a href="../index.html#home">Home</a></li>
-            <li><a href="../index.html#projects">Projects</a></li>
-            <li><a href="../index.html#blogs">Blogs</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li id="bars"><i class="fa fa-bars" onclick="NavBar()"></i></a></li>
+            <li id="nav-links"><a href="../index.html#home" onclick="CloseNav()">Home</a></li>
+            <li id="nav-links"><a href="../index.html#projects" onclick="CloseNav()">Projects</a></li>
+            <li id="nav-links"><a href="../index.html#blogs" onclick="CloseNav()">Blogs</a></li>
+            <li id="nav-links"><a href="../index.html#contact" onclick="CloseNav()">Contact</a></li>
         </ul>
     </nav>
     <div class="main-container">
@@ -285,5 +288,6 @@ foreach (Circle circle in circles)
             </p>
         </div>
     </div>
+    <script src="../script.js"></script>
 </body>
 </html>
