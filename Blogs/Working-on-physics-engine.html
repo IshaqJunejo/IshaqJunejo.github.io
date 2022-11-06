@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="Author" content="MIJ Games">
     <meta name="description" content="How I got into making my own Physics Engine?">
-    <meta name="keywords" content="Physics Engine, C#, Soft Body, Cloth Simulation, Circle Collision, Line Collision, Radius2D">
+    <meta name="keywords" content="Physics Engine, csharp, C#, Soft Body, Cloth Simulation, Circle Collision, Line Collision, Radius2D">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/blogs.css">
     <link rel="stylesheet" href="../style/nav_bar.css">
@@ -108,7 +108,7 @@
             </p>
             <div class="code">
                 <pre>
-                    <code class="laguage-C#">
+                    <code class="laguage-csharp">
 // Calculating Penetration 
 Vector2 distance = circ1.pos - circ2.pos;
 float length = (float) Math.Sqrt(distance.X * distance.X + distance.Y * distance.Y);
@@ -125,7 +125,7 @@ circ2.pos -= pentrateResolve * circ2.mass;
             </div>
             <div class="code">
                 <pre>
-                    <code class="laguage-C#">
+                    <code class="laguage-csharp">
 // Calculating Elasticity Resolution
 Vector2 distance = circ1.pos - circ2.pos;
 float length = (float) Math.Sqrt(distance.X * distance.X + distance.Y * distance.Y);
@@ -159,7 +159,7 @@ circ2.vel -= impulseVector * circ2.inverseMass * deltaTime * 60;
             </p>
             <div class="code">
                 <pre>
-                    <code class="laguage-C#">
+                    <code class="laguage-csharp">
 // Find the Area of A Triangle
 private float TriangleArea(Vector2 a, Vector2 b, Vector2 c)
 {
@@ -194,7 +194,7 @@ private float TriangleArea(Vector2 a, Vector2 b, Vector2 c)
             </p>
             <div class="code">
                 <pre>
-                    <code class="laguage-C#">
+                    <code class="laguage-csharp">
 Vector2 v1 = (l.p - l.q) / l.length;
 Vector2 v2 = (l.q - l.p) / l.length;
                         
@@ -263,7 +263,7 @@ if (Vector2.Dot(v2, v3) > 0 & Vector2.Dot(v1, v4) > 0)
             </p>
             <div class="code">
                 <pre>
-                    <code class="laguage-C#">
+                    <code class="laguage-csharp">
 // Iterating through the List of Balls/Circles
 foreach (Circle circle in circles)
 {

@@ -110,3 +110,8 @@ h3
     font-size: 12px;
     line-break:strict;
 }
+
+pre
+{
+    overflow:auto;
+}
