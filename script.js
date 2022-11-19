@@ -10,6 +10,7 @@ function NavBar()
             {
                 item.style.display = "none";
                 navigation.style.height = "fit-content";
+                navigation.querySelector("ul").style.height = "inherit";
             }, 100);
         }else
         {
@@ -17,6 +18,7 @@ function NavBar()
             {
                 item.style.display = "inline-block";
                 navigation.style.height = "100vh";
+                navigation.querySelector("ul").style.height = "inherit";
             }, 100);
         };
     });

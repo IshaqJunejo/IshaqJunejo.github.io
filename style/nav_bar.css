@@ -4,6 +4,7 @@ nav
     top: 0px;
     z-index: 1;
     background: #2d2d30;
+    height: 82px;
 }
 
 nav ul
@@ -27,9 +28,12 @@ nav ul li
     filter: drop-shadow(4px 4px 1px #3e3e42);
 }
 
-
 #bars
 {
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    transform: translate(-100%, 0);
     display: none;
     margin-left: auto;
     font-size: 36px;
