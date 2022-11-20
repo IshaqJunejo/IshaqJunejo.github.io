@@ -9,7 +9,7 @@ function NavBar()
             setTimeout(() =>
             {
                 item.style.display = "none";
-                navigation.style.height = "fit-content";
+                navigation.style.height = "82px";
                 navigation.querySelector("ul").style.height = "inherit";
             }, 100);
         }else
