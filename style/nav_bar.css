@@ -39,7 +39,7 @@ nav ul li
     font-size: 36px;
 }
 
-@media screen and (max-width: 650px)
+@media screen and (max-width: 800px)
 {
     #nav-links
     {
@@ -72,7 +72,7 @@ nav ul li
     }
 }
 
-@media  screen and (min-width: 650px)
+@media  screen and (min-width: 800px)
 {
     nav ul li:hover
     {
