@@ -3,8 +3,9 @@ nav
     position: sticky;
     top: 0px;
     z-index: 1;
-    background: #2d2d30;
+    background: #1e1e1e;
     height: 82px;
+    transition: 0.5s;
 }
 
 nav ul
@@ -20,12 +21,12 @@ nav ul
 
 nav ul li
 {
-    background: #2d2d30;
+    background: #1e1e1e;
     display: inline-block;
     padding: 5px 20px;
     border-radius: 10px;
     transition: 0.5s;
-    filter: drop-shadow(4px 4px 1px #3e3e42);
+    filter: drop-shadow(2px 2px 1px #3e3e42);
 }
 
 #bars
@@ -78,5 +79,6 @@ nav ul li
     {
         background: #007acc;
         transition: 0.5s;
+        filter: drop-shadow(6px 6px 3px #3e3e42);
     }
 }

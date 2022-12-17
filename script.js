@@ -38,3 +38,14 @@ function CloseNav()
         }
     });
 }
+
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    if (scroll > 0)
+    {
+        navigation.style.setProperty("filter", "drop-shadow(0px 6px 3px #2d2d30)");
+    }else
+    {
+        navigation.style.setProperty("filter", "drop-shadow(0px 0px 0px #2d2d30)");
+    }
+});
