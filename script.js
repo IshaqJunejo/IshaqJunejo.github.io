@@ -1,5 +1,5 @@
 navigation = document.querySelector("nav");
-navItems = document.querySelectorAll("#nav-links");
+navItems = document.querySelectorAll(".nav-links");
 
 function NavBar()
 {

@@ -50,7 +50,7 @@ nav ul li a
 
 @media screen and (max-width: 800px)
 {
-    #nav-links
+    .nav-links
     {
         display: none;
     }
@@ -65,7 +65,7 @@ nav ul li a
     {
         flex-direction: column;
     }
-    nav ul #nav-links
+    nav ul .nav-links
     {
         margin-top: 50px;
         width: fit-content;
