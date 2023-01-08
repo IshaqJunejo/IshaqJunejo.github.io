@@ -37,7 +37,7 @@ nav ul li a
     font-size: 36px;
 }
 
-#bars
+nav ul #bars
 {
     position: absolute;
     top: 10px;
@@ -50,28 +50,25 @@ nav ul li a
 
 @media screen and (max-width: 800px)
 {
-    .nav-links
-    {
-        display: none;
-    }
-
-    #bars
-    {
-        display: block;
-        filter: none;
-    }
-
     nav ul
     {
         flex-direction: column;
     }
+
     nav ul .nav-links
     {
+        display: none;
         margin-top: 50px;
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
         transition: all 0.5s;
+    }
+
+    nav ul #bars
+    {
+        display: block;
+        filter: none;
     }
 
     nav ul li:active

@@ -12,11 +12,6 @@ body
     font-family: system-ui;
 }
 
-#projects em
-{
-    color: #3e3e42;
-}
-
 em
 {
     color: #007acc;
@@ -75,7 +70,7 @@ a
     padding: 5px;
 }
 
-.title
+.section .title
 {
     font-size: 36px;
     text-align: center;
