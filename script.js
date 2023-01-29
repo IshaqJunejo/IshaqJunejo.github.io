@@ -9,8 +9,10 @@ function NavBar()
             setTimeout(() =>
             {
                 item.style.display = "none";
-                navigation.style.height = "82px";
+                navigation.style.height = "inherit";
                 navigation.querySelector("ul").style.height = "inherit";
+                navigation.querySelector("ul").style.width = "75%";
+                navigation.querySelector(".logo").style.display = "block";
             }, 100);
         }else
         {
@@ -19,6 +21,8 @@ function NavBar()
                 item.style.display = "inline-block";
                 navigation.style.height = "100vh";
                 navigation.querySelector("ul").style.height = "inherit";
+                navigation.querySelector("ul").style.width = "100vw";
+                navigation.querySelector(".logo").style.display = "none";
             }, 100);
         };
     });
@@ -32,8 +36,10 @@ function CloseNav()
             setTimeout(() =>
             {
                 item.style.display = "none";
-                navigation.style.height = "82px";
+                navigation.style.height = "inherit";
                 navigation.querySelector("ul").style.height = "inherit";
+                navigation.querySelector("ul").style.width = "75%";
+                navigation.querySelector(".logo").style.display = "block";
             }, 100);
         }
     });
