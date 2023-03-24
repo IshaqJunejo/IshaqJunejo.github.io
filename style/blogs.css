@@ -22,7 +22,7 @@ body
     margin-bottom: 30px;
     min-width: 300px;
     max-width: 80vw;
-    border-radius: 30px;
+    border-radius: 1rem;
     padding: 20px;
 }
 
@@ -31,7 +31,7 @@ body
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 725px;
     border-radius: 10px;
 }
 
@@ -42,6 +42,13 @@ body
     text-align: center;
     font-size: 36px;
     color: #eee;
+}
+
+.main-container .content
+{
+    display: block;
+    margin: 0 auto;
+    width: 550px;
 }
 
 .main-container .content p
@@ -57,7 +64,7 @@ body
 {
     display: block;
     min-width: 250px;
-    max-width: 40%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -115,4 +122,20 @@ body
 .main-container .content .code pre
 {
     overflow:auto;
+}
+
+@media screen and (max-width:950px)
+{
+    .main-container .banner
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:725px)
+{
+    .main-container .content
+    {
+        width: 100%;
+    }
 }

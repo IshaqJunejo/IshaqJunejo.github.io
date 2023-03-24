@@ -1,20 +1,38 @@
 #blogs
 {
     min-height: 100vh;
+    margin-bottom: 16px;
+}
+
+#blogs .collection
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#blogs .collection a
+{
+    margin: 5px;
 }
 
 #blogs .internal-container
 {
-    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: #007acc;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 0.5rem;
+    width: 650px;
+    height: 100%;
 }
 
 #blogs .internal-container .Banner
 {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0.2rem;
 }
 
 #blogs .internal-container .blog-title
@@ -36,4 +54,12 @@
     color: rgba(255, 255, 255, 1.0);
     background: transparent;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 500px)
+{
+    #blogs .collection .internal-container
+    {
+        width: 350px;
+    }
 }

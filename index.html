@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="style/projects-section.css">
     <link rel="stylesheet" href="style/pixel-art-section.css">
     <link rel="stylesheet" href="style/blog-section.css">
-    <link rel="stylesheet" href="style/contact-section.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="images/Logo.png">
     <title>MIJ Games - Portfolio</title>
@@ -47,7 +46,6 @@
             <li class="nav-links"><a href="#projects" onclick="CloseNav()">Projects</a></li>
             <li class="nav-links"><a href="#pixel-art" onclick="CloseNav()">Pixel Art</a></li>
             <li class="nav-links"><a href="#blogs" onclick="CloseNav()">Blogs</a></li>
-            <li class="nav-links"><a href="#contact" onclick="CloseNav()">Contact</a></li>
         </ul>
     </nav>
     <div id="home">
@@ -59,93 +57,115 @@
             <p>
                 I'm a Programmer, a Pixel Artist and also a Solo Game Developer
             </p>
+            <div class="social">
+                <a href="mailto:ishaque.junejo.dev+portfolio@gmail.com">
+                    <img src="images/Gmail-Logo.png" alt="My Email Id">
+                </a>
+                <a href="https://mij-games.itch.io">
+                    <img src="images/Itch-Logo.png" alt="My Itch.io Page">
+                </a>
+                <a href="https://www.youtube.com/channel/UCoQ1mqGLFJL7A4O-u_cRqCQ">
+                    <img src="images/Youtube-Logo.png" alt="My Youtube Channel">
+                </a>
+                <a href="https://github.com/MIJGames">
+                    <img src="images/Github-Logo.png" alt="My Github Profile">
+                </a>
+                <a href="https://twitter.com/mij_games">
+                    <img src="images/Twitter-Logo.png" alt="My Twitter">
+                </a>
+                <a href="https://www.instagram.com/mij_games/">
+                    <img src="images/Instagram-Logo.png" alt="My Insta Profile">
+                </a>
+            </div>
         </div>
     </div>
     <div id="projects" class="section">
         <div class="main-container">
             <p class="title">Projects</p>
-            <div class="internal-container">
-                <img src="images/Radius2D-Icon.png" alt="Radius2D">
-                <div class="data">
-                    <h4>Radius2D</h4>
-                    <p>Radius2D is a Physics Engine made for experiemntal purposes.<br>
-                    This currently have limited features which include,<br>
-                    Circle to Circle collision,<br>
-                    Circle to Line Collision,<br>
-                    And Spring Joints between Circles.</p>
-                    <div class="online-presence">
-                        <a href="https://github.com/MIJGames/Radius2D">
-                            <img src="images/Github-Logo.png" alt="Presence on Github">
-                        </a>
+            <div class="collection">
+                <div class="internal-container">
+                    <img src="images/Radius2D-Icon.png" alt="Radius2D">
+                    <div class="data">
+                        <h4>Radius2D</h4>
+                        <p>Radius2D is a Physics Engine made for experiemntal purposes.<br>
+                        This currently have limited features which include,<br>
+                        Circle to Circle collision,<br>
+                        Circle to Line Collision,<br>
+                        And Spring Joints between Circles.</p>
+                        <div class="online-presence">
+                            <a href="https://github.com/MIJGames/Radius2D">
+                                <img src="images/Github-Logo.png" alt="Presence on Github">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="internal-container">
-                <img src="images/Galactic-Battle-Icon.png" alt="Galactic Battle">
-                <div class="data">
-                    <h4>Galactic Battle</h4>
-                    <p>Galactic Battle is Topdown shooter game where you play as ship and have to fight against the fleet of enemy's ship.<br>
-                    When you destroy an enemy ship, you can collect their remains to grow your ship's size.<br>
-                    This was made for Kenney Jam 2022 with the theme of <em>Growth</em>.</p>
-                    <div class="online-presence">
-                        <a href="https://mij-games.itch.io/galactic-battle">
-                            <img src="images/Itch-Logo.png" alt="Presence on Itch">
-                        </a>
-                        <a href="https://github.com/MIJGames/Galactic-Battle">
-                            <img src="images/Github-Logo.png" alt="Presence on Github">
-                        </a>
-                        <a href="https://github.com/MIJGames/Galactic-Battle">
-                            <img src="images/Youtube-Logo.png" alt="Presence on Youtube">
-                        </a>
+                <div class="internal-container">
+                    <img src="images/Galactic-Battle-Icon.png" alt="Galactic Battle">
+                    <div class="data">
+                        <h4>Galactic Battle</h4>
+                        <p>Galactic Battle is Topdown shooter game where you play as ship and have to fight against the fleet of enemy's ship.<br>
+                        When you destroy an enemy ship, you can collect their remains to grow your ship's size.<br>
+                        This was made for Kenney Jam 2022 with the theme of <em>Growth</em>.</p>
+                        <div class="online-presence">
+                            <a href="https://mij-games.itch.io/galactic-battle">
+                                <img src="images/Itch-Logo.png" alt="Presence on Itch">
+                            </a>
+                            <a href="https://github.com/MIJGames/Galactic-Battle">
+                                <img src="images/Github-Logo.png" alt="Presence on Github">
+                            </a>
+                            <a href="https://github.com/MIJGames/Galactic-Battle">
+                                <img src="images/Youtube-Logo.png" alt="Presence on Youtube">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="internal-container">
-                <img src="images/Round-Pong-Icon.png" alt="Round Pong">
-                <div class="data">
-                    <h4>Round Pong</h4>
-                    <p>Round Pong is game where play as Slider and you have to keep the ball inside the circle for as long as you can.<br>
-                    This game was made for the purpose of learning C# as this is my first C# project.</p>
-                    <div class="online-presence">
-                        <a href="https://mij-games.itch.io/round-pong">
-                            <img src="images/Itch-Logo.png" alt="Presence on Itch">
-                        </a>
-                        <a href="https://github.com/MIJGames/Round-Pong">
-                            <img src="images/Github-Logo.png" alt="Presence on Github">
-                        </a>
-                        <a href="https://github.com/MIJGames/Galactic-Battle">
-                            <img src="images/Youtube-Logo.png" alt="Presence on Youtube">
-                        </a>
+                <div class="internal-container">
+                    <img src="images/Round-Pong-Icon.png" alt="Round Pong">
+                    <div class="data">
+                        <h4>Round Pong</h4>
+                        <p>Round Pong is game where play as Slider and you have to keep the ball inside the circle for as long as you can.<br>
+                        This game was made for the purpose of learning C# as this is my first C# project.</p>
+                        <div class="online-presence">
+                            <a href="https://mij-games.itch.io/round-pong">
+                                <img src="images/Itch-Logo.png" alt="Presence on Itch">
+                            </a>
+                            <a href="https://github.com/MIJGames/Round-Pong">
+                                <img src="images/Github-Logo.png" alt="Presence on Github">
+                            </a>
+                            <a href="https://github.com/MIJGames/Galactic-Battle">
+                                <img src="images/Youtube-Logo.png" alt="Presence on Youtube">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="internal-container">
-                <img src="images/Seagull-Survivor-Icon.png" alt="Seagull Survival">
-                <div class="data">
-                    <h4>Seagull Survival</h4>
-                    <p>Seagull Survival is a Topdown Game, where you as a seagull have to dodge the poles on the sea surface.<br>
-                    This game is a submission to the Mini Jam 99, the theme was <em>Birds</em>.</p>
-                    <div class="online-presence">
-                        <a href="https://mij-games.itch.io/seagull-survival">
-                            <img src="images/Itch-Logo.png" alt="Presence on Itch">
-                        </a>
+                <div class="internal-container">
+                    <img src="images/Seagull-Survivor-Icon.png" alt="Seagull Survival">
+                    <div class="data">
+                        <h4>Seagull Survival</h4>
+                        <p>Seagull Survival is a Topdown Game, where you as a seagull have to dodge the poles on the sea surface.<br>
+                        This game is a submission to the Mini Jam 99, the theme was <em>Birds</em>.</p>
+                        <div class="online-presence">
+                            <a href="https://mij-games.itch.io/seagull-survival">
+                                <img src="images/Itch-Logo.png" alt="Presence on Itch">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="internal-container">
-                <img src="images/Plankton-Simulation-Icon.png" alt="Plankton Simulator">
-                <div class="data">
-                    <h4>Plankton Simulator</h4>
-                    <p>Plankton Simulator is a game where you have to survive as a Zooplankton, you have to eat phytoplanktons around you. <br>
-                    But be carefull, you are not at the top of the marine food chain. <br>
-                    This game is an entry for Github Game Off, where the theme was <em>Bug</em>.</p>
-                    <div class="online-presence">
-                        <a href="https://mij-games.itch.io/plankton-simulator">
-                            <img src="images/Itch-Logo.png" alt="Presence on Itch">
-                        </a>
-                        <a href="https://github.com/MIJGames/Plankton-Simulator">
-                            <img src="images/Github-Logo.png" alt="Presence on Github">
-                        </a>
+                <div class="internal-container">
+                    <img src="images/Plankton-Simulation-Icon.png" alt="Plankton Simulator">
+                    <div class="data">
+                        <h4>Plankton Simulator</h4>
+                        <p>Plankton Simulator is a game where you have to survive as a Zooplankton, you have to eat phytoplanktons around you. <br>
+                        But be carefull, you are not at the top of the marine food chain. <br>
+                        This game is an entry for Github Game Off, where the theme was <em>Bug</em>.</p>
+                        <div class="online-presence">
+                            <a href="https://mij-games.itch.io/plankton-simulator">
+                                <img src="images/Itch-Logo.png" alt="Presence on Itch">
+                            </a>
+                            <a href="https://github.com/MIJGames/Plankton-Simulator">
+                                <img src="images/Github-Logo.png" alt="Presence on Github">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,83 +177,63 @@
         <div class="collection">
             <div class="piece">
                 <img src="Pixel-Art-Collection/isometric-pixel-art-under-construction-site.png" alt="Isometric Under Construction Site">
-                <p>Under Construction Site</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-wind-turbine.png" alt="Wind Turbine">
-                <p>Harness the enery of Wind</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-barrel.png" alt="Wooden Barrel">
-                <p>A Barrel</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-thunder-scene-thunderstorm.png" alt="Thunder Scene">
-                <p>Thunder Falling</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-flare-gun.png" alt="Flare Gun">
-                <p>Flare Gun</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-pyramid-with-cap.png" alt="Pyramid">
-                <p>Pyramid's Cap</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-omlete-egg.png" alt="Omlete">
-                <p>Egg</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-isometric-residential-complex.png" alt="Residential Building">
-                <p>Isometric Residential Complex</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-bird-puffbird.png" alt="PuffBird Birds">
-                <p>PuffBird on a Branch</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/isometric-house-pixel-art.png" alt="Isometric House">
-                <p>Isometric House</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-bison-fight.png" alt="Bisons Fighting with Each other">
-                <p>Bison Fighting</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-mobile-showcase.png" alt="Mobile Phones in an Ad">
-                <p>Mobile Phones in Showcase</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-mockup-of-round-pong.png" alt="Round Pong">
-                <p>Round Pong's Pixel Art Mockup</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-measuring-tape.png" alt="Measuring Tape in Isometric Style">
-                <p>Measuring Tape</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-snail.png" alt="Pixel Art Snail">
-                <p>Snail</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-axe.png" alt="Pixel Art Axe">
-                <p>Axe</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-dragon-fruit.png" alt="Pixel Art Dragon Fruit">
-                <p>Dragon Fruit</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/isometric-flower-bed-pixel-art.png" alt="Pixel Art Isometric Tiles of Flowers">
-                <p>Isometric Flower Bed Tiles</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-empty-claw-machine.png" alt="Pixel art Empty claw machine isometric">
-                <p>Empty Claw Machine</p>
             </div>
             <div class="piece">
                 <img src="Pixel-Art-Collection/pixel-art-laptop-arch-linux.png" alt="Laptop with Arch Linux Bootup">
-                <p>Laptop</p>
             </div>
         </div>
         <a
@@ -241,83 +241,57 @@
     </div>
     <div id="blogs" class="section">
         <p class="title">Blogs</p>
-        <a href="Blogs/A-Year-Long-Journey.html">
-            <div class="internal-container">
-                <img src="Blogs/images/2022-Year-Progress-Report-Banner.png" alt="Banner of Blog 2022 year reoprt" class="Banner">
-                <h3 class="blog-title">A Year Long Journey</h3>
-                <p>
-                    This year has been pretty interesting for me in terms of the
-                    time spent trying to do and find some new things or skills or hobbies.
-                    I tried a lot of new things this year and
-                    have planned for trying out more next year hopefu...
-                </p>
-                <p class="continue">Continue Reading</p>
-            </div>
-        </a>
-        <a href="Blogs/My-experience-with-programming-on-weekends-only.html">
-            <div class="internal-container">
-                <img src="Blogs/images/github-contribution-on-saturdays-and-sundays.png" alt="Banner of Blog programming on weekends" class="Banner">
-                <h3 class="blog-title">My Experience with Programming on Weekends only</h3>
-                <p>
-                    It has been almost three months since I got admission in Higher Secondary School,
-                    I don't remember it by a date but by the pattern of my GitHub contribution graph.
-                    After the admission I found very little to no time for work...
-                </p>
-                <p class="continue">Continue Reading</p>
-            </div>
-        </a>
-        <a href="Blogs/Working-on-physics-engine.html">
-            <div class="internal-container">
-                <img src="Blogs/images/Physics-Engine-Banner.png" alt="Banner of Blog Physics Engine Development" class="Banner">
-                <h3 class="blog-title">Working on my own Physics Engine</h3>
-                <p>
-                    Developing your own physics engine can be seriously hard,
-                    as it involves a lot of calculations, vectors usage and obviously lots of physics formulas too.
-                    Still I decided to give it a try because I wanted to do some experime...
-                </p>
-                <p class="continue">Continue Reading</p>
-            </div>
-        </a>
-        <a href="Blogs/Pixel-Art-for-54-days.html">
-            <div class="internal-container">
-                <img src="Blogs/images/Pixel-Dailies-Banner.png" alt="Banner of Blog Pixel Art" class="Banner">
-                <h3 class="blog-title">How is it like to make One Pixel Art Piece Dailiy for 54 days Straight?</h3>
-                <p>
-                    Doing something consistently for more than a month long can take a huge motivation and a solid reason to do so.
-                    I also have tried doing it with pixel art. <br>
-                    The story behind this lies back when I finished a game jam submissio... 
-                </p>
-                <p class="continue">Continue Reading</p>
-            </div>
-        </a>
-    </div>
-    <div id="contact" class="section">
-        <p class="title">Contacts</p>
-        <div class="social">
-            <a href="https://mij-games.itch.io">
-                <img src="images/Itch-Logo.png" alt="My Itch.io Page">
+        <div class="collection">
+            <a href="Blogs/A-Year-Long-Journey.html">
+                <div class="internal-container">
+                    <img src="Blogs/images/2022-Year-Progress-Report-Banner.png" alt="Banner of Blog 2022 year reoprt" class="Banner">
+                    <h3 class="blog-title">A Year Long Journey</h3>
+                    <p>
+                        This year has been pretty interesting for me in terms of the
+                        time spent trying to do and find some new things or skills or hobbies.
+                        I tried a lot of new things this year and
+                        have planned for trying out more next year hopefu...
+                    </p>
+                    <p class="continue">Continue Reading</p>
+                </div>
             </a>
-            <a href="https://twitter.com/mij_games">
-                <img src="images/Twitter-Logo.png" alt="My Twitter">
+            <a href="Blogs/My-experience-with-programming-on-weekends-only.html">
+                <div class="internal-container">
+                    <img src="Blogs/images/github-contribution-on-saturdays-and-sundays.png" alt="Banner of Blog programming on weekends" class="Banner">
+                    <h3 class="blog-title">My Experience with Programming on Weekends only</h3>
+                    <p>
+                        It has been almost three months since I got admission in Higher Secondary School,
+                        I don't remember it by a date but by the pattern of my GitHub contribution graph.
+                        After the admission I found very little to no time for work...
+                    </p>
+                    <p class="continue">Continue Reading</p>
+                </div>
             </a>
-            <a href="https://github.com/MIJGames">
-                <img src="images/Github-Logo.png" alt="My Github Profile">
+            <a href="Blogs/Working-on-physics-engine.html">
+                <div class="internal-container">
+                    <img src="Blogs/images/Physics-Engine-Banner.png" alt="Banner of Blog Physics Engine Development" class="Banner">
+                    <h3 class="blog-title">Working on my own Physics Engine</h3>
+                    <p>
+                        Developing your own physics engine can be seriously hard,
+                        as it involves a lot of calculations, vectors usage and obviously lots of physics formulas too.
+                        Still I decided to give it a try because I wanted to do some experime...
+                    </p>
+                    <p class="continue">Continue Reading</p>
+                </div>
             </a>
-            <a href="https://www.youtube.com/channel/UCoQ1mqGLFJL7A4O-u_cRqCQ">
-                <img src="images/Youtube-Logo.png" alt="My Youtube Channel">
-            </a>
-            <a href="https://www.instagram.com/mij_games/">
-                <img src="images/Instagram-Logo.png" alt="My Insta Profile">
+            <a href="Blogs/Pixel-Art-for-54-days.html">
+                <div class="internal-container">
+                    <img src="Blogs/images/Pixel-Dailies-Banner.png" alt="Banner of Blog Pixel Art" class="Banner">
+                    <h3 class="blog-title">How is it like to make One Pixel Art Piece Dailiy for 54 days Straight?</h3>
+                    <p>
+                        Doing something consistently for more than a month long can take a huge motivation and a solid reason to do so.
+                        I also have tried doing it with pixel art. <br>
+                        The story behind this lies back when I finished a game jam submissio... 
+                    </p>
+                    <p class="continue">Continue Reading</p>
+                </div>
             </a>
         </div>
-        <p class="guide">
-            You can also Mail me at :            
-        </p>
-        <a href="mailto:ishaque.junejo.dev+portfolio@gmail.com">
-            <p class="mail">
-                ishaque.junejo.dev@gmail.com
-            </p>
-        </a>
     </div>
     <script src="script.js"></script>
 </body>
