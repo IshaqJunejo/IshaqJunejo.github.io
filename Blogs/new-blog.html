@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="MIJ Games">
+    <meta name="description" content="This is the description of the Demo Blog!">
+    <meta name="keywords" content="Demo Keyword 00, Demo Keyword 01, Demo Keyword 02, Demo Keyword 03">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="mijgames.github.io">
+    <meta name="twitter:creator:id" content="@mij_games">
+    <meta name="twitter:title" content="Demo Blog Post - MIJ Games">
+    <meta name="twitter:description" content="This is going to be the description of the demo blog which is supposed to work">
+    <meta name="twitter:images" content="https://mijgames.github.io/Blogs/images/Pixel-Dailies-Banner.png">
+    <meta name="og:title" content="Demo Blog Post - MIJ Games">
+    <meta name="og:description" content="This is going to be the description of the demo blog which is supposed to work">
+    <meta name="og:image" content="https://mijgames.github.io/Blogs/images/Pixel-Dailies-Banner.png">
+    <link rel="stylesheet" href="../style/blogs.css">
+    <link rel="stylesheet" href="../style/nav-bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../images/Logo.png">
+    <title>Improving the Layout of my Portfolio Website - MIJ Games</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-240697963-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-240697963-1');
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="https://mijgames.github.io/">
+                <img src="../images/Logo.png" alt="Home-Page">
+            </a>
+        </div>
+        <ul>
+            <li id="bars"><i class="fa fa-bars" onclick="NavBar()"></i></li>
+            <li class="nav-links"><a href="https://mijgames.github.io#home" onclick="CloseNav()">Home</a></li>
+            <li class="nav-links"><a href="https://mijgames.github.io#projects" onclick="CloseNav()">Projects</a></li>
+            <li class="nav-links"><a href="https://mijgames.github.io#pixel-art" onclick="CloseNav()">Pixel Art</a></li>
+            <li class="nav-links"><a href="https://mijgames.github.io#blogs" onclick="CloseNav()">Blogs</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <img src="images/project-changes.png" alt="Banner Images" class="banner">
+        <h1 class="title">Improving the Layout of my Portfolio Website</h1>
+        <div class="content">
+            <p class="date">Undecided</p>
+            <p>
+                It had been a few weeks since I last worked on my portfolio website,
+                especially on its design. So I decided to try if I can improve it or not.
+            </p>
+            <p>
+                So, I opened up Figma, copied the design of my website,
+                and started looking for where I can improve the design.
+                I made a bunch of changes in the layout,
+                and most of them seem to make a positive difference in the design.
+            </p>
+            <h3>Removing Contact Section</h3>
+            <p>I just simply removed the contact section from the bottom of my website for the simple reason,
+                that it was not needed. Having ways to contact you on your website is a pretty obvious thing,
+                but having a whole section allocated for the purpose didn't feel like a good idea.
+            </p>
+            <h3>Narrowing Nav-Bar</h3>
+            <p>
+                Previously, the Navigation Bar looked invasive and took up a lot of space.
+                So it made sense to simply reduced the space between elements
+                of the Navigation Bar. And also the button to Contact Section was removed
+                as the Contact Section was removed.
+            </p>
+            <img src="images/navbar-before-and-after.png" alt="Changes in Nav-bar">
+            <h3>Changing Project Container</h3>
+            <p>
+                I decided to change the Layout of Project Container because it was taking up a lot of unnecessary horizontal space.
+            </p>
+            <img src="images/project-container-before.png" alt="Project Container Before Improvements">
+            <p>
+                So I reduced the container's width so that unused horizontal space on the sides
+                of the Project's Image reduces and changed the <em>"flex-direction"</em>.
+                It does take up more vertical space, but unused space is reduced significantly.
+            </p>
+            <img src="images/project-container-after.png" alt="Project Container After Improvements">
+            <h3>Changing Blog Container</h3>
+            <p>
+                I changed the layout of the Blog Container because of one reason,
+                the banner images look unnecessarily massive on desktop screens or screens with wider viewports.
+            </p>
+            <img src="images/blog-container-before.png" alt="Blog Container Before Improvements">
+            <p>
+                So I took a similar approach which I took with Project Container,
+                limiting the width and changing the <em>"flex-direction"</em>.
+                Limiting its width gave much better results as the Banner Image was no more looking massive.
+                Another small change made to the Blog Container was that I added its <em>"date of being published"</em> on it.
+            </p>
+            <img src="images/blog-container-after.png" alt="Blog Container after Improvements">
+            <h3>Reducing Blog's Width</h3>
+            <p>
+                I also made this change in my website's design without designing it in Figma.
+                I simply limited the width of the blog's content column,
+                because it feels kind of difficult to read the content of wider columns.
+                I also limited the width of the Banner Image above the Content Column
+                because it also looks unnecessarily massive on wider viewports just like the banner images on Blog Container.
+            </p>
+            <h3>Few Minor Changes</h3>
+            <p>
+                I made a few more minor changes to the website,
+                some of them were to Remove the Name of Pixel Art from its image holder as it served no purpose.
+                I also reduced the <em>"border-radius"</em> of some containers on the Home Page.
+                Another change I made to the Home Page was to add links
+                to my social media accounts in the Top Section of the website which previously were in Contact Section.
+            </p>
+            <img src="" alt="">
+            <p></p>
+             <img src="" alt="">
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
