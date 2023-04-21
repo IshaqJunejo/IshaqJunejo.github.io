@@ -16,6 +16,7 @@
     <meta name="og:description" content="Developing your own physics engine can be seriously hard, as it involves a lot of calculations, vectors usage and obviously lots of physics formulas too. Still I decided to give it a try because I wanted to do some experiment">
     <meta name="og:image" content="https://mijgames.github.io/Blogs/images/Physics-Engine-Banner.png">
     <link rel="stylesheet" href="../style/blogs.css">
+    <link rel="stylesheet" href="../style/code.css">
     <link rel="stylesheet" href="../style/nav-bar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../images/Logo.png">
@@ -124,42 +125,42 @@
             <div class="code">
                 <pre>
                     <code class="laguage-csharp">
-// Calculating Penetration 
-Vector2 distance = circ1.pos - circ2.pos;
-float length = (float) Math.Sqrt(distance.X * distance.X + distance.Y * distance.Y);
-Vector2 normal = distance / length;
+<keyword class="comment">// Calculating Penetration </keyword>
+<keyword class="from-class">Vector2</keyword> distance <keyword class="operation">=</keyword> circ1<keyword class="operation">.</keyword>pos <keyword class="operation">-</keyword> circ2<keyword class="operation">.</keyword>pos<keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> length <keyword class="operation">=</keyword> <keyword class="braces">(</keyword>float<keyword class="braces">)</keyword> <keyword class="from-class">Math</keyword><keyword class="operation">.</keyword><keyword class="function">Sqrt</keyword><keyword class="braces">(</keyword>distance<keyword class="operation">.</keyword>X <keyword class="operation">*</keyword> distance<keyword class="operation">.</keyword>X <keyword class="operation">+</keyword> distance<keyword class="operation">.</keyword>Y <keyword class="operation">*</keyword> distance<keyword class="operation">.</keyword>Y<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> normal <keyword class="operation">=</keyword> distance <keyword class="operation">/</keyword> length<keyword class="operation">;</keyword>
                         
-float depth = (circ1.radius + circ2.radius) - length;
-Vector2 pentrateResolve = normal * depth / (circ1.mass + circ2.mass);
+<keyword class="reserve-1">float</keyword> depth <keyword class="operation">=</keyword> <keyword class="braces">(</keyword>circ1<keyword class="operation">.</keyword>radius <keyword class="operation">+</keyword> circ2<keyword class="operation">.</keyword>radius<keyword class="braces">)</keyword> <keyword class="operation">-</keyword> length<keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> pentrateResolve <keyword class="operation">=</keyword> normal <keyword class="operation">*</keyword> depth <keyword class="operation">/</keyword> <keyword class="braces">(</keyword>circ1<keyword class="operation">.</keyword>mass <keyword class="operation">+</keyword> circ2<keyword class="operation">.</keyword>mass<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
                         
-// Resolving Penetration
-circ1.pos += pentrateResolve * circ1.mass;
-circ2.pos -= pentrateResolve * circ2.mass;
+<keyword class="comment">// Resolving Penetration</keyword>
+circ1<keyword class="operation">.</keyword>pos <keyword class="operation">+=</keyword> pentrateResolve <keyword class="operation">*</keyword> circ1<keyword class="operation">.</keyword>mass<keyword class="operation">;</keyword>
+circ2<keyword class="operation">.</keyword>pos <keyword class="operation">-=</keyword> pentrateResolve <keyword class="operation">*</keyword> circ2<keyword class="operation">.</keyword>mass<keyword class="operation">;</keyword>
                     </code>
                 </pre>
             </div>
             <div class="code">
                 <pre>
                     <code class="laguage-csharp">
-// Calculating Elasticity Resolution
-Vector2 distance = circ1.pos - circ2.pos;
-float length = (float) Math.Sqrt(distance.X * distance.X + distance.Y * distance.Y);
-Vector2 normal = distance / length;
+<keyword class="comment">// Calculating Elasticity Resolution</keyword>
+<keyword class="from-class">Vector2</keyword> distance <keyword class="operation">=</keyword> circ1<keyword class="operation">.</keyword>pos <keyword class="operation">-</keyword> circ2<keyword class="operation">.</keyword>pos<keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> length <keyword class="operation">=</keyword> <keyword class="braces">(</keyword>float<keyword class="braces">)</keyword> <keyword class="from-class">Math</keyword><keyword class="operation">.</keyword><keyword class="function">Sqrt</keyword><keyword class="braces">(</keyword>distance<keyword class="operation">.</keyword>X <keyword class="operation">*</keyword> distance<keyword class="operation">.</keyword>X <keyword class="operation">+</keyword> distance<keyword class="operation">.</keyword>Y <keyword class="operation">*</keyword> distance<keyword class="operation">.</keyword>Y<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> normal <keyword class="operation">=</keyword> distance <keyword class="operation">/</keyword> length<keyword class="operation">;</keyword>
                         
-float productOfElasticity = circ1.elasticity * circ2.elasticity;
-float ratioOfMass = circ1.mass / circ2.mass;
+<keyword class="reserve-1">float</keyword> productOfElasticity <keyword class="operation">=</keyword> circ1<keyword class="operation">.</keyword>elasticity <keyword class="operation">*</keyword> circ2<keyword class="operation">.</keyword>elasticity<keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> ratioOfMass <keyword class="operation">=</keyword> circ1<keyword class="operation">.</keyword>mass <keyword class="operation">/</keyword> circ2<keyword class="operation">.</keyword>mass<keyword class="operation">;</keyword>
                         
-Vector2 relativeVelocity = circ1.vel - circ2.vel;
-float seperatingVelocity = Vector2.Dot(normal, relativeVelocity);
-float newSeperatingVelocity = seperatingVelocity * -1 * productOfElasticity;
+<keyword class="from-class">Vector2</keyword> relativeVelocity <keyword class="operation">=</keyword> circ1<keyword class="operation">.</keyword>vel <keyword class="operation">-</keyword> circ2<keyword class="operation">.</keyword>vel<keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> seperatingVelocity <keyword class="operation">=</keyword> <keyword class="from-class">Vector2</keyword><keyword class="operation">.</keyword><keyword class="function">Dot</keyword><keyword class="braces">(</keyword>normal<keyword class="operation">,</keyword> relativeVelocity<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> newSeperatingVelocity <keyword class="operation">=</keyword> seperatingVelocity <keyword class="operation">*</keyword> <keyword class="numbers">-1</keyword> <keyword class="operation">*</keyword> productOfElasticity<keyword class="operation">;</keyword>
                         
-float seperatingVelocityDifference = newSeperatingVelocity - seperatingVelocity;
-float impulse = seperatingVelocityDifference / (circ1.inverseMass + circ2.inverseMass);
-Vector2 impulseVector = impulse * normal;
+<keyword class="reserve-1">float</keyword> seperatingVelocityDifference <keyword class="operation">=</keyword> newSeperatingVelocity <keyword class="operation">-</keyword> seperatingVelocity<keyword class="operation">;</keyword>
+<keyword class="reserve-1">float</keyword> impulse <keyword class="operation">=</keyword> seperatingVelocityDifference <keyword class="operation">/</keyword> <keyword class="braces">(</keyword>circ1<keyword class="operation">.</keyword>inverseMass <keyword class="operation">+</keyword> circ2<keyword class="operation">.</keyword>inverseMass<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> impulseVector <keyword class="operation">=</keyword> impulse <keyword class="operation">*</keyword> normal<keyword class="operation">;</keyword>
                         
-// Resolving Elasticity
-circ1.vel += impulseVector * circ1.inverseMass * deltaTime * 60;
-circ2.vel -= impulseVector * circ2.inverseMass * deltaTime * 60;
+<keyword class="comment">// Resolving Elasticity</keyword>
+circ1<keyword class="operation">.</keyword>vel <keyword class="operation">+=</keyword> impulseVector <keyword class="operation">*</keyword> circ1<keyword class="operation">.</keyword>inverseMass <keyword class="operation">*</keyword> deltaTime <keyword class="operation">*</keyword> <keyword class="numbers">60</keyword><keyword class="operation">;</keyword>
+circ2<keyword class="operation">.</keyword>vel <keyword class="operation">-=</keyword> impulseVector <keyword class="operation">*</keyword> circ2<keyword class="operation">.</keyword>inverseMass <keyword class="operation">*</keyword> deltaTime <keyword class="operation">*</keyword> <keyword class="numbers">60</keyword><keyword class="operation">;</keyword>
                     </code>
                 </pre>
             </div>
@@ -175,22 +176,22 @@ circ2.vel -= impulseVector * circ2.inverseMass * deltaTime * 60;
             <div class="code">
                 <pre>
                     <code class="laguage-csharp">
-// Find the Area of A Triangle
-private float TriangleArea(Vector2 a, Vector2 b, Vector2 c)
-{
-    Vector2 AB = new Vector2(b.X - a.X, b.Y - a.Y);
-    Vector2 AC = new Vector2(c.X - a.X, c.Y - a.Y);
+<keyword class="comment">// Find the Area of A Triangle</keyword>
+<keyword class="reserve-1">private float</keyword> <keyword class="function">TriangleArea</keyword><keyword class="braces">(</keyword><keyword class="from-class">Vector2</keyword> a<keyword class="operation">,</keyword> <keyword class="from-class">Vector2</keyword> b<keyword class="operation">,</keyword> <keyword class="from-class">Vector2</keyword> c<keyword class="braces">)</keyword>
+<keyword class="braces">{</keyword>
+    <keyword class="from-class">Vector2</keyword> AB <keyword class="operation">=</keyword> <keyword class="reserve-1">new</keyword> <keyword class="from-class">Vector2</keyword><keyword class="braces">(</keyword>b<keyword class="operation">.</keyword>X <keyword class="operation">-</keyword> a<keyword class="operation">.</keyword>X<keyword class="operation">,</keyword> b<keyword class="operation">.</keyword>Y <keyword class="operation">-</keyword> a<keyword class="operation">.</keyword>Y<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+    <keyword class="from-class">Vector2</keyword> AC <keyword class="operation">=</keyword> <keyword class="reserve-1">new</keyword> <keyword class="from-class">Vector2</keyword><keyword class="braces">(</keyword>c<keyword class="operation">.</keyword>X <keyword class="operation">-</keyword> a<keyword class="operation">.</keyword>X<keyword class="operation">,</keyword> c<keyword class="operation">.</keyword>Y <keyword class="operation">-</keyword> a<keyword class="operation">.</keyword>Y<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
                         
-    float crossProduct = AB.X * AC.Y - AB.Y * AC.X;
+    <keyword class="reserve-1">float</keyword> crossProduct <keyword class="operation">=</keyword> AB<keyword class="operation">.</keyword>X <keyword class="operation">*</keyword> AC<keyword class="operation">.</keyword>Y <keyword class="operation">-</keyword> AB<keyword class="operation">.</keyword>Y <keyword class="operation">*</keyword> AC<keyword class="operation">.</keyword>X<keyword class="operation">;</keyword>
                         
-    if (crossProduct >= 0)
-    {
-        return crossProduct / 2;
-    }else
-    {
-        return crossProduct * -1 / 2;
-    };
-}
+    <keyword class="reserve-2">if</keyword> <keyword class="braces">(</keyword>crossProduct <keyword class="operation">>=</keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword>
+    <keyword class="braces">{</keyword>
+        <keyword class="reserve-2">return</keyword> crossProduct <keyword class="operation">/</keyword> <keyword class="numbers">2</keyword><keyword class="operation">;</keyword>
+    <keyword class="braces">}</keyword><keyword class="reserve-2">else</keyword>
+    <keyword class="braces">{</keyword>
+        <keyword class="reserve-2">return</keyword> crossProduct <keyword class="operation">*</keyword> <keyword class="numbers">-1</keyword> <keyword class="operation">/</keyword> <keyword class="numbers">2</keyword><keyword class="operation">;</keyword>
+    <keyword class="braces">}</keyword><keyword class="operation">;</keyword>
+<keyword class="braces">}</keyword>
                     </code>
                 </pre>
             </div>
@@ -210,22 +211,22 @@ private float TriangleArea(Vector2 a, Vector2 b, Vector2 c)
             <div class="code">
                 <pre>
                     <code class="laguage-csharp">
-Vector2 v1 = (l.p - l.q) / l.length;
-Vector2 v2 = (l.q - l.p) / l.length;
+<keyword class="from-class">Vector2</keyword> v1 <keyword class="operation">=</keyword> <keyword class="braces">(</keyword>l<keyword class="operation">.</keyword>p <keyword class="operation">-</keyword> l<keyword class="operation">.</keyword>q<keyword class="braces">)</keyword> <keyword class="operation">/</keyword> l<keyword class="operation">.</keyword>length<keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> v2 <keyword class="operation">=</keyword> <keyword class="braces">(</keyword>l<keyword class="operation">.</keyword>q <keyword class="operation">-</keyword> l<keyword class="operation">.</keyword>p<keyword class="braces">)</keyword> <keyword class="operation">/</keyword> l<keyword class="operation">.</keyword>length<keyword class="operation">;</keyword>
                         
-Vector2 v3 = circ.pos - l.p;
-Vector2 v4 = circ.pos - l.q;
+<keyword class="from-class">Vector2</keyword> v3 <keyword class="operation">=</keyword> circ<keyword class="operation">.</keyword>pos <keyword class="operation">-</keyword> l<keyword class="operation">.</keyword>p<keyword class="operation">;</keyword>
+<keyword class="from-class">Vector2</keyword> v4 <keyword class="operation">=</keyword> circ<keyword class="operation">.</keyword>pos <keyword class="operation">-</keyword> l<keyword class="operation">.</keyword>q<keyword class="operation">;</keyword>
                         
-if (Vector2.Dot(v2, v3) > 0 & Vector2.Dot(v1, v4) > 0)
-{
-    Vector2 dist = l.p - l.q;
-    float Base = (float) Math.Sqrt(dist.X * dist.X + dist.Y * dist.Y);
-    float height = TriangleArea(l.p, l.q, circ.pos);
-    return height;
-}else
-{
-    return circ.radius * 2;
-}
+<keyword class="reserve-2">if</keyword> <keyword class="braces">(</keyword><keyword class="from-class">Vector2</keyword><keyword class="operation">.</keyword><keyword class="function">Dot</keyword><keyword class="braces">(</keyword>v2<keyword class="operation">,</keyword> v3<keyword class="braces">)</keyword> <keyword class="operation">></keyword> <keyword class="numbers">0</keyword> <keyword class="operation">&&</keyword> <keyword class="from-class">Vector2</keyword><keyword class="operation">.</keyword><keyword class="function">Dot</keyword><keyword class="braces">(</keyword>v1<keyword class="operation">,</keyword> v4<keyword class="braces">)</keyword> <keyword class="operation">></keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword>
+<keyword class="braces">{</keyword>
+    <keyword class="from-class">Vector2</keyword> dist <keyword class="operation">=</keyword> l<keyword class="operation">.</keyword>p <keyword class="operation">-</keyword> l<keyword class="operation">.</keyword>q<keyword class="operation">;</keyword>
+    <keyword class="reserve-1">float</keyword> Base <keyword class="operation">=</keyword> <keyword class="braces">(</keyword><keyword class="reserve-1">float</keyword><keyword class="braces"></keyword> <keyword class="from-class">Math</keyword><keyword class="operation">.</keyword><keyword class="function">Sqrt</keyword><keyword class="braces">(</keyword>dist<keyword class="operation">.</keyword>X <keyword class="operation">*</keyword> dist<keyword class="operation">.</keyword>X <keyword class="operation">+</keyword> dist<keyword class="operation">.</keyword>Y <keyword class="operation">*</keyword> dist<keyword class="operation">.</keyword>Y<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+    <keyword class="reserve-1">float</keyword> height <keyword class="operation">=</keyword> <keyword class="function">TriangleArea</keyword><keyword class="braces">(</keyword>l<keyword class="operation">.</keyword>p<keyword class="operation">,</keyword> l<keyword class="operation">.</keyword>q<keyword class="operation">,</keyword> circ<keyword class="operation">.</keyword>pos<keyword class="braces">)</keyword><keyword class="operation">;</keyword>
+    <keyword class="reserve-2">return</keyword> height<keyword class="operation">;</keyword>
+<keyword class="braces">}</keyword><keyword class="reserve-2">else</keyword>
+<keyword class="braces">{</keyword>
+    <keyword class="reserve-2">return</keyword> circ<keyword class="operation">.</keyword>radius <keyword class="operation">*</keyword> <keyword class="numbers">2</keyword><keyword class="operation">;</keyword>
+<keyword class="braces">}</keyword>
                     </code>
                 </pre>
             </div>
@@ -279,18 +280,18 @@ if (Vector2.Dot(v2, v3) > 0 & Vector2.Dot(v1, v4) > 0)
             <div class="code">
                 <pre>
                     <code class="laguage-csharp">
-// Iterating through the List of Balls/Circles
-foreach (Circle circle in circles)
-{
-    // Applying Force to Circles (Wind Force) to Showcase the Cloth Simulation Effect
-    if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_LEFT))
-    {
-        circle.force.X += 0.05f * circle.mass;
-    }else if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_RIGHT))
-    {
-        circle.force.X -= 0.05f * circle.mass;
-    }
-}
+<keyword class="comment">// Iterating through the List of Balls/Circles</keyword>
+<keyword class="reserve-2">foreach</keyword> <keyword class="braces">(</keyword><keyword class="from-class">Circle</keyword> circle <keyword class="reserve-2">in</keyword> circles)
+<keyword class="braces">{</keyword>
+    <keyword class="comment">// Applying Force to Circles (Wind Force) to Showcase the Cloth Simulation Effect</keyword>
+    <keyword class="reserve-2">if</keyword> <keyword class="braces">(</keyword><keyword class="from-class">Raylib</keyword><keyword class="operation">.</keyword><keyword class="function">IsMouseButtonDown</keyword><keyword class="braces">(</keyword><keyword class="from-class">MouseButton</keyword><keyword class="operation">.</keyword><keyword class="reserve-1">MOUSE_BUTTON_LEFT</keyword><keyword class="braces">))</keyword>
+    <keyword class="braces">{</keyword>
+        circle<keyword class="operation">.</keyword>force<keyword class="operation">.</keyword>X <keyword class="operation">+=</keyword> <keyword class="numbers">0.05f</keyword> <keyword class="operation">*</keyword> circle<keyword class="operation">.</keyword>mass<keyword class="operation">;</keyword>
+    <keyword class="braces">}</keyword><keyword class="reserve-2">else if</keyword> <keyword class="braces">(</keyword><keyword class="from-class">Raylib</keyword><keyword class="operation">.</keyword><keyword class="function">IsMouseButtonDown</keyword><keyword class="braces">(</keyword><keyword class="from-class">MouseButton</keyword><keyword class="operation">.</keyword><keyword class="reserve-1">MOUSE_BUTTON_RIGHT</keyword><keyword class="braces">))</keyword>
+    <keyword class="braces">{</keyword>
+        circle<keyword class="operation">.</keyword>force<keyword class="operation">.</keyword>X <keyword class="operation">-=</keyword> <keyword class="numbers">0.05f</keyword> <keyword class="operation">*</keyword> circle<keyword class="operation">.</keyword>mass<keyword class="operation">;</keyword>
+    <keyword class="braces">}</keyword>
+<keyword class="braces">}</keyword>
                     </code>
                 </pre>
             </div>
