@@ -17,6 +17,7 @@
     <meta name="og:image" content="https://mijgames.github.io/Blogs/images/Pixel-Dailies-Banner.png"> <!-- Remember to Update these Things -->
     <link rel="stylesheet" href="../style/blogs.css">
     <link rel="stylesheet" href="../style/nav-bar.css">
+    <link rel="stylesheet" href="../style/code.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../images/Logo.png">
     <title>Working on my First Neural Network - MIJ Games</title>  <!-- Remember to Update these Things -->
@@ -46,12 +47,405 @@
         </ul>
     </nav>
     <div class="main-container"> <!-- Remember to Update these Things -->
-        <img src="images/Pixel_Dailies_Banner.png" alt="Banner Images" class="banner">
+        <img src="images/First-Neural-Network-Banner.png" alt="Banner Images" class="banner">
         <h1 class="title">Working on my First Neural Network</h1>
         <div class="content">
             <p class="date">14-September-2022</p> <!-- Remember to Update these Things -->
             <p>
-                Sample Paragraph and Nothing Else.
+                I recently tried to make a pretty simple and small Neural Network to understand
+                how Neural Networks work, specifically how Neural Networks are Trained with Backpropagation.
+            </p>
+            <p>
+                The Code that was written is mainly from a YouTube Video by <a href="https://youtu.be/w8yWXqWQYmU?si=V5BtzgJ24HABIUsu">Samson Zhang</a> explaining how
+                Neural Networks can be built from Scratch without using Libraries like Tensorflow.
+            </p>
+            <h3>Main Program</h3>
+            <p>So the Neural Network was for Identifying Digits of 28 by 28 pixels from the MNIST Dataset (Modified National Institute of Standards and Technology Dataset).
+                They have thousands of Labeled Hand Written Digits that can be used for Training my Neural Network and also for Testing it.
+            </p>
+            <p>
+                The structure of this Neural Network is 784 inputs 10 Neurons in the Hidden Layer and 10 Neurons in the Output Layer.
+            </p>
+            <p>
+                What we now need to do is to Read the Data from a CSV file and convert it into a NumPy Array.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Importing the Dataset
+data = pd.read_csv('Data/mnist_train.csv')
+
+data = np.array(data)
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Shuffle It and divide it into Training Data and Testing Data.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+m, n = data.shape
+np.random.shuffle(data)
+                        
+data_test = data[0:1000].T
+Y_test = data_test[0]
+X_test = data_test[1:n]
+X_test = X_test / 255
+                        
+data_train = data[1000:m].T
+Y_train = data_train[0]
+X_train = data_train[1:n]
+X_train = X_train / 255
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Define ReLU (Rectified Linear Unit) and SoftMax Activations.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Activation Function Rectified Linear Unit (ReLU)
+def ReLU(x):
+    return np.maximum(x, 0)                        
+
+# Activation Function Softmax
+def softmax(z):
+    a = np.exp(z) / sum(np.exp(z))
+    return a
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Initialize the Weights and Biases in the form of NumPy Arrays at random.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Function to Initialize the Parameters at Random
+def init_parameters():
+    weights_01 = np.random.rand(10, 784) - 0.5
+    biases_01 = np.random.rand(10, 1) - 0.5
+    weights_02 = np.random.rand(10, 10) - 0.5
+    biases_02 = np.random.rand(10, 1) - 0.5
+    return weights_01, biases_01, weights_02, biases_02
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Perform Forward Propagation.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Function for Forward Propagation
+def forward_propagation(weights_01, biases_01, weights_02, biases_02, x):
+    z1 = weights_01.dot(x) + biases_01
+    a1 = ReLU(z1)
+    z2 = weights_02.dot(a1) + biases_02
+    a2 = softmax(z2)
+    return z1, a1, z2, a2
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Derivative of ReLU Activation and a Function for One Hot
+                Encoding would be needed for Performing Back Propagation.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Derivative of Activation function ReLU
+def ReLU_derivative(x):
+    return x > 0
+
+
+# Function for One Hot Encoding
+def one_hot(y):
+    one_hot_y = np.zeros((y.size, y.max() + 1))
+    one_hot_y[np.arange(y.size), y] = 1
+    one_hot_y = one_hot_y.T
+    return one_hot_y
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Perform Back Propagation.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Function for Back Propagation
+def back_propagation(z1, a1, z2, a2, weights_01, weights_02, x, y):
+    one_hot_y = one_hot(y)
+    dz2 = a2 - one_hot_y
+    dweights_02 = 1 / m * dz2.dot(a1.T)
+    dbiases_02 = 1 / m * np.sum(dz2)
+    dz1 = weights_02.T.dot(dz2) * ReLU_derivative(z1)
+    dweights_01 = 1 / m * dz1.dot(x.T)
+    dbiases_01 = 1 / m * np.sum(dz1)
+    return dweights_01, dbiases_01, dweights_02, dbiases_02
+                    </code>
+                </pre>
+            </div>
+            <p>
+                As we now have Derivatives of Weights and Biases,
+                we can use them to Update Our Weights and Biases.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Function for Updating Parameters based on Derivatives of Weights and Biases Computed through Back Propagation
+def update_parameters(weights_01, biases_01, weights_02, biases_02, dweights_01, dbiases_01, dweights_02, dbiases_02, alpha):
+    weights_01 = weights_01 - alpha * dweights_01
+    biases_01 = biases_01 - alpha * dbiases_01
+    weights_02 = weights_02 - alpha * dweights_02
+    biases_02 = biases_02 - alpha * dbiases_02
+    return weights_01, biases_01, weights_02, biases_02
+                    </code>
+                </pre>
+            </div>
+            <p>
+                All we now have to do is repeat this process just enough times
+                to get our Neural Network to Fit enough but not Overfit.
+            </p>
+            <p>
+                Accuracy of the Network can also be monitored in between the Training Iterations.
+                For that we will need a simple function that will get us all the predictions
+                our Neural Network made, and also a simple function that can compare our
+                predictions with the actual answers to calculate the accuracy of our predictions.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Function to get all Prediction Neural Network has made
+def get_predictions(A2):
+    return np.argmax(A2, 0)
+
+
+# Function to get Accuracy of Neural Network by comparing Predictions and Actual Answers
+def get_accuracy(predictions, y):
+    print(predictions, y)
+    return np.sum(predictions == y) / y.size
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Now Accuracy of our Neural Network can be printed after
+                every certain Number of Iterations during Training.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Initialize Parameters
+weights_01, biases_01, weights_02, biases_02 = init_parameters()
+# Iterating our Neural Network for Training
+for i in range(iterations):
+    # Forward Propagation
+    z1, a1, z2, a2 = forward_propagation(weights_01, biases_01, weights_02, biases_02, x)
+    # Back Propagation
+    dweights_01, dbiases_01, dweights_02, dbiases_02 = back_propagation(z1, a1, z2, a2, weights_01, weights_02, x, y)
+    # Updating Parameters
+    weights_01, biases_01, weights_02, biases_02 = update_parameters(weights_01, biases_01, weights_02, biases_02, dweights_01, dbiases_01, dweights_02, dbiases_02, alpha)
+    # After Every 50 Iterations
+    if i % 50 == 0:
+        # Print Iteration Count and Accuracy our Neural Network has Achieved
+        print("Iteration: ", i)
+        print("Accuracy: ", get_accuracy(get_predictions(a2), y))
+                    </code>
+                </pre>
+            </div>
+            <h3>Storing the Parameters</h3>
+            <p>
+                Another thing I did in this project was to store the parameters
+                of this Neural Network in a JSON file, and I used them in another Python File
+                to test the accuracy of this Neural Network.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Storing the Parameters in JSON, so can be used for Testing in any Other Program
+# (.tolist() function is used because Json can't store Numpy Arrays, for testing, it has to be converted into Numpy Arrays again)
+data = {
+    "Weights-01": weights_01.tolist(),
+    "Biases-01": biases_01.tolist(),
+    "Weights-02": weights_02.tolist(),
+    "Biases-02": biases_02.tolist()
+}
+with open("Parameters.json", "w") as file:
+    json.dump(data, file)
+                    </code>
+                </pre>
+            </div>
+            <h3>Visualizing the Digits</h3>
+            <p>
+                I also wrote a small Python Program just to Visualize
+                a random digit from the Dataset onto the Console.
+            </p>
+            <p>
+                All it does is take the Dataset, convert it into a NumPy Array,
+                select a random number from 0 to the length of the Dataset,
+                and Draw the Digit of that Index onto the Console using different
+                characters for different ranges of Brightness.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Selecting a Random Number as Index
+index = random.randrange(0, 4997)
+
+
+# Drawing the Digit of that Index on the Console
+for i in range(1, 785):
+    if data[index][i] >= 0 and data[index][i] <= 30:
+        print(" ", end=" ")
+    elif data[index][i] >= 31 and data[index][i] <= 60:
+        print(".", end=" ")
+    elif data[index][i] >= 61 and data[index][i] <= 90:
+        print(",", end=" ")
+    elif data[index][i] >= 91 and data[index][i] <= 120:
+        print("`", end=" ")
+    elif data[index][i] >= 121 and data[index][i] <= 150:
+        print("*", end=" ")
+    elif data[index][i] >= 151 and data[index][i] <= 180:
+        print("!", end=" ")
+    elif data[index][i] >= 181 and data[index][i] <= 210:
+        print("#", end=" ")
+    elif data[index][i] >= 211:
+        print("@", end=" ")
+    if (i - 0) % 28 == 0:
+        print("")
+                    </code>
+                </pre>
+            </div>
+            <h3>Testing the Accuracy</h3>
+            <p>
+                I wrote a different Python file to test the accuracy of the Neural Network,
+                in that file I initially imported the Parameters from our JSON file
+                and turned them into NumPy Arrays.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Importing Stored Parameters from Json File
+with open("Parameters.json", "r") as file:
+    parameters = json.load(file)
+
+
+# Extracting Weights and Biases from JSON lists
+weights_01 = parameters["Weights-01"]
+biases_01 = parameters["Biases-01"]
+weights_02 = parameters["Weights-02"]
+biases_02 = parameters["Biases-02"]
+
+
+# Turning our Weights and Biases into Numpy Arrays
+weights_01 = np.array(weights_01)
+biases_01 = np.array(biases_01)
+weights_02 = np.array(weights_02)
+biases_02 = np.array(biases_02)
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Import the Test Data from a different CSV file, convert it into a NumPy Array,
+                shuffle it, and select only the first one Digit to test our Neural Network.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Importing the Dataset for Testing
+test_data = pd.read_csv('Data/mnist_test.csv')
+
+
+# Turn Dataset into Numpy Array and Shuffling it
+test_data = np.array(test_data)
+m, n = test_data.shape
+np.random.shuffle(test_data)
+
+
+# Selecting one Digit from the Shuffled Dataset
+data_test = test_data[0:1].T
+Y_test = data_test[0]
+X_test = data_test[1:n]
+X_test = X_test / 255
+                    </code>
+                </pre>
+            </div>
+            <p>
+                We will also need the Activation functions from the Main file,
+                and use them to perform Forward Propagation.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Activation Function Rectified Linear Unit (ReLU)
+def ReLU(x):
+    return np.maximum(x, 0)
+
+
+# Activation Function Softmax
+def softmax(z):
+    a = np.exp(z) / sum(np.exp(z))
+    return a
+
+
+# Forward Propagating the Input
+z1 = weights_01.dot(X_test) + biases_01
+a1 = ReLU(z1)
+z2 = weights_02.dot(a1) + biases_02
+a2 = softmax(z2)
+                    </code>
+                </pre>
+            </div>
+            <p>
+                Simply Calculate the Digit with the Highest Probability,
+                print the probability of each Digit, and print the Digit with
+                the Highest Probability as the Response of our Neural Network.
+            </p>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+# Finding the index of Highest Probability after Forward Propagation
+max_val = a2[0]
+index = 0
+for i in range(len(a2)):
+    if a2[i] >= max_val:
+        index = i
+        max_val = a2[i]
+
+
+# Listing the Probability of Each Digit being the Answer
+for i in range(0, 10):
+    print("Probability of ", i, " is %.2f percent" % (a2[i][0] * 100))
+
+
+# Printing the Prediction of our Neural Network
+print("I think it is a ", index)
+                    </code>
+                </pre>
+            </div>
+            <p>
+                We can also Draw the Digit on the Console before showing
+                us the probabilities of the answer in the same way we did before.
+            </p>
+            <p>
+                Here are a few examples of Predictions that the Neural Network has made.
+            </p>
+            <img src="images/Neural-Network-Prediction-00.png" alt="" class="image">
+            <img src="images/Neural-Network-Prediction-01.png" alt="" class="image">
+            <img src="images/Neural-Network-Prediction-02.png" alt="" class="image">
+            <p>Here the Network seems to question a little whether it's a 7 or a 9.</p>
+            <img src="images/Neural-Network-Prediction-03.png" alt="" class="image">
+            <p>Confused here about a 5 and a 6.</p>
+            <img src="images/Neural-Network-Prediction-04.png" alt="" class="image">
+            <p>Another confusion here between a 7 and a 9.</p>
+            <img src="images/Neural-Network-Prediction-05.png" alt="" class="image">
+            <p>Here it seems to consider 4, 5, and 6 a considerable possibility.</p>
+            <p>
+                Most of the Digits I have seen it answer to are mostly
+                Accurate other than a few that are distorted quite a bit.
             </p>
         </div>
     </div>
