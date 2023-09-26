@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="Author" content="MIJ Games">
-    <meta name="description" content="This is the description of the Demo Blog!"> <!-- Remember to Update these Things -->
-    <meta name="keywords" content="Demo Keyword 00, Demo Keyword 01, Demo Keyword 02, Demo Keyword 03"> <!-- Remember to Update these Things -->
+    <meta name="description" content="I tried to work on a Neural Network to understand how it works">
+    <meta name="keywords" content="Neural Networks, MNIST, AI, Learning In Progress, Back Propagation, First AI, First Neural Network">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="mijgames.github.io">
     <meta name="twitter:creator:id" content="@mij_games">
-    <meta name="twitter:title" content="Demo Blog Post - MIJ Games"> <!-- Remember to Update these Things -->
-    <meta name="twitter:description" content="This is going to be the description of the demo blog which is supposed to work"> <!-- Remember to Update these Things -->
-    <meta name="twitter:images" content="https://mijgames.github.io/Blogs/images/Pixel-Dailies-Banner.png"> <!-- Remember to Update these Things -->
-    <meta name="og:title" content="Demo Blog Post - MIJ Games"> <!-- Remember to Update these Things -->
-    <meta name="og:description" content="This is going to be the description of the demo blog which is supposed to work"> <!-- Remember to Update these Things -->
-    <meta name="og:image" content="https://mijgames.github.io/Blogs/images/Pixel-Dailies-Banner.png"> <!-- Remember to Update these Things -->
+    <meta name="twitter:title" content="Working on my First Neural Network - MIJ Games">
+    <meta name="twitter:description" content="I tried to work on a Neural Network to understand how it works">
+    <meta name="twitter:images" content="https://mijgames.github.io/Blogs/images/First-Neural-Network-Banner.png">
+    <meta name="og:title" content="Working on my First Neural Network - MIJ Games">
+    <meta name="og:description" content="I tried to work on a Neural Network to understand how it works">
+    <meta name="og:image" content="https://mijgames.github.io/Blogs/images/First-Neural-Network-Banner.png">
     <link rel="stylesheet" href="../style/blogs.css">
     <link rel="stylesheet" href="../style/nav-bar.css">
     <link rel="stylesheet" href="../style/code.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../images/Logo.png">
-    <title>Working on my First Neural Network - MIJ Games</title>  <!-- Remember to Update these Things -->
+    <title>Working on my First Neural Network - MIJ Games</title> 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-240697963-1"></script>
     <script>
@@ -72,10 +72,10 @@
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Importing the Dataset
-data = pd.read_csv('Data/mnist_train.csv')
+<keyword class="comment"># Importing the Dataset</keyword>
+data <keyword class="operation">=</keyword> <keyword class="from-class">pd</keyword><keyword class="operation">.</keyword><keyword class="function">read_csv</keyword><keyword class="braces">(</keyword><keyword class="quotes">'Data/mnist_train.csv'</keyword><keyword class="braces">)</keyword>
 
-data = np.array(data)
+data <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>data<keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
@@ -85,18 +85,18 @@ data = np.array(data)
             <div class="code">
                 <pre>
                     <code class="language-python">
-m, n = data.shape
-np.random.shuffle(data)
+m<keyword class="operation">,</keyword> n <keyword class="operation">=</keyword> data<keyword class="operation">.</keyword>shape
+<keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">shuffle</keyword><keyword class="braces">(</keyword>data<keyword class="braces">)</keyword>
+
+data_test <keyword class="operation">=</keyword> data<keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="operation">:</keyword>1000<keyword class="braces">]</keyword><keyword class="operation">.T</keyword>
+Y_test <keyword class="operation">=</keyword> data_test<keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="braces">]</keyword>
+X_test <keyword class="operation">=</keyword> data_test<keyword class="braces">[</keyword><keyword class="numbers">1</keyword><keyword class="operation">:</keyword>n<keyword class="braces">]</keyword>
+X_test <keyword class="operation">=</keyword> X_test <keyword class="operation">/</keyword> <keyword class="numbers">255</keyword>
                         
-data_test = data[0:1000].T
-Y_test = data_test[0]
-X_test = data_test[1:n]
-X_test = X_test / 255
-                        
-data_train = data[1000:m].T
-Y_train = data_train[0]
-X_train = data_train[1:n]
-X_train = X_train / 255
+data_train <keyword class="operation">=</keyword> data<keyword class="braces">[</keyword><keyword class="numbers">1000</keyword><keyword class="operation">:</keyword>m<keyword class="braces">]</keyword><keyword class="operation">.T</keyword>
+Y_train <keyword class="operation">=</keyword> data_train<keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="braces">]</keyword>
+X_train <keyword class="operation">=</keyword> data_train<keyword class="braces">[</keyword><keyword class="numbers">1</keyword><keyword class="operation">:</keyword>n<keyword class="braces">]</keyword>
+X_train <keyword class="operation">=</keyword> X_train <keyword class="operation">/</keyword> <keyword class="numbers">255</keyword>
                     </code>
                 </pre>
             </div>
@@ -106,14 +106,14 @@ X_train = X_train / 255
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Activation Function Rectified Linear Unit (ReLU)
-def ReLU(x):
-    return np.maximum(x, 0)                        
+<keyword class="comment"># Activation Function Rectified Linear Unit (ReLU)</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">ReLU</keyword><keyword class="braces">(</keyword>x<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">return</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">maximum</keyword><keyword class="braces">(</keyword>x<keyword class="operation">,</keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword>
 
-# Activation Function Softmax
-def softmax(z):
-    a = np.exp(z) / sum(np.exp(z))
-    return a
+<keyword class="comment"># Activation Function Softmax</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">softmax</keyword><keyword class="braces">(</keyword>z<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    a <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">exp</keyword><keyword class="braces">(</keyword>z<keyword class="braces">)</keyword> <keyword class="operation">/</keyword> <keyword class="function">sum</keyword><keyword class="braces">(</keyword><keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">exp</keyword><keyword class="braces">(</keyword>z<keyword class="braces">))</keyword>
+    <keyword class="reserve-2">return</keyword> a
                     </code>
                 </pre>
             </div>
@@ -123,13 +123,13 @@ def softmax(z):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Function to Initialize the Parameters at Random
-def init_parameters():
-    weights_01 = np.random.rand(10, 784) - 0.5
-    biases_01 = np.random.rand(10, 1) - 0.5
-    weights_02 = np.random.rand(10, 10) - 0.5
-    biases_02 = np.random.rand(10, 1) - 0.5
-    return weights_01, biases_01, weights_02, biases_02
+<keyword class="comment"># Function to Initialize the Parameters at Random</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">init_parameters</keyword><keyword class="braces">()</keyword><keyword class="operation">:</keyword>
+    weights_01 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">rand</keyword><keyword class="braces">(</keyword><keyword class="numbers">10</keyword><keyword class="operation">,</keyword> <keyword class="numbers">784</keyword><keyword class="braces">)</keyword> <keyword class="operation">-</keyword> <keyword class="numbers">0.5</keyword>
+    biases_01 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">rand</keyword><keyword class="braces">(</keyword><keyword class="numbers">10</keyword><keyword class="operation">,</keyword> <keyword class="numbers">1</keyword><keyword class="braces">)</keyword> <keyword class="operation">-</keyword> <keyword class="numbers">0.5</keyword>
+    weights_02 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">rand</keyword><keyword class="braces">(</keyword><keyword class="numbers">10</keyword><keyword class="operation">,</keyword> <keyword class="numbers">10</keyword><keyword class="braces">)</keyword> <keyword class="operation">-</keyword> <keyword class="numbers">0.5</keyword>
+    biases_02 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">rand</keyword><keyword class="braces">(</keyword><keyword class="numbers">10</keyword><keyword class="operation">,</keyword> <keyword class="numbers">1</keyword><keyword class="braces">)</keyword> <keyword class="operation">-</keyword> <keyword class="numbers">0.5</keyword>
+    <keyword class="reserve-2">return</keyword> weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02
                     </code>
                 </pre>
             </div>
@@ -139,13 +139,13 @@ def init_parameters():
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Function for Forward Propagation
-def forward_propagation(weights_01, biases_01, weights_02, biases_02, x):
-    z1 = weights_01.dot(x) + biases_01
-    a1 = ReLU(z1)
-    z2 = weights_02.dot(a1) + biases_02
-    a2 = softmax(z2)
-    return z1, a1, z2, a2
+<keyword class="comment"># Function for Forward Propagation</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">forward_propagation</keyword><keyword class="braces">(</keyword>weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02<keyword class="operation">,</keyword> x<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    z1 <keyword class="operation">=</keyword> weights_01<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>x<keyword class="braces">)</keyword> <keyword class="operation">+</keyword> biases_01
+    a1 <keyword class="operation">=</keyword> <keyword class="function">ReLU</keyword><keyword class="braces">(</keyword>z1<keyword class="braces">)</keyword>
+    z2 <keyword class="operation">=</keyword> weights_02<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>a1<keyword class="braces">)</keyword> <keyword class="operation">+</keyword> biases_02
+    a2 <keyword class="operation">=</keyword> <keyword class="function">softmax</keyword><keyword class="braces">(</keyword>z2<keyword class="braces">)</keyword>
+    <keyword class="reserve-2">return</keyword> z1<keyword class="operation">,</keyword> a1<keyword class="operation">,</keyword> z2<keyword class="operation">,</keyword> a2
                     </code>
                 </pre>
             </div>
@@ -156,17 +156,17 @@ def forward_propagation(weights_01, biases_01, weights_02, biases_02, x):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Derivative of Activation function ReLU
-def ReLU_derivative(x):
-    return x > 0
+<keyword class="comment"># Derivative of Activation function ReLU</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">ReLU_derivative</keyword><keyword class="braces">(</keyword>x<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">return</keyword> x <keyword class="operation">></keyword> <keyword class="numbers">0</keyword>
 
 
-# Function for One Hot Encoding
-def one_hot(y):
-    one_hot_y = np.zeros((y.size, y.max() + 1))
-    one_hot_y[np.arange(y.size), y] = 1
-    one_hot_y = one_hot_y.T
-    return one_hot_y
+<keyword class="comment"># Function for One Hot Encoding</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">one_hot</keyword><keyword class="braces">(</keyword>y<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    one_hot_y <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">zeros</keyword><keyword class="braces">((</keyword>y<keyword class="operation">.</keyword>size<keyword class="operation">,</keyword> y<keyword class="operation">.</keyword><keyword class="function">max</keyword><keyword class="braces">()</keyword> <keyword class="operation">+</keyword> <keyword class="numbers">1</keyword><keyword class="braces">))</keyword>
+    one_hot_y<keyword class="braces">[</keyword><keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">arange</keyword><keyword class="braces">(</keyword>y<keyword class="operation">.</keyword>size<keyword class="braces">)</keyword><keyword class="operation">,</keyword> y<keyword class="braces">]</keyword> <keyword class="operation">=</keyword> 1
+    one_hot_y <keyword class="operation">=</keyword> one_hot_y<keyword class="operation">.T</keyword>
+    <keyword class="reserve-2">return</keyword> one_hot_y
                     </code>
                 </pre>
             </div>
@@ -176,16 +176,16 @@ def one_hot(y):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Function for Back Propagation
-def back_propagation(z1, a1, z2, a2, weights_01, weights_02, x, y):
-    one_hot_y = one_hot(y)
-    dz2 = a2 - one_hot_y
-    dweights_02 = 1 / m * dz2.dot(a1.T)
-    dbiases_02 = 1 / m * np.sum(dz2)
-    dz1 = weights_02.T.dot(dz2) * ReLU_derivative(z1)
-    dweights_01 = 1 / m * dz1.dot(x.T)
-    dbiases_01 = 1 / m * np.sum(dz1)
-    return dweights_01, dbiases_01, dweights_02, dbiases_02
+<keyword class="comment"># Function for Back Propagation</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">back_propagation</keyword><keyword class="braces">(</keyword>z1<keyword class="operation">,</keyword> a1<keyword class="operation">,</keyword> z2<keyword class="operation">,</keyword> a2<keyword class="operation">,</keyword> weights_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> x<keyword class="operation">,</keyword> y<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    one_hot_y <keyword class="operation">=</keyword> one_hot<keyword class="braces">(</keyword>y<keyword class="braces">)</keyword>
+    dz2 <keyword class="operation">=</keyword> a2 <keyword class="operation">-</keyword> one_hot_y
+    dweights_02 <keyword class="operation">=</keyword> 1 <keyword class="operation">/</keyword> m <keyword class="operation">*</keyword> dz2<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>a1<keyword class="operation">.T</keyword><keyword class="braces">)</keyword>
+    dbiases_02 <keyword class="operation">=</keyword> 1 <keyword class="operation">/</keyword> m <keyword class="operation">*</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">sum</keyword><keyword class="braces">(</keyword>dz2<keyword class="braces">)</keyword>
+    dz1 <keyword class="operation">=</keyword> weights_02<keyword class="operation">.T.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>dz2<keyword class="braces">)</keyword> <keyword class="operation">*</keyword> <keyword class="function">ReLU_derivative</keyword><keyword class="braces">(</keyword>z1<keyword class="braces">)</keyword>
+    dweights_01 <keyword class="operation">=</keyword> 1 <keyword class="operation">/</keyword> m <keyword class="operation">*</keyword> dz1<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>x <keyword class="operation">.T</keyword><keyword class="braces">)</keyword>
+    dbiases_01 <keyword class="operation">=</keyword> 1 <keyword class="operation">/</keyword> m <keyword class="operation">*</keyword> <keyword class="frmo-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">sum</keyword><keyword class="braces">(</keyword>dz1<keyword class="braces">)</keyword>
+    <keyword class="reserve-2">return</keyword> dweights_01<keyword class="operation">,</keyword> dbiases_01<keyword class="operation">,</keyword> dweights_02<keyword class="operation">,</keyword> dbiases_02
                     </code>
                 </pre>
             </div>
@@ -196,13 +196,13 @@ def back_propagation(z1, a1, z2, a2, weights_01, weights_02, x, y):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Function for Updating Parameters based on Derivatives of Weights and Biases Computed through Back Propagation
-def update_parameters(weights_01, biases_01, weights_02, biases_02, dweights_01, dbiases_01, dweights_02, dbiases_02, alpha):
-    weights_01 = weights_01 - alpha * dweights_01
-    biases_01 = biases_01 - alpha * dbiases_01
-    weights_02 = weights_02 - alpha * dweights_02
-    biases_02 = biases_02 - alpha * dbiases_02
-    return weights_01, biases_01, weights_02, biases_02
+<keyword class="comment"># Function for Updating Parameters based on Derivatives of Weights and Biases Computed through Back Propagation</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">update_parameters</keyword><keyword class="braces">(</keyword>weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02<keyword class="operation">,</keyword> dweights_01<keyword class="operation">,</keyword> dbiases_01<keyword class="operation">,</keyword> dweights_02<keyword class="operation">,</keyword> dbiases_02<keyword class="operation">,</keyword> alpha<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    weights_01 <keyword class="operation">=</keyword> weights_01 <keyword class="operation">-</keyword> alpha <keyword class="operation">*</keyword> dweights_01
+    biases_01 <keyword class="operation">=</keyword> biases_01 <keyword class="operation">-</keyword> alpha <keyword class="operation">*</keyword> dbiases_01
+    weights_02 <keyword class="operation">=</keyword> weights_02 <keyword class="operation">-</keyword> alpha <keyword class="operation">*</keyword> dweights_02
+    biases_02 <keyword class="operation">=</keyword> biases_02 <keyword class="operation">-</keyword> alpha <keyword class="operation">*</keyword> dbiases_02
+    <keyword class="reserve-2">return</keyword> weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02
                     </code>
                 </pre>
             </div>
@@ -219,15 +219,15 @@ def update_parameters(weights_01, biases_01, weights_02, biases_02, dweights_01,
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Function to get all Prediction Neural Network has made
-def get_predictions(A2):
-    return np.argmax(A2, 0)
+<keyword class="comment"># Function to get all Prediction Neural Network has made</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">get_predictions(</keyword>A2<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">return</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">argmax</keyword><keyword class="braces">(</keyword>A2<keyword class="operation">,</keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword>
 
 
-# Function to get Accuracy of Neural Network by comparing Predictions and Actual Answers
-def get_accuracy(predictions, y):
-    print(predictions, y)
-    return np.sum(predictions == y) / y.size
+<keyword class="comment"># Function to get Accuracy of Neural Network by comparing Predictions and Actual Answers</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">get_accuracy</keyword><keyword class="braces">(</keyword>predictions<keyword class="operation">,</keyword> y<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="function">print</keyword><keyword class="braces">(</keyword>predictions<keyword class="operation">,</keyword> y<keyword class="braces">)</keyword>
+    <keyword class="reserve-2">return</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">sum</keyword><keyword class="braces">(</keyword>predictions <keyword class="operation">==</keyword> y<keyword class="braces">)</keyword> <keyword class="operation">/</keyword> y<keyword class="operation">.</keyword>size
                     </code>
                 </pre>
             </div>
@@ -238,21 +238,21 @@ def get_accuracy(predictions, y):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Initialize Parameters
-weights_01, biases_01, weights_02, biases_02 = init_parameters()
-# Iterating our Neural Network for Training
-for i in range(iterations):
-    # Forward Propagation
-    z1, a1, z2, a2 = forward_propagation(weights_01, biases_01, weights_02, biases_02, x)
-    # Back Propagation
-    dweights_01, dbiases_01, dweights_02, dbiases_02 = back_propagation(z1, a1, z2, a2, weights_01, weights_02, x, y)
-    # Updating Parameters
-    weights_01, biases_01, weights_02, biases_02 = update_parameters(weights_01, biases_01, weights_02, biases_02, dweights_01, dbiases_01, dweights_02, dbiases_02, alpha)
-    # After Every 50 Iterations
-    if i % 50 == 0:
-        # Print Iteration Count and Accuracy our Neural Network has Achieved
-        print("Iteration: ", i)
-        print("Accuracy: ", get_accuracy(get_predictions(a2), y))
+<keyword class="comment"># Initialize Parameters</keyword>
+weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02 <keyword class="operation">=</keyword> <keyword class="function">init_parameters</keyword><keyword class="braces">()</keyword>
+<keyword class="comment"># Iterating our Neural Network for Training</keyword>
+for i in range<keyword class="braces">(</keyword>iterations<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="comment"># Forward Propagation</keyword>
+    z1<keyword class="operation">,</keyword> a1<keyword class="operation">,</keyword> z2<keyword class="operation">,</keyword> a2 <keyword class="operation">=</keyword> <keyword class="function">forward_propagation</keyword><keyword class="braces">(</keyword>weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02<keyword class="operation">,</keyword> x<keyword class="braces">)</keyword>
+    <keyword class="comment"># Back Propagation</keyword>
+    dweights_01<keyword class="operation">,</keyword> dbiases_01<keyword class="operation">,</keyword> dweights_02<keyword class="operation">,</keyword> dbiases_02 <keyword class="operation">=</keyword> <keyword class="function">back_propagation</keyword><keyword class="braces">(</keyword>z1<keyword class="operation">,</keyword> a1<keyword class="operation">,</keyword> z2<keyword class="operation">,</keyword> a2<keyword class="operation">,</keyword> weights_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> x<keyword class="operation">,</keyword> y<keyword class="braces">)</keyword>
+    <keyword class="comment"># Updating Parameters</keyword>
+    weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02 <keyword class="operation">=</keyword> <keyword class="function">update_parameters</keyword><keyword class="braces">(</keyword>weights_01<keyword class="operation">,</keyword> biases_01<keyword class="operation">,</keyword> weights_02<keyword class="operation">,</keyword> biases_02<keyword class="operation">,</keyword> dweights_01<keyword class="operation">,</keyword> dbiases_01<keyword class="operation">,</keyword> dweights_02<keyword class="operation">,</keyword> dbiases_02<keyword class="operation">,</keyword> alpha<keyword class="braces">)</keyword>
+    <keyword class="comment"># After Every 50 Iterations</keyword>
+    <keyword class="reserve-2">if</keyword> i <keyword class="operation">%</keyword> <keyword class="numbers">50</keyword> <keyword class="operation">==</keyword> <keyword class="numbers">0</keyword><keyword class="operation">:</keyword>
+        <keyword class="comment"># Print Iteration Count and Accuracy our Neural Network has Achieved</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"Iteration: "</keyword><keyword class="operation">,</keyword> i<keyword class="braces">)</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"Accuracy: "</keyword><keyword class="operation">,</keyword> <keyword class="function">get_accuracy</keyword><keyword class="braces">(</keyword><keyword class="function">get_predictions</keyword><keyword class="braces">(</keyword>a2<keyword class="braces">)</keyword><keyword class="operation">,</keyword> y<keyword class="braces">))</keyword>
                     </code>
                 </pre>
             </div>
@@ -265,16 +265,16 @@ for i in range(iterations):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Storing the Parameters in JSON, so can be used for Testing in any Other Program
-# (.tolist() function is used because Json can't store Numpy Arrays, for testing, it has to be converted into Numpy Arrays again)
-data = {
-    "Weights-01": weights_01.tolist(),
-    "Biases-01": biases_01.tolist(),
-    "Weights-02": weights_02.tolist(),
-    "Biases-02": biases_02.tolist()
-}
-with open("Parameters.json", "w") as file:
-    json.dump(data, file)
+<keyword class="comment"># Storing the Parameters in JSON, so can be used for Testing in any Other Program</keyword>
+<keyword class="comment"># (.tolist() function is used because Json can't store Numpy Arrays, for testing, it has to be converted into Numpy Arrays again)</keyword>
+data <keyword class="operation">=</keyword> <keyword class="braces">{</keyword>
+    <keyword class="quotes">"Weights-01"</keyword><keyword class="operation">:</keyword> weights_01.<keyword class="function">tolist</keyword><keyword class="braces">()</keyword><keyword class="operation">,</keyword>
+    <keyword class="quotes">"Biases-01"</keyword><keyword class="operation">:</keyword> biases_01.<keyword class="function">tolist</keyword><keyword class="braces">()</keyword><keyword class="operation">,</keyword>
+    <keyword class="quotes">"Weights-02"</keyword><keyword class="operation">:</keyword> weights_02.<keyword class="function">tolist</keyword><keyword class="braces">()</keyword><keyword class="operation">,</keyword>
+    <keyword class="quotes">"Biases-02"</keyword><keyword class="operation">:</keyword> biases_02.<keyword class="function">tolist</keyword><keyword class="braces">()</keyword>
+<keyword class="braces">}</keyword>
+<keyword class="reserve-2">with</keyword> <keyword class="function">open</keyword><keyword class="braces">(</keyword><keyword class="quotes">"Parameters.json"</keyword><keyword class="operation">,</keyword> <keyword class="quotes">"w"</keyword><keyword class="braces">)</keyword> <keyword class="reserve-2">as</keyword> file<keyword class="operation">:</keyword>
+    <keyword class="from-class">json</keyword><keyword class="operation">.</keyword><keyword class="function">dump</keyword><keyword class="braces">(</keyword>data<keyword class="operation">,</keyword> file<keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
@@ -292,30 +292,29 @@ with open("Parameters.json", "w") as file:
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Selecting a Random Number as Index
-index = random.randrange(0, 4997)
+<keyword class="comment"># Selecting a Random Number as Index</keyword>
+index <keyword class="operation">=</keyword> <keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">randrange</keyword><keyword class="braces">(</keyword><keyword class="numbers">0</keyword><keyword class="operation">,</keyword> <keyword class="numbers">4997</keyword><keyword class="braces">)</keyword>
 
-
-# Drawing the Digit of that Index on the Console
-for i in range(1, 785):
-    if data[index][i] >= 0 and data[index][i] <= 30:
-        print(" ", end=" ")
-    elif data[index][i] >= 31 and data[index][i] <= 60:
-        print(".", end=" ")
-    elif data[index][i] >= 61 and data[index][i] <= 90:
-        print(",", end=" ")
-    elif data[index][i] >= 91 and data[index][i] <= 120:
-        print("`", end=" ")
-    elif data[index][i] >= 121 and data[index][i] <= 150:
-        print("*", end=" ")
-    elif data[index][i] >= 151 and data[index][i] <= 180:
-        print("!", end=" ")
-    elif data[index][i] >= 181 and data[index][i] <= 210:
-        print("#", end=" ")
-    elif data[index][i] >= 211:
-        print("@", end=" ")
-    if (i - 0) % 28 == 0:
-        print("")
+<keyword class="comment"># Drawing the Digit of that Index on the Console</keyword>
+<keyword class="reserve-2">for</keyword> i <keyword class="reserve-2">in</keyword> <keyword class="from-class">range</keyword><keyword class="braces">(</keyword><keyword class="numbers">1</keyword><keyword class="operation">,</keyword> <keyword class="numbers">785</keyword><keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">if</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">0</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">30</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">" "</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">31</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">60</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"."</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">61</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">90</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">","</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">91</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">120</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"`"</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">121</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">150</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"*"</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">151</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">180</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"!"</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">181</keyword> <keyword class="reserve-1">and</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation"><=</keyword> <keyword class="numbers">210</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"#"</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">elif</keyword> data<keyword class="braces">[</keyword>index<keyword class="braces">]</keyword><keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> <keyword class="numbers">211</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"@"</keyword><keyword class="operation">,</keyword> end<keyword class="operation">=</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
+    <keyword class="reserve-2">if</keyword> <keyword class="braces">(</keyword>i <keyword class="operation">-</keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword> <keyword class="operation">%</keyword> <keyword class="numbers">28</keyword> <keyword class="operation">==</keyword> <keyword class="numbers">0</keyword><keyword class="operation">:</keyword>
+        <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">" "</keyword><keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
@@ -328,23 +327,21 @@ for i in range(1, 785):
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Importing Stored Parameters from Json File
-with open("Parameters.json", "r") as file:
-    parameters = json.load(file)
+<keyword class="comment"># Importing Stored Parameters from Json File</keyword>
+<keyword class="reserve-2">with</keyword> <keyword class="function">open</keyword><keyword class="braces">(</keyword><keyword class="quotes">"Parameters.json"</keyword><keyword class="operation">,</keyword> <keyword class="quotes">"r"</keyword><keyword class="braces">)</keyword> <keyword class="reserve-2">as</keyword> file<keyword class="operation">:</keyword>
+    parameters <keyword class="operation">=</keyword> <keyword class="from-class">json</keyword><keyword class="operation">.</keyword><keyword class="function">load</keyword><keyword class="braces">(</keyword>file<keyword class="braces">)</keyword>
 
+<keyword class="comment"># Extracting Weights and Biases from JSON lists</keyword>
+weights_01 <keyword class="operation">=</keyword> parameters<keyword class="braces">[</keyword><keyword class="quotes">"Weights-01"</keyword><keyword class="braces">]</keyword>
+biases_01 <keyword class="operation">=</keyword> parameters<keyword class="braces">[</keyword><keyword class="quotes">"Biases-01"</keyword><keyword class="braces">]</keyword>
+weights_02 <keyword class="operation">=</keyword> parameters<keyword class="braces">[</keyword><keyword class="quotes">"Weights-02"</keyword><keyword class="braces">]</keyword>
+biases_02 <keyword class="operation">=</keyword> parameters<keyword class="braces">[</keyword><keyword class="quotes">"Biases-02"</keyword><keyword class="braces">]</keyword>
 
-# Extracting Weights and Biases from JSON lists
-weights_01 = parameters["Weights-01"]
-biases_01 = parameters["Biases-01"]
-weights_02 = parameters["Weights-02"]
-biases_02 = parameters["Biases-02"]
-
-
-# Turning our Weights and Biases into Numpy Arrays
-weights_01 = np.array(weights_01)
-biases_01 = np.array(biases_01)
-weights_02 = np.array(weights_02)
-biases_02 = np.array(biases_02)
+<keyword class="comment"># Turning our Weights and Biases into Numpy Arrays</keyword>
+weights_01 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>weights_01<keyword class="braces">)</keyword>
+biases_01 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>biases_01<keyword class="braces">)</keyword>
+weights_02 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>weights_02<keyword class="braces">)</keyword>
+biases_02 <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>biases_02<keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
@@ -355,21 +352,21 @@ biases_02 = np.array(biases_02)
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Importing the Dataset for Testing
-test_data = pd.read_csv('Data/mnist_test.csv')
+<keyword class="comment"># Importing the Dataset for Testing</keyword>
+test_data <keyword class="operation">=</keyword> <keyword class="from-class">pd</keyword><keyword class="operation">.</keyword><keyword class="function">read_csv</keyword><keyword class="braces">(</keyword><keyword class="quotes">'Data/mnist_test.csv'</keyword><keyword class="braces">)</keyword>
 
 
-# Turn Dataset into Numpy Array and Shuffling it
-test_data = np.array(test_data)
-m, n = test_data.shape
-np.random.shuffle(test_data)
+<keyword class="comment"># Turn Dataset into Numpy Array and Shuffling it</keyword>
+test_data <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">array</keyword><keyword class="braces">(</keyword>test_data<keyword class="braces">)</keyword>
+m<keyword class="operation">,</keyword> n <keyword class="operation">=</keyword> test_data<keyword class="operation">.</keyword>shape
+<keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="from-class">random</keyword><keyword class="operation">.</keyword><keyword class="function">shuffle</keyword><keyword class="braces">(</keyword>test_data<keyword class="braces">)</keyword>
 
 
-# Selecting one Digit from the Shuffled Dataset
-data_test = test_data[0:1].T
-Y_test = data_test[0]
-X_test = data_test[1:n]
-X_test = X_test / 255
+<keyword class="comment"># Selecting one Digit from the Shuffled Dataset</keyword>
+data_test <keyword class="operation">=</keyword> test_data <keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="operation">:</keyword><keyword class="numbers">1</keyword><keyword class="braces">]</keyword><keyword class="operation">.T</keyword>
+Y_test <keyword class="operation">=</keyword> data_test <keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="braces">]</keyword>
+X_test <keyword class="operation">=</keyword> data_test <keyword class="braces">[</keyword><keyword class="numbers">1</keyword><keyword class="operation">:</keyword><keyword class="numbers">n</keyword><keyword class="braces">]</keyword>
+X_test <keyword class="operation">=</keyword> X_test <keyword class="operation">/</keyword> <keyword class="numbers">255</keyword>
                     </code>
                 </pre>
             </div>
@@ -380,22 +377,22 @@ X_test = X_test / 255
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Activation Function Rectified Linear Unit (ReLU)
-def ReLU(x):
-    return np.maximum(x, 0)
+<keyword class="comment"># Activation Function Rectified Linear Unit (ReLU)</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">ReLU</keyword><keyword class="braces">(</keyword>x<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">return</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">maximum</keyword><keyword class="braces">(</keyword>x<keyword class="operation">,</keyword> <keyword class="numbers">0</keyword><keyword class="braces">)</keyword>
 
 
-# Activation Function Softmax
-def softmax(z):
-    a = np.exp(z) / sum(np.exp(z))
-    return a
+<keyword class="comment"># Activation Function Softmax</keyword>
+<keyword class="reserve-1">def</keyword> <keyword class="function">softmax</keyword><keyword class="braces">(</keyword>z<keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    a <keyword class="operation">=</keyword> <keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">exp</keyword><keyword class="braces">(</keyword>z<keyword class="braces">)</keyword> <keyword class="operation">/</keyword> <keyword class="function">sum</keyword><keyword class="braces">(</keyword><keyword class="from-class">np</keyword><keyword class="operation">.</keyword><keyword class="function">exp</keyword><keyword class="braces">(</keyword>z<keyword class="braces">))</keyword>
+    <keyword class="reserve-2">return</keyword> a
 
 
-# Forward Propagating the Input
-z1 = weights_01.dot(X_test) + biases_01
-a1 = ReLU(z1)
-z2 = weights_02.dot(a1) + biases_02
-a2 = softmax(z2)
+<keyword class="comment"># Forward Propagating the Input</keyword>
+z1 <keyword class="operation">=</keyword> weights_01<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>X_test<keyword class="braces">)</keyword> <keyword class="operation">+</keyword> biases_01
+a1 <keyword class="operation">=</keyword> <keyword class="function">ReLU</keyword><keyword class="braces">(</keyword>z1<keyword class="braces">)</keyword>
+z2 <keyword class="operation">=</keyword> weights_02<keyword class="operation">.</keyword><keyword class="function">dot</keyword><keyword class="braces">(</keyword>a1<keyword class="braces">)</keyword> <keyword class="operation">+</keyword> biases_02
+a2 <keyword class="operation">=</keyword> <keyword class="function">softmax</keyword><keyword class="braces">(</keyword>z2<keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
@@ -407,22 +404,22 @@ a2 = softmax(z2)
             <div class="code">
                 <pre>
                     <code class="language-python">
-# Finding the index of Highest Probability after Forward Propagation
-max_val = a2[0]
-index = 0
-for i in range(len(a2)):
-    if a2[i] >= max_val:
-        index = i
-        max_val = a2[i]
+<keyword class="comment"># Finding the index of Highest Probability after Forward Propagation</keyword>
+max_val <keyword class="operation">=</keyword> a2<keyword class="braces">[</keyword><keyword class="numbers">0</keyword><keyword class="braces">]</keyword>
+index <keyword class="operation">=</keyword> <keyword class="numbers">0</keyword>
+<keyword class="reserve-2">for</keyword> i <keyword class="reserve-2">in</keyword> range<keyword class="braces">(</keyword><keyword class="function">len</keyword><keyword class="braces">(</keyword>a2<keyword class="braces">))</keyword><keyword class="operation">:</keyword>
+    <keyword class="reserve-2">if</keyword> a2<keyword class="braces">[</keyword>i<keyword class="braces">]</keyword> <keyword class="operation">>=</keyword> max_val<keyword class="operation">:</keyword>
+        index <keyword class="operation">=</keyword> i
+        max_val <keyword class="operation">=</keyword> a2<keyword class="braces">[</keyword>i<keyword class="braces">]</keyword>
 
 
-# Listing the Probability of Each Digit being the Answer
-for i in range(0, 10):
-    print("Probability of ", i, " is %.2f percent" % (a2[i][0] * 100))
+<keyword class="comment"># Listing the Probability of Each Digit being the Answer</keyword>
+<keyword class="reserve-2">for</keyword> i <keyword class="reserve-2">in</keyword> range<keyword class="braces">(</keyword><keyword class="numbers">0</keyword><keyword class="operation">,</keyword> <keyword class="numbers">10</keyword><keyword class="braces">)</keyword><keyword class="operation">:</keyword>
+    <keyword class="function">print</keyword><keyword class="braces">(</keyword><keyword class="quotes">"Probability of "</keyword><keyword class="operation">,</keyword> i<keyword class="operation">,</keyword> <keyword class="quotes">" is <keyword class="reserve-1">%.2f</keyword> percent"</keyword> <keyword class="operation">%</keyword> <keyword class="braces">(</keyword>a2<keyword class="braces">[</keyword>i<keyword class="braces">][</keyword><keyword class="numbers">0</keyword><keyword class="braces">]</keyword> <keyword class="operation">*</keyword> <keyword class="numbers">100</keyword><keyword class="braces">))</keyword>
 
 
-# Printing the Prediction of our Neural Network
-print("I think it is a ", index)
+<keyword class="comment"># Printing the Prediction of our Neural Network</keyword>
+<keyword class="function">print</keyword></keyword><keyword class="braces">(</keyword><keyword class="quotes">"I think it is a "</keyword><keyword class="operation">,</keyword> index<keyword class="braces">)</keyword>
                     </code>
                 </pre>
             </div>
