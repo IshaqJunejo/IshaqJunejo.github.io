@@ -11,6 +11,11 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://mijgames.github.io/Blogs.html</loc>
+        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://mijgames.github.io/Pixel-Art-Collection.html</loc>
         <lastmod>2023-03-29T12:18:59+00:00</lastmod>
         <priority>0.80</priority>
@@ -38,6 +43,21 @@
     <url>
         <loc>https://mijgames.github.io/Blogs/Pixel-Art-for-54-days.html</loc>
         <lastmod>2023-03-29T12:18:58+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://mijgames.github.io/Blogs/Failed-attempt-to-expand-Neural-Network.html</loc>
+        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://mijgames.github.io/Blogs/Working-on-my-First-Neural-Network.html</loc>
+        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://mijgames.github.io/Blogs/2023-Year-in-Review.html</loc>
+        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
         <priority>0.80</priority>
     </url>
 </urlset>
