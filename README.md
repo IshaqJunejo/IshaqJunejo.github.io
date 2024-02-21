@@ -4,6 +4,4 @@
 
 # Personal-Portfolio
 
-This is my Personal Portfolio website. I am making it with the purpose of showcasing my work online, and I also have plans to write some Blogs for sharing my experience with the internet.
-
-This website currently contains information about the porjects either I am currently working on or the ones I have finished.
+This is my Personal Portfolio website, which I made with the purpose of sharing my work online. This website has a section of Projects, Pixel Art and of Blogs. Projects section contains all my projects that I have worked on, Pixel Art section has listed all the small pieces of Pixel Art that I made, and in also write Blogs sometimes, which I treat more like Journaling and less like Content Creation.
