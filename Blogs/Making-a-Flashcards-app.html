@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ishaque Junejo">
+    <meta name="description" content="This is about my journey of making a Flashcards App for Myself">
+    <meta name="keywords" content="HTML, CSS, Javascript, Local Storage, Flashcards, German">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="ishaqjunejo.github.io">
+    <meta name="twitter:creator:id" content="@mij_games">
+    <meta name="twitter:title" content="Making a Flashcards App - Ishaque Junejo">
+    <meta name="twitter:description" content="This is about my journey of making a Flashcards App for Myself">
+    <meta name="twitter:images" content="https://ishaqjunejo.github.io/Blogs/images/Flashcards-app-Banner.png">
+    <meta name="og:title" content="Making a Flashcards App - Ishaque Junejo">
+    <meta name="og:description" content="This is about my journey of making a Flashcards App for Myself">
+    <meta name="og:image" content="https://ishaqjunejo.github.io/Blogs/images/Flashcards-app-Banner.png">
+    <link rel="stylesheet" href="../style/blogs.css">
+    <link rel="stylesheet" href="../style/nav-bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../images/Logo.png">
+    <title>Making a Flashcards App - Ishaque Junejo</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-240697963-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-240697963-1');
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="https://ishaqjunejo.github.io/">
+                <img src="../images/Logo.png" alt="Home-Page">
+            </a>
+        </div>
+        <ul>
+            <li id="bars"><i class="fa fa-bars" onclick="NavBar()"></i></li>
+            <li class="nav-links"><a href="https://ishaqjunejo.github.io#home" onclick="CloseNav()">Home</a></li>
+            <li class="nav-links"><a href="https://ishaqjunejo.github.io#projects" onclick="CloseNav()">Projects</a></li>
+            <li class="nav-links"><a href="https://ishaqjunejo.github.io#pixel-art" onclick="CloseNav()">Pixel Art</a></li>
+            <li class="nav-links"><a href="https://ishaqjunejo.github.io#blogs" onclick="CloseNav()">Blogs</a></li>
+        </ul>
+    </nav>
+    <div class="main-container">
+        <img src="images/Flashcards-app-Banner.png" alt="Banner Images" class="banner">
+        <h1 class="title">Making a Flashcards App</h1>
+        <div class="content">
+            <p class="date">29-April-2024</p>
+            <p>
+                It has been a little less than two months since I started working on a new project.
+                The idea for this project was quite straightforward,
+                it was supposed to be an app that displays a few Flashcards,
+                and they change every day, I also had the plan to add a notification mechanism,
+                that will remind you to check your deck of Flashcards for today.
+            </p>
+            <p>
+                The first thing to be decided was the purpose for which I would use this Flashcards app.
+                It was pretty simple to come up with the decision,
+                as I have been learning German for a while now,
+                why not make this Flashcards app for improving my German Vocabulary?
+            </p>
+            <h3>Executing the Plan</h3>
+            <p>
+                Then came the design phase, using Figma to design the basic structure for the web app.
+                It was also simple, as I was not planning some very sophisticated design,
+                it was meant to be a minimalist design in the first place.
+            </p>
+            <img src="images/Flashcard-Design-in-Figma.png" alt="Figma Design for the Flashcards App" class="image">
+            <p>
+                It was now time for some coding and getting some real results.
+                I simply used HTML, CSS, and Javascript for the project.
+                The idea was simple, whenever someone opens the webpage,
+                we look in the Local Storage, if Today's Date is not stored there as a value of a specific Key,
+                we will show the user randomly selected words from our lists,
+                and we store Today's Date and Indexes of those words in the lists.
+                If someone opens the webpage and these things are already stored in the Local Storage,
+                we will get these Indexes and use them to display those words.
+                Hence different words won't be shown on the same day.
+            </p>
+            <p>
+                Coding the complete project was a bit challenging, but still relatively easy.
+                The problem came with its design of how to hide the German Word
+                and show its Meaning when we are clicking on the card
+                but it came in the first place because of bad code-writing practices,
+                it too was solved.
+            </p>
+            <p>
+                Now the only part remaining was sending a Notification
+                every day to remind the User to check the new Deck of Flashcards.
+                To be fair, I had no idea how Notifications are sent, so I searched for it.
+                I came to know such Notifications are called Push Notifications
+                and Google-owned Service Firebase supports Push Notifications,
+                so I decided to give it a try.
+            </p>
+            <p>
+                Learning Firebase without any Javascript Library is quite difficult
+                because almost everyone on the internet is using it with either React or Angular.
+                It has been almost a month now and I have learned how to use Firebase Database and Firebase Authentication,
+                I also have attempted to build a chat app, but I still haven't understood how Notifications work,
+                so I have decided to leave that idea, and just turn it from a prototype to a web-app with a bigger German Vocabulary.
+            </p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
