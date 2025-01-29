@@ -1,70 +1,69 @@
-#blogs
-{
+:root {
+    --primary-color: #007ACC;  /* Royal Blue (Buttons, Links, Highlights) */
+    --secondary-color: #2A2E35; /* Dark Grayish Blue (Backgrounds) */
+    --contrast-color: #F8F9FA; /* Off-White (Text, High Readability) */
+    --highlight-color: #FF6B6B; /* Coral Red (Accents, Hover Effects) */
+    --divider-color: #3A3F47;
+}
+
+#blogs {
     min-height: 100vh;
     margin-bottom: 16px;
 }
 
-#blogs .collection
-{
+#blogs .collection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#blogs .collection a
-{
+#blogs .collection a {
     margin: 5px;
 }
 
-#blogs .internal-container
-{
+#blogs .internal-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #007acc;
+    background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
     width: 650px;
     height: 100%;
 }
 
-#blogs .internal-container .Banner
-{
+#blogs .internal-container .Banner {
     width: 100%;
     border-radius: 0.2rem;
 }
 
-#blogs .internal-container .blog-title
-{
+#blogs .internal-container .blog-title {
     font-size: 24px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-#blogs .internal-container p
-{
+#blogs .internal-container p {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.75);
+    /*color: rgba(255, 255, 255, 0.75);*/
+    color: var(--contrast-color);
 }
 
-#blogs .internal-container p.date
-{
+#blogs .internal-container p.date {
     font-size: 16px;
     text-decoration: underline;
     margin-bottom: 8px;
 }
 
-#blogs .internal-container .continue
-{
-    color: rgba(255, 255, 255, 1.0);
+#blogs .internal-container .continue {
+    color: var(--contrast-color);
     background: transparent;
     text-decoration: underline;
 }
 
-@media screen and (max-width: 500px)
-{
+@media screen and (max-width: 800px) {
     #blogs .collection .internal-container
     {
         width: 350px;

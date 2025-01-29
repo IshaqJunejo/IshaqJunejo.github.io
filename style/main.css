@@ -1,62 +1,60 @@
-*
-{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html
-{
+:root {
+    --primary-color: #007ACC;  /* Royal Blue (Buttons, Links, Highlights) */
+    --secondary-color: #2A2E35; /* Dark Grayish Blue (Backgrounds) */
+    --contrast-color: #F8F9FA; /* Off-White (Text, High Readability) */
+    --highlight-color: #FF6B6B; /* Coral Red (Accents, Hover Effects) */
+    --divider-color: #3A3F47;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-body
-{
-    background: #1e1e1e;
+body {
+    background: var(--secondary-color);
     color: #eee;
     font-family: system-ui;
 }
 
-em
-{
-    color: #007acc;
+em {
+    color: var(--primary-color);
     font-style: normal;
     font-weight: bolder;
 }
 
-a
-{
+a {
     color: #eee;
     text-decoration: none;
     font-size: 36px;
 }
 
-#home
-{
+#home {
     height: 100vh;
     z-index: 0;
 }
 
-#home h1
-{
+#home h1 {
     margin-bottom: 32px;
 }
 
-#home p
-{
+#home p {
     margin-bottom: 32px;
 }
 
-#home .social
-{
+#home .social {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 16px;
 }
 
-#home .social a img
-{
+#home .social a img {
     display: block;
     margin: 0 auto;
     width: 32px;
@@ -64,8 +62,7 @@ a
     border-radius: 50%;
 }
 
-#home .internal-container
-{
+#home .internal-container {
     width: fit-content;
     height: fit-content;
     position: relative;
@@ -78,43 +75,39 @@ a
     padding: 20px;
 }
 
-.section
-{
+.section {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    min-width: 300px;
-    max-width: 95vw;
+    margin-bottom: 50px;
+    /*min-width: 300px;
+    max-width: 95vw;*/
     max-height: fit-content;
-    background: #3e3e42;
-    border-radius: 1rem;
+    /*background: #3e3e42;
+    border-radius: 1rem;*/
+    border-top: var(--divider-color) 2px solid;
     padding: 5px;
 }
 
-.section .title
-{
+.section .title {
     font-size: 36px;
     text-align: center;
     padding-top: 100px;
     padding-bottom: 100px;
 }
 
-.section .see-more
-{
+.section .see-more {
     display: block;
     width: fit-content;
     margin: 10px auto;
     font-size: 24px;
-    background: #007acc;
+    background: var(--primary-color);
     padding: 4px;
     border-radius: 8px;
 }
 
-@media screen and (min-width: 2280px)
-{
-    .section
-    {
+@media screen and (min-width: 2280px) {
+    .section {
         width: 1920px;
     }
 }

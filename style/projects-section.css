@@ -1,35 +1,38 @@
-#projects
-{
+:root {
+    --primary-color: #007ACC;  /* Royal Blue (Buttons, Links, Highlights) */
+    --secondary-color: #2A2E35; /* Dark Grayish Blue (Backgrounds) */
+    --contrast-color: #F8F9FA; /* Off-White (Text, High Readability) */
+    --highlight-color: #FF6B6B; /* Coral Red (Accents, Hover Effects) */
+    --divider-color: #3A3F47;
+}
+
+#projects {
     min-height: 100vh;
 }
 
-#projects em
-{
-    color: #3e3e42;
+#projects em {
+    color: var(--secondary-color);
 }
 
-#projects .collection
-{
+#projects .collection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#projects .internal-container
-{
+#projects .internal-container {
     display: flex;
     flex-direction: column;
     justify-items: flex-end;
     margin: 5px;
-    background: #007acc;
+    background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
     width: fit-content;
 }
 
-#projects .internal-container img
-{
+#projects .internal-container img {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -37,8 +40,7 @@
     border-radius: 0.2rem;
 }
 
-#projects .internal-container .online-presence
-{
+#projects .internal-container .online-presence {
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -46,16 +48,14 @@
     margin-right: auto;
 }
 
-#projects .internal-container .online-presence img
-{
+#projects .internal-container .online-presence img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     margin: 5px;
 }
 
-#projects .internal-container .data
-{
+#projects .internal-container .data {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,25 +63,21 @@
     height: 100%;
 }
 
-#projects .internal-container .data h4
-{
+#projects .internal-container .data h4 {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
 }
 
-#projects .internal-container .data p
-{
+#projects .internal-container .data p {
     font-size: 18px;
     font-weight: normal;
     margin-top: 10px;
 }
 
-@media screen and (max-width: 500px)
-{
-    #projects .collection .internal-container .data
-    {
+@media screen and (max-width: 500px) {
+    #projects .collection .internal-container .data {
         width: 300px;
     }
 }
