@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
+
 body
 {
     background: #1e1e1e;

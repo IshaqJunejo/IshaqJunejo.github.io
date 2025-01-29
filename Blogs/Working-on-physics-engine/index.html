@@ -15,11 +15,11 @@
     <meta name="og:title" content="Working on my own Physics Engine  - Ishaque Junejo">
     <meta name="og:description" content="Developing your own physics engine can be seriously hard, as it involves a lot of calculations, vectors usage and obviously lots of physics formulas too. Still I decided to give it a try because I wanted to do some experiment">
     <meta name="og:image" content="https://ishaqjunejo.github.io/Blogs/images/Physics-Engine-Banner.png">
-    <link rel="stylesheet" href="../style/blogs.css">
-    <link rel="stylesheet" href="../style/code.css">
-    <link rel="stylesheet" href="../style/nav-bar.css">
+    <link rel="stylesheet" href="../../style/blogs.css">
+    <link rel="stylesheet" href="../../style/code.css">
+    <link rel="stylesheet" href="../../style/nav-bar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="../images/Logo.png">
+    <link rel="icon" href="../../images/Logo.png">
     <title>Working on my own Physics Engine - Ishaque Junejo</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-240697963-1"></script>
@@ -34,20 +34,20 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="https://ishaqjunejo.github.io/">
-                <img src="../images/Logo.png" alt="Home-Page">
+            <a href="../../">
+                <img src="../../images/Logo.png" alt="Home-Page">
             </a>
         </div>
         <ul>
             <li id="bars"><i class="fa fa-bars" onclick="NavBar()"></i></li>
-            <li class="nav-links"><a href="https://ishaqjunejo.github.io#home" onclick="CloseNav()">Home</a></li>
-            <li class="nav-links"><a href="https://ishaqjunejo.github.io#projects" onclick="CloseNav()">Projects</a></li>
-            <li class="nav-links"><a href="https://ishaqjunejo.github.io#pixel-art" onclick="CloseNav()">Pixel Art</a></li>
-            <li class="nav-links"><a href="https://ishaqjunejo.github.io#blogs" onclick="CloseNav()">Blogs</a></li>
+            <li class="nav-links"><a href="../../#home" onclick="CloseNav()">Home</a></li>
+            <li class="nav-links"><a href="../../#projects" onclick="CloseNav()">Projects</a></li>
+            <li class="nav-links"><a href="../../#pixel-art" onclick="CloseNav()">Pixel Art</a></li>
+            <li class="nav-links"><a href="../../#blogs" onclick="CloseNav()">Blogs</a></li>
         </ul>
     </nav>
     <div class="main-container">
-        <img src="images/Physics-Engine-Banner.png" alt="Radius2D Physics Engine" class="banner">
+        <img src="../images/Physics-Engine-Banner.png" alt="Radius2D Physics Engine" class="banner">
         <h1 class="title">Working on my own Physics Engine</h1>
         <div class="content">
             <p class="date">08-October-2022</p>
@@ -201,7 +201,7 @@ circ2<keyword class="operation">.</keyword>vel <keyword class="operation">-=</ke
                 This works completely fine but the problem occurs when the ball slides of the Line Segment,
                 technically it never slides of the Line, even when it should.
             </p>
-            <img src="images/Balls-not-Sliding-off.gif" alt="Balls not Sliding off the Line Segments" class="image">
+            <img src="../images/Balls-not-Sliding-off.gif" alt="Balls not Sliding off the Line Segments" class="image">
             <p>
                 To solve this problem I calculated four vectors,
                 two of which are unit vectors of the line segment heading in direction of the other point of Segment,
@@ -256,7 +256,7 @@ circ2<keyword class="operation">.</keyword>vel <keyword class="operation">-=</ke
                 I spawned a Central Circle and spawned few smaller Circles around it and tried to connect each of them to the Central Circle
                 through a Spring and connect each of those smaller circles with their neighbouring circle through a spring.
             </p>
-            <img src="images/Soft-Body.png" alt="Circular Soft Body" class="image">
+            <img src="../images/Soft-Body.png" alt="Circular Soft Body" class="image">
             <h3>Elastic Cloth</h3>
             <p>
                 After making a soft body, I thought if I could make a Cloth Simulation too.
@@ -295,7 +295,7 @@ circ2<keyword class="operation">.</keyword>vel <keyword class="operation">-=</ke
                     </code>
                 </pre>
             </div>
-            <img src="images/Cloth-Simulation.png" alt="Simple Cloth Simulation" class="image">
+            <img src="../images/Cloth-Simulation.png" alt="Simple Cloth Simulation" class="image">
             <p>
                 This is how much Radius2D currently have been developed,
                 it's source code is hosted on <a href="https://github.com/IshaqJunejo/Radius2D" class="showcase">Github</a>.
@@ -304,6 +304,6 @@ circ2<keyword class="operation">.</keyword>vel <keyword class="operation">-=</ke
             </p>
         </div>
     </div>
-    <script src="../script.js"></script>
+    <script src="../../script.js"></script>
 </body>
 </html>
