@@ -2,62 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://ishaqjunejo.github.io/</loc>
-        <lastmod>2023-03-29T12:18:59+00:00</lastmod>
+        <lastmod>2025-01-30</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Projects.html</loc>
-        <lastmod>2023-03-29T12:18:59+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Projects/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs.html</loc>
-        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Pixel-Art-Collection.html</loc>
-        <lastmod>2023-03-29T12:18:59+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Pixel-Art-Collection/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/improving-layout-of-my-website.html</loc>
-        <lastmod>2023-03-29T12:18:59+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/improving-layout-of-my-website/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/A-Year-Long-Journey.html</loc>
-        <lastmod>2023-03-29T12:18:58+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/A-Year-Long-Journey/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/My-experience-with-programming-on-weekends-only.html</loc>
-        <lastmod>2023-03-29T12:18:58+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/My-experience-with-programming-on-weekends-only/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/Working-on-physics-engine.html</loc>
-        <lastmod>2023-03-29T12:18:58+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/Working-on-physics-engine/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/Pixel-Art-for-54-days.html</loc>
-        <lastmod>2023-03-29T12:18:58+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/Pixel-Art-for-54-days/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/Failed-attempt-to-expand-Neural-Network.html</loc>
-        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/Failed-attempt-to-expand-Neural-Network/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/Working-on-my-First-Neural-Network.html</loc>
-        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/Working-on-my-First-Neural-Network/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://ishaqjunejo.github.io/Blogs/2023-Year-in-Review.html</loc>
-        <lastmod>2023-12-28T14:36:32+00:00</lastmod>
+        <loc>https://ishaqjunejo.github.io/Blogs/2023-Year-in-Review/</loc>
+        <lastmod>2025-01-30</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://ishaqjunejo.github.io/Blogs/Trying-to-visualise-some-Maths/</loc>
+        <lastmod>2025-01-30</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://ishaqjunejo.github.io/Blogs/Making-a-Flashcards-app/</loc>
+        <lastmod>2025-01-30</lastmod>
         <priority>0.80</priority>
     </url>
 </urlset>
