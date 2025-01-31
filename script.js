@@ -40,10 +40,8 @@ function CloseNav() {
 window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
     if (scroll > 2) {
-        //navigation.style.setProperty("filter", "drop-shadow(0px 6px 3px #2d2d30)");
-        navigation.style.setProperty("border-bottom", "#3A3F47 2px solid");
+        navigation.style.setProperty("border-bottom", "var(--divider-color) 2px solid");
     }else {
-        //navigation.style.setProperty("filter", "drop-shadow(0px 0px 0px #2d2d30)");
         navigation.style.setProperty("border-bottom", "none");
     }
 });

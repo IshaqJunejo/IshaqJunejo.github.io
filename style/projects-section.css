@@ -1,11 +1,3 @@
-:root {
-    --primary-color: #007ACC;  /* Royal Blue (Buttons, Links, Highlights) */
-    --secondary-color: #2A2E35; /* Dark Grayish Blue (Backgrounds) */
-    --contrast-color: #F8F9FA; /* Off-White (Text, High Readability) */
-    --highlight-color: #FF6B6B; /* Coral Red (Accents, Hover Effects) */
-    --divider-color: #3A3F47;
-}
-
 #projects {
     min-height: 100vh;
 }
@@ -64,14 +56,18 @@
 }
 
 #projects .internal-container .data h4 {
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
 }
 
 #projects .internal-container .data p {
-    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
     font-weight: normal;
     margin-top: 10px;
 }
