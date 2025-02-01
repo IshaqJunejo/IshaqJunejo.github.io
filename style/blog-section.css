@@ -22,12 +22,19 @@
     padding: 10px;
     border-radius: 0.5rem;
     width: 650px;
-    height: 100%;
+    height: 450px;
+    overflow: hidden;
 }
 
 #blogs .internal-container .Banner {
     width: 100%;
+    margin: 0 auto;
     border-radius: 0.2rem;
+    transition: all 0.5s;
+}
+
+#blogs .internal-container:hover > .Banner {
+    width: 50%;
 }
 
 #blogs .internal-container .blog-title {
@@ -37,6 +44,19 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+#blogs .internal-container .hidden-data {
+    display: none;
+    top: 100%;
+    position: relative;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+#blogs .internal-container:hover > .hidden-data {
+    display: block;
+    top: 0;
 }
 
 #blogs .internal-container p {

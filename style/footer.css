@@ -39,6 +39,10 @@ footer #footer-container #links-container a {
     font-size: 16px;
 }
 
+footer #footer-container #links-container a:hover {
+    text-decoration: underline;
+}
+
 footer #copyright p {
     text-align: center;
     padding: 5px;
