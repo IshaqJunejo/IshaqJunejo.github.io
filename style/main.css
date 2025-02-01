@@ -19,7 +19,7 @@ html {
 body {
     background: var(--secondary-color);
     color: #eee;
-    font-family: system-ui;
+    font-family: 'Poppins', sans-serif, system-ui;
 }
 
 em {
@@ -41,13 +41,11 @@ a {
 
 #home h1 {
     font-size: 32px;
-    font-family: 'Poppins', sans-serif;
     margin-bottom: 32px;
 }
 
 #home p {
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
     margin-bottom: 32px;
 }
 
@@ -90,7 +88,6 @@ a {
 }
 
 .title {
-    font-family: 'Poppins', sans-serif;
     font-size: 32px;
     text-align: center;
     padding-top: 100px;
@@ -98,7 +95,6 @@ a {
 }
 
 .section .see-more {
-    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     display: block;
     width: fit-content;
