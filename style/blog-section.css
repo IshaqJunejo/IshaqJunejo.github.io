@@ -1,72 +1,83 @@
-#blogs
-{
+#blogs {
     min-height: 100vh;
     margin-bottom: 16px;
 }
 
-#blogs .collection
-{
+#blogs .collection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#blogs .collection a
-{
+#blogs .collection a {
     margin: 5px;
 }
 
-#blogs .internal-container
-{
+#blogs .internal-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #007acc;
+    background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
     width: 650px;
-    height: 100%;
+    height: 450px;
+    overflow: hidden;
 }
 
-#blogs .internal-container .Banner
-{
+#blogs .internal-container .Banner {
     width: 100%;
+    margin: 0 auto;
     border-radius: 0.2rem;
+    transition: all 0.5s;
 }
 
-#blogs .internal-container .blog-title
-{
+#blogs .internal-container:hover > .Banner {
+    width: 50%;
+}
+
+#blogs .internal-container .blog-title {
     font-size: 24px;
+    line-height: 1.5;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-#blogs .internal-container p
-{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.75);
+#blogs .internal-container .hidden-data {
+    display: none;
+    top: 100%;
+    position: relative;
+    height: 100%;
+    transition: all 0.5s;
 }
 
-#blogs .internal-container p.date
-{
+#blogs .internal-container:hover > .hidden-data {
+    display: block;
+    top: 0;
+}
+
+#blogs .internal-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--contrast-color);
+}
+
+#blogs .internal-container p.date {
     font-size: 16px;
     text-decoration: underline;
     margin-bottom: 8px;
 }
 
-#blogs .internal-container .continue
-{
-    color: rgba(255, 255, 255, 1.0);
+#blogs .internal-container .continue {
+    color: var(--contrast-color);
     background: transparent;
     text-decoration: underline;
 }
 
-@media screen and (max-width: 500px)
-{
-    #blogs .collection .internal-container
-    {
+@media screen and (max-width: 800px) {
+    #blogs .collection .internal-container {
         width: 350px;
     }
 }

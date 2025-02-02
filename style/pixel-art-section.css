@@ -1,27 +1,23 @@
-#pixel-art
-{
+#pixel-art {
     min-height: 100vh;
 }
 
-#pixel-art .collection
-{
+#pixel-art .collection {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#pixel-art .collection .piece
-{
+#pixel-art .collection .piece {
     width: 200px;
     height: 200px;
-    background: #007acc;
+    background: var(--primary-color);
     border-radius: 0.5rem;
     padding: 5px;
     margin: 10px;
 }
 
-#pixel-art .collection .piece img
-{
+#pixel-art .collection .piece img {
     min-width: none;
     min-height: none;
     max-width: calc(200px - 1rem);
@@ -33,16 +29,13 @@
     transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 500px)
-{
-    #pixel-art .collection .piece
-    {
+@media screen and (max-width: 500px) {
+    #pixel-art .collection .piece {
         width: 125px;
         height: 125px;
     }
 
-    #pixel-art .collection .piece img
-    {
+    #pixel-art .collection .piece img {
         max-width: calc(125px - 0.5rem);
         max-height: calc(125px - 0.5rem);
     }

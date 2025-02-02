@@ -1,0 +1,59 @@
+#about-me {
+    min-height: 100vh;
+}
+
+#about-me .internal-container {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    width: 650px;
+}
+
+#about-me .internal-container .sub-heading {
+    font-size: 24px;
+}
+
+#about-me .internal-container ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+#about-me .internal-container ul li {
+    padding: 2px;
+    margin: 5px;
+}
+
+#about-me .internal-container ul li.skills {
+    background: var(--contrast-color);
+    border-radius: 5px;
+}
+
+#about-me .internal-container ul li img {
+    width: 40px;
+    height: 40px;
+}
+
+#about-me .internal-container ul li a img {
+    border-radius: 50%;
+}
+
+#about-me .internal-container .button {
+    background: var(--primary-color);
+    border: var(--primary-color) 2px solid;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#about-me .internal-container .button:hover {
+    background: none;
+}
+
+@media screen and (max-width: 800px) {
+    #about-me .internal-container {
+        width: 80vw;
+    }
+}

@@ -1,10 +1,14 @@
-.main-container .content .code
-{
+:root {
+    --code-background: #181818;
+    --code-color: #67CDFE;
+}
+
+.main-container .content .code {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    background: #2d2d30;
+    background: var(--code-background);
     padding: 20px;
     border-radius: 15px;
     width: 100%;
@@ -12,53 +16,47 @@
     line-break:strict;
 }
 
-.main-container .content .code pre
-{
+.main-container .content .code pre {
     overflow: auto;
-    color: #67cdfe;
+    color: var(--code-color);
 }
 
-.comment
-{
+.main-container .content .code pre code {
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.comment {
     color: #5e9949;
 }
 
-.reserve-1
-{
+.reserve-1 {
     color: #3e9cd6;
 }
 
-.reserve-2
-{
+.reserve-2 {
     color: #c586c0;;
 }
 
-.operation
-{
+.operation {
     color: #eee;
 }
 
-.braces
-{
+.braces {
     color: #ffd710;
 }
 
-.function
-{
+.function {
     color: #dcdcaa;
 }
 
-.from-class
-{
+.from-class {
     color: #32bcb0;
 }
 
-.numbers
-{
+.numbers {
     color: #b5cea8;
 }
 
-.quotes
-{
+.quotes {
     color: #ce834a;
 }
