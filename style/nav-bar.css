@@ -1,5 +1,4 @@
-nav
-{
+nav {
     position: sticky;
     display: flex;
     flex-direction: row;
@@ -7,39 +6,35 @@ nav
     padding: 6px;
     top: 0px;
     z-index: 1;
-    background: #1e1e1e;
+    background: var(--secondary-color);
     height: inherit;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
-nav ul
-{
+nav ul {
     width: 550px;
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
 
-nav ul li
-{
-    background: #1e1e1e;
+nav ul li {
+    background: var(--secondary-color);
     display: inline-block;
     padding: 3px 12px;
     border-radius: 5px;
-    transition: 0.5s;
-    filter: drop-shadow(2px 2px 1px #3e3e42);
+    transition: 0.3s;
+    filter: drop-shadow(2px 2px 1px var(--divider-color));
 }
 
 
-nav ul li a
-{
-    color: #eee;
+nav ul li a {
+    color: var(--contrast-color);
     text-decoration: none;
     font-size: 24px;
 }
 
-nav ul #bars
-{
+nav ul #bars {
     position: absolute;
     top: 6px;
     left: 100%;
@@ -49,48 +44,40 @@ nav ul #bars
     font-size: 24px;
 }
 
-@media screen and (max-width: 800px)
-{
-    nav ul
-    {
+@media screen and (max-width: 800px) {
+    nav ul {
         flex-direction: column;
     }
 
-    nav ul .nav-links
-    {
+    nav ul .nav-links {
         display: none;
         margin-top: 50px;
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
-        transition: all 0.5s;
+        transition: all 0.3s;
     }
 
-    nav ul #bars
-    {
+    nav ul #bars {
         display: block;
         filter: none;
     }
 
-    nav ul li:active
-    {
-        background: #007acc;
-        transition: 0.5s;
+    nav ul li:active {
+        background: var(--primary-color);
+        transition: 0.3s;
     }
 }
 
-@media screen and (min-width: 800px)
-{
-    nav ul li:hover
-    {
-        background: #007acc;
-        transition: 0.5s;
-        filter: drop-shadow(6px 6px 3px #3e3e42);
+@media screen and (min-width: 800px) {
+    nav ul li:hover {
+        background: var(--primary-color);
+        transition: 0.3s;
+        filter: drop-shadow(6px 6px 3px var(--divider-color));
     }
 }
 
-.logo img
-{
+.logo img {
     display: block;
     margin: 0 auto;
     width: 48px;

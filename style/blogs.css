@@ -1,33 +1,35 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body
-{
-    background: #1e1e1e;
-    color: #eee;
-    font-family: system-ui;
+:root {
+    --primary-color: #007ACC;  /* Royal Blue (Buttons, Links, Highlights) */
+    --secondary-color: #2A2E35; /* Dark Grayish Blue (Backgrounds) */
+    --contrast-color: #F8F9FA; /* Off-White (Text, High Readability) */
+    --highlight-color: #FF6B6B; /* Coral Red (Accents, Hover Effects) */
+    --divider-color: #3A3F47;
 }
 
-.main-container
-{
-    background: #3e3e42;
+body {
+    background: var(--secondary-color);
+    color: var(--contrast-color);
+    font-family: 'Poppins', sans-serif, system-ui;
+    user-select: none;
+}
+
+.main-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    min-width: 300px;
-    max-width: 80vw;
     border-radius: 1rem;
     padding: 20px;
 }
 
-.main-container .banner
-{
+.main-container .banner {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -35,33 +37,31 @@ body
     border-radius: 10px;
 }
 
-.main-container .title
-{
+.main-container .title {
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 36px;
-    color: #eee;
+    font-size: 32px;
+    line-height: 1.5;
+    color: var(--contrast-color);
 }
 
-.main-container .content
-{
+.main-container .content {
     display: block;
     margin: 0 auto;
     width: 550px;
 }
 
-.main-container .content p
-{
+.main-container .content p {
+    font-size: 16px;
+    line-height: 1.5;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    font-size: 18px;
     width: 100%;
 }
 
-.main-container .content img
-{
+.main-container .content img {
     display: block;
     min-width: 250px;
     max-width: 100%;
@@ -72,51 +72,42 @@ body
     border-radius: 10px;
 }
 
-.main-container p
-{
+.main-container p {
     margin-top: 10px;
     font-size: 18px;
 }
 
-.main-container h2
-{
+.main-container h2 {
     margin-top: 20px;
     font-size: 24px;
 }
 
-.main-container h3
-{
+.main-container h3 {
     margin-top: 10px;
     font-size: 20px;
 }
 
-.main-container .content a
-{
+.main-container .content a {
     font-size: 18px;
-    color: #007acc;
+    color: var(--primary-color);
     text-transform: capitalize;
     font-weight: bold;
 }
 
-.main-container .date
-{
+.main-container .date {
     color: #eeeeee75;
     margin: 10px;
     font-size: 12px;
 }
 
-@media screen and (max-width:950px)
-{
-    .main-container .banner
-    {
+@media screen and (max-width:950px) {
+    .main-container .banner {
         width: 100%;
     }
 }
 
-@media screen and (max-width:725px)
-{
-    .main-container .content
-    {
+@media screen and (max-width:725px) {
+    .main-container .content {
         width: 100%;
     }
 }

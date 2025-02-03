@@ -1,44 +1,45 @@
-#projects
-{
+#projects {
     min-height: 100vh;
 }
 
-#projects em
-{
-    color: #3e3e42;
+#projects em {
+    color: var(--secondary-color);
 }
 
-#projects .collection
-{
+#projects .collection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#projects .internal-container
-{
+#projects .internal-container {
     display: flex;
     flex-direction: column;
     justify-items: flex-end;
     margin: 5px;
-    background: #007acc;
+    background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
     width: fit-content;
+    height: 500px;
+    overflow: hidden;
 }
 
-#projects .internal-container img
-{
+#projects .internal-container .project-img {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 200px;
+    width: 350px;
     border-radius: 0.2rem;
+    transition: all 0.3s ease-out;
 }
 
-#projects .internal-container .online-presence
-{
+#projects .internal-container:hover > .project-img {
+    width: 150px;
+}
+
+#projects .internal-container .online-presence {
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -46,42 +47,82 @@
     margin-right: auto;
 }
 
-#projects .internal-container .online-presence img
-{
+#projects .internal-container .online-presence img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     margin: 5px;
 }
 
-#projects .internal-container .data
-{
+#projects .internal-container .data {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 425px;
-    height: 100%;
+    width: 350px;
 }
 
-#projects .internal-container .data h4
-{
-    font-size: 18px;
+#projects .internal-container .data .hidden-data {
+    top: 100%;
+    position: relative;
+    height: 100%;
+    transition: all 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#projects .internal-container:hover .hidden-data {
+    top: 0;
+}
+
+#projects .internal-container .data h4 {
+    font-size: 24px;
+    line-height: 1.5;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
 }
 
-#projects .internal-container .data p
-{
-    font-size: 18px;
+#projects .internal-container .data p {
+    font-size: 16px;
+    line-height: 1.5;
     font-weight: normal;
     margin-top: 10px;
 }
 
-@media screen and (max-width: 500px)
-{
-    #projects .collection .internal-container .data
-    {
+@media screen and (max-width: 500px) {
+    #projects .collection .internal-container {
         width: 300px;
+        height: fit-content;
+    }
+
+    #projects .collection .internal-container .hidden-data {
+        display: none;
+        height: 100%;
+        top: 100%;
+        position: relative;
+        transition: all 0.5s ease-out;
+    }
+
+    #projects .collection .internal-container .project-img {
+        width: 280px;
+    }
+
+    #projects .collection .internal-container:hover > .project-img {
+        width: 150px;
+    }
+
+    #projects .collection .internal-container:active > .project-img {
+        width: 150px;
+    }
+
+    #projects .collection .internal-container:hover .hidden-data {
+        display: flex;
+        flex-direction: column;
+        top: 0;
+    }
+
+    #projects .collection .internal-container .data {
+        width: 280px;
     }
 }
