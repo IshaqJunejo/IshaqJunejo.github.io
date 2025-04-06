@@ -1,0 +1,20 @@
+{
+    "title": "Demo",
+    "date": "Undecided",
+    "bannerImage": "../images/Pixel-Dailies-Banner.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "type": "image",
+            "src": "../images/Pixel-Dailies-Banner.png",
+            "alt": "Demo Image"
+        },
+        {
+            "type": "paragraph",
+            "text": "You can add more content types as needed."
+        }
+    ]
+}
