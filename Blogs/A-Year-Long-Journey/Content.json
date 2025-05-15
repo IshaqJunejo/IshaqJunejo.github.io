@@ -1,0 +1,280 @@
+{
+    "title": "A Year Long Journey",
+    "date": "30-Dcember-2022",
+    "bannerImage": "../images/2022-Year-Progress-Report-Banner.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "This year has been pretty interesting for me in terms of the time spent trying to do and find some new things or skills or hobbies. <br> I tried a lot of new things this year and have planned for trying out more next year hopefully,"
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "Initial Quarter of the Year"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "7th of January - 1st of March"
+        },
+        {
+            "type": "paragraph",
+            "text": "I consider the start of this journey by 7th of January, because on this day I tried Pixel Dailies for the first time and just decided to stick with it for as long as I could. This was going fairly great as I could see my consistency in form of my tweets."
+        },
+        {
+            "type": "paragraph",
+            "text": "But the mindset of <em>'Sticking With It For as Long as Possible'</em> changed when I saw a tweet of a fellow pixel artist showcasing all of his January's Pixel Dailies attempts, I wanted to do that too but I was missing the initial 6 attempts of the Month. Then I decided to make sure to stick with it till end of the Month of Feburary. I did sticked with it until the end of Feburary but found it difficult to stick for longer."
+        },
+        {
+            "type": "paragraph",
+            "text": "On 1st of March I made a simple barrel for Pixel Dailies as the theme was <em>Barrel</em>, and after that my consistency in Pixel Dailies just disappeared into the thin air."
+        },
+        {
+            "type": "paragraph",
+            "text": "I also have a Blog on <a href='../Pixel-Art-for-54-days/' class='showcase'>Making Pixel Art for 54 Days Straight</a>."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "4th of Feburary - 7th of Feburary"
+        },
+        {
+            "type": "paragraph",
+            "text": "While keeping up with Pixel Dailies I also tried a Game Jam <em>'Mini Jam 99 : Birds'</em>. It was a 3 days long Game Development jam. It's theme was announced before it started but limitation was announced just as the Jam started and limitation was 'Can't Stop Moving'. So I made a Topdown game with a Seagull as the player, who have to dogde poles on the surface of sea while keep on moving forward."
+        },
+        {
+            "type": "iframe",
+            "style": "display: block; margin: 20px auto; width: 208px; height: 167px;",
+            "src": "https://itch.io/embed/1388705?dark=true"
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "The Second Quarter of the Year"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "15th of May - 26th of June"
+        },
+        {
+            "type": "paragraph",
+            "text": "In this period of time I thought to try to learn DSA (Data Structures and Algorithms), so first of all I made a C file, copied code for making and reversing a Linked List and tried to see if it worked (for no reason, even though I knew it would work I still copy pasted some code)."
+        },
+        {
+            "type": "paragraph",
+            "text": "I tried doing DSA by myself for sometime, but it felt pretty boring, so on 3rd of June I created an account on Leetcode. Initially I tried choosing some random problems on Leetcode and try to solve them, but just 2 days later I joined <em>'2 Weeks Study Plan To Tackle DS'</em>. In the beginning I was trying to solve any problem that I can and leave the one which I didn't understood, but changed my mind later and started looking on the internet for solutions of problems which I didn't understood and try to understand their solutions. And it worked fairly well, I was starting to understand more about Data Structures and how they can be used."
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "The Third Quarter"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "2nd of June - 13th of September"
+        },
+        {
+            "type": "paragraph",
+            "text": "During the start of June I had started journaling my days before going to bed. I just wrote about the things I did which were productive and which were unproductive. I was fairly consistent with it and felt some positive changes in my productivity too."
+        },
+        {
+            "type": "paragraph",
+            "text": "I did for more than 3 months (104 days to be precise) straight. I eventually stopped journaling my days because of sudden change in my schedule due to admission in Higher Secondary School."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "21st of July"
+        },
+        {
+            "type": "paragraph",
+            "text": "I published my first Game made with C#, Round Pong. This game was made solely because I wanted to learn C#, I saw few YouTube Videos on how I can learn C# and tried to setup Raylib_cs on my system which is basically a wrapper for Raylib."
+        },
+        {
+            "type": "paragraph",
+            "text": "I also recorded a timelapse of the process and upload it on YouTube. Which was just my second YouTube video. I also open-sourced it just as it was released, which reminded me about how I can work on some open-source projects or open-source my previous projects I made for practice."
+        },
+        {
+            "type": "iframe",
+            "style": "display: block; margin: 20px auto; width: 208px; height: 167px;",
+            "src": "https://itch.io/embed/1630408?dark=true"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "1st of August - 30th of August"
+        },
+        {
+            "type": "paragraph",
+            "text": "I was working on my open-source project <em>'Radius2D'</em>. I had made this project earlier in C++ but didn't open-sourced it. As I was looking for some project to work on GitHub and it's code was complete spaghetti, I decided to make it from scratch using C# while having it on a GitHub repository. I decided to name the repository <em>'Radius2D'</em> and upload the old files of C++ code and worked on C# to replicate it. After that I realized it's performance was bad and needed to be improved."
+        },
+        {
+            "type": "paragraph",
+            "text": "I have written a Blog on my experience of <a class='showcase' href='../Working-on-physics-engine/''>Working on my own Physics Engine</a>."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "19th of August - 21st to August"
+        },
+        {
+            "type": "paragraph",
+            "text": "While working on Radius2D I gave myself a break of two days because, I joined the <em>'Kenney's Jam 2022'</em>. Theme of the Jam was <em>'Growth'</em>. For the Jam I made a game with Space Battle, where you have to fight Enemy Battle Ships and collect their Material to grow Size of your Battle Ship. I recorded the Time-lapse and uploaded on YouTube, and also open-sourced it on GitHub."
+        },
+        {
+            "type": "iframe",
+            "style": "display: block; margin: 20px auto; width: 208px; height: 167px;",
+            "src": "https://itch.io/embed/1671918?dark=true"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "3rd of September - 20th of September"
+        },
+        {
+            "type": "paragraph",
+            "text": "It was the time when I decided to build my own Personal Portfolio Website. I made it with the purpose of showcasing all my projects at one place, including the Games uploaded on Itch open-source projects on GitHub and even some pieces of my Pixel Art. I also had a thought that I might even write some Blog Posts."
+        },
+        {
+            "type": "paragraph",
+            "text": "I made the website added different sections to it, and though Blogs were not available in the beginning, I added them soon after it was deployed. For Pixel Art, it was not added for a fairly long time."
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "Last Quarter"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "24th of September - 25th of December"
+        },
+        {
+            "type": "paragraph",
+            "text": "I have gotten admission in a Higher Secondary School, and am having little to no time for working on my projects. I decided to work on my projects only on Weekends. On those weekends I worked on Radius2D as well as my Website, I wrote the Blogs in that time, added some new features in Radius2D in that time, published Radius2D's Nuget Package and even added Pixel Art Section on my Website."
+        },
+        {
+            "type": "paragraph",
+            "text": "I have a Blog about <a href='../My-experience-with-programming-on-weekends-only/' class='showcase'>Programming on Weekends only</a>."
+        },
+        {
+            "type": "image",
+            "src": "images/github-contribution-on-saturdays-and-sundays.png",
+            "alt": "Working on weekends only"
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "Conclusion"
+        },
+        {
+            "type": "list",
+            "items": [
+                {
+                    "type": "paragraph",
+                    "text": "Made 106 pixel art pieces, 54 of them were made consistently."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Developed 3 mini-games."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Did a LeetCode Data Structures Course."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Tried Journaling my Days for 104 days Straight."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Developed a Physics Engine."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Published a Nuget Package of my Physics Engine."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Made myself a Personal Portfolio Website."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Wrote 4 blogs."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Made roughly 150 contribution to my Projects on GitHub."
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": "2",
+            "text": "Goals for 2023"
+        },
+        {
+            "type": "list",
+            "items": [
+                {
+                    "type": "div",
+                    "children": [
+                        {
+                            "type": "heading",
+                            "level": "3",
+                            "text": "Contribute to Open-Source Projects"
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "I would want myself to contribute to some open-source projects by other individuals on GitHub to experience how it is like to work with others."
+                        }
+                    ]
+                },
+                {
+                    "type": "div",
+                    "children": [
+                        {
+                            "type": "heading",
+                            "level": "3",
+                            "text": "Write 12 Blogs"
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "I also want myself to write blogs for my own Website. I have set a target of 12 Blogs Next Year (1 Blog Each month), which might sound like a small target, but I don't want myself to focus on numbers, but I want to push myself to do something new every month and write it in format of a Blog."
+                        }
+                    ]
+                },
+                {
+                    "type": "div",
+                    "children": [
+                        {
+                            "type": "heading",
+                            "level": "3",
+                            "text": "Work on an A.I or M.L Based Project"
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "I am currently very interested in Artificial Intelligence and Machine Learning, but I couldn't work on a project regarding that topic due to lack of my knowledge. So I set a target to learn more about them and work on an A.I or M.L project or more specifically a Neural Network project with Genetic Algorithm."
+                        }
+                    ]
+                },
+                {
+                    "type": "div",
+                    "children": [
+                        {
+                            "type": "heading",
+                            "level": "3",
+                            "text": "Get Back to Journaling My Days"
+                        },
+                        {
+                            "type": "paragraph",
+                            "text": "I feel like journaling my days had a positive effect on me and leaving them was a bad idea. So I would try to journal my days for as long as possible, so that I can develop a habit out of it."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
