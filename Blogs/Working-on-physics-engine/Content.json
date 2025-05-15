@@ -1,0 +1,167 @@
+{
+    "title": "Working on my own Physics Engine",
+    "date": "08-October-2022",
+    "bannerImage": "../images/Physics-Engine-Banner.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Developing your own physics engine can be seriously hard, as it involves a lot of calculations, vectors usage and obviously lots of physics formulas too. Still I decided to give it a try because I wanted to do some experiments on my programming skills and thought it could be something great for the learning purpose."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "How and Why I Started"
+        },
+        {
+            "type": "paragraph",
+            "text": "Although it is currently written in C#, it's initial development took place even before I wrote my first <em>'Hello World'</em> C# program. I worked on it when I only knew Python and C++, so that I decided to work on it using C++. It initially was inspired by <a href='https://www.youtube.com/watch?v=kyQP4t_wOGI' class='showcase'>Gonkee's Soft Body Simulation Video</a>, but with an obvious simple change, I was going to start with Circles instead of having Mass Points initially and then changing them to circle."
+        },
+        {
+            "type": "paragraph",
+            "text": "I decided to use <a href='https://github.com/raysan5/raylib' class='showcase'>Raylib</a>, for rendering and occasionally for inputs for debugging purposes. As it was the only library I was having experience with and had made a couple of game with it. It feels much advanced in the sense of a graphics library."
+        },
+        {
+            "type": "paragraph",
+            "text": "The first time I was working on it, it wasn't on Github, so I made different folder for different levels of complexity I was going to work with, first folder having a project with circles colliding and responding to collision with each other properly, and second folder having two circles being connected through a spring, Which turned out to be a failure. The circles seemed to be colliding and interacting with each other pretty well but the spring wasn't exerting force on the circles it was connected to. I tried a lot overcome this failure and make it work properly, but it didn't worked. Which mentally forced me to stop working on this project, and that is what I did."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "After Timespan of 5 Months"
+        },
+        {
+            "type": "paragraph",
+            "text": "After around 5 months, when I was having few repositories on my <a href='https://github.com/IshaqJunejo' class='showcase'>Github Profile</a>, I wanted to work on something interesting and expand my Github Profile too, and suddenly a thought sparkled in my head which lead me to that old physics simulation code. I made a new repository with the name of <a href='https://github.com/IshaqJunejo/Radius2D' class='showcase'>Radius2D</a>, it was named after this because it's main object or polygon that was used in the physics world was a <em>Circle</em>, and a circle have a unique property named of course <em>Radius</em>, and as was and is limited to a 2d canvas so I added 2D and named it Radius2D, I first uploaded the files instead of pushing a commit, because the initial files were in C++ and I wanted to change that to C#, so I used a lazy way. Reason for switching to C# was because I was having better Object Oriented Programming approach in C# and it have more sophisticated vector calculations."
+        },
+        {
+            "type": "paragraph",
+            "text": "Wrote some C# files to make the same thing in different language, most of the mathematical formulas were copied from the C++ files and modified for C# and after a bit of trail and error, it got working exactly the same, but I just realized the previous one wasn't working fine either. I looked at the built of the old C++ version and realized it was too cranky to be on Github."
+        },
+        {
+            "type": "paragraph",
+            "text": "I was sure the problem was hidden somewhere in the collision response as I was drawing circles in different color when they were colliding with each other. This cranky result pushed me to try different way of handling collision response. And they were also not showing any significantly better result."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Getting Over The Cranky Results"
+        },
+        {
+            "type": "paragraph",
+            "text": "After doing research on collision response I couldn't find any useful material except for <a href='https://en.wikipedia.org/wiki/Elastic_collision' class='showcase'>Elastic Collision on Wikipedia</a> and a <a href='https://www.youtube.com/watch?v=TUZvvmu4Yz4&list=PLo6lBZn6hgca1T7cNZXpiq4q395ljbEI_' class='showcase'>Youtube Playlist</a> having all the explanation and coding of building a Physics Engine in JavaScript."
+        },
+        {
+            "type": "paragraph",
+            "text": "After going through all the videos of the playlist and reading the Wikipedia I realized a mistake. The mistake was in my each attempt I was either trying the penetration resolution approach or the elasticity resolution approach or some other approaches using force vector. Turns out it it needs to have both penetration and elasticity resolution approach at the same time."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Solution to the Crankiness"
+        },
+        {
+            "type": "paragraph",
+            "text": "Penetration resolution is when we push both circles apart by using their position vector. Whereas on the other hand Elasticity resolution is when we push the circles apart using the velocity vectors of them. Combination of both these approaches result in a much better result."
+        },
+        {
+            "type": "code",
+            "language": "csharp",
+            "content": "<keyword class= 'comment'>// Calculating Penetration </keyword>\n<keyword class='from-class'>Vector2</keyword> distance <keyword class='operation'>=</keyword> circ1<keyword class='operation'>.</keyword>pos <keyword class='operation'>-</keyword> circ2<keyword class='operation'>.</keyword>pos<keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> length <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword>float<keyword class='braces'>)</keyword> <keyword class='from-class'>Math</keyword><keyword class='operation'>.</keyword><keyword class='function'>Sqrt</keyword><keyword class='braces'>(</keyword>distance<keyword class='operation'>.</keyword>X <keyword class='operation'>*</keyword> distance<keyword class='operation'>.</keyword>X <keyword class='operation'>+</keyword> distance<keyword class='operation'>.</keyword>Y <keyword class='operation'>*</keyword> distance<keyword class='operation'>.</keyword>Y<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> normal <keyword class='operation'>=</keyword> distance <keyword class='operation'>/</keyword> length<keyword class='operation'>;</keyword>\n\n<keyword class='reserve-1'>float</keyword> depth <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword>circ1<keyword class='operation'>.</keyword>radius <keyword class='operation'>+</keyword> circ2<keyword class='operation'>.</keyword>radius<keyword class='braces'>)</keyword> <keyword class='operation'>-</keyword> length<keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> pentrateResolve <keyword class='operation'>=</keyword> normal <keyword class='operation'>*</keyword> depth <keyword class='operation'>/</keyword> <keyword class='braces'>(</keyword>circ1<keyword class='operation'>.</keyword>mass <keyword class='operation'>+</keyword> circ2<keyword class='operation'>.</keyword>mass<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n\n<keyword class='comment'>// Resolving Penetration</keyword>\ncirc1<keyword class='operation'>.</keyword>pos <keyword class='operation'>+=</keyword> pentrateResolve <keyword class='operation'>*</keyword> circ1<keyword class='operation'>.</keyword>mass<keyword class='operation'>;</keyword>\ncirc2<keyword class='operation'>.</keyword>pos <keyword class='operation'>-=</keyword> pentrateResolve <keyword class='operation'>*</keyword> circ2<keyword class='operation'>.</keyword>mass<keyword class='operation'>;</keyword>\n"
+        },
+        {
+            "type": "code",
+            "language": "csharp",
+            "content": "<keyword class='comment'>// Calculating Elasticity Resolution</keyword>\n<keyword class='from-class'>Vector2</keyword> distance <keyword class='operation'>=</keyword> circ1<keyword class='operation'>.</keyword>pos <keyword class='operation'>-</keyword> circ2<keyword class='operation'>.</keyword>pos<keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> length <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword>float<keyword class='braces'>)</keyword> <keyword class='from-class'>Math</keyword><keyword class='operation'>.</keyword><keyword class='function'>Sqrt</keyword><keyword class='braces'>(</keyword>distance<keyword class='operation'>.</keyword>X <keyword class='operation'>*</keyword> distance<keyword class='operation'>.</keyword>X <keyword class='operation'>+</keyword> distance<keyword class='operation'>.</keyword>Y <keyword class='operation'>*</keyword> distance<keyword class='operation'>.</keyword>Y<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> normal <keyword class='operation'>=</keyword> distance <keyword class='operation'>/</keyword> length<keyword class='operation'>;</keyword>\n\n<keyword class='reserve-1'>float</keyword> productOfElasticity <keyword class='operation'>=</keyword> circ1<keyword class='operation'>.</keyword>elasticity <keyword class='operation'>*</keyword> circ2<keyword class='operation'>.</keyword>elasticity<keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> ratioOfMass <keyword class='operation'>=</keyword> circ1<keyword class='operation'>.</keyword>mass <keyword class='operation'>/</keyword> circ2<keyword class='operation'>.</keyword>mass<keyword class='operation'>;</keyword>\n\n<keyword class='from-class'>Vector2</keyword> relativeVelocity <keyword class='operation'>=</keyword> circ1<keyword class='operation'>.</keyword>vel <keyword class='operation'>-</keyword> circ2<keyword class='operation'>.</keyword>vel<keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> seperatingVelocity <keyword class='operation'>=</keyword> <keyword class='from-class'>Vector2</keyword><keyword class='operation'>.</keyword><keyword class='function'>Dot</keyword><keyword class='braces'>(</keyword>normal<keyword class='operation'>,</keyword> relativeVelocity<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> newSeperatingVelocity <keyword class='operation'>=</keyword> seperatingVelocity <keyword class='operation'>*</keyword> <keyword class='numbers'>-1</keyword> <keyword class='operation'>*</keyword> productOfElasticity<keyword class='operation'>;</keyword>\n\n<keyword class='reserve-1'>float</keyword> seperatingVelocityDifference <keyword class='operation'>=</keyword> newSeperatingVelocity <keyword class='operation'>-</keyword> seperatingVelocity<keyword class='operation'>;</keyword>\n<keyword class='reserve-1'>float</keyword> impulse <keyword class='operation'>=</keyword> seperatingVelocityDifference <keyword class='operation'>/</keyword> <keyword class='braces'>(</keyword>circ1<keyword class='operation'>.</keyword>inverseMass <keyword class='operation'>+</keyword> circ2<keyword class='operation'>.</keyword>inverseMass<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> impulseVector <keyword class='operation'>=</keyword> impulse <keyword class='operation'>*</keyword> normal<keyword class='operation'>;</keyword>\n\n<keyword class='comment'>// Resolving Elasticity</keyword>\ncirc1<keyword class='operation'>.</keyword>vel <keyword class='operation'>+=</keyword> impulseVector <keyword class='operation'>*</keyword> circ1<keyword class='operation'>.</keyword>inverseMass <keyword class='operation'>*</keyword> deltaTime <keyword class='operation'>*</keyword> <keyword class='numbers'>60</keyword><keyword class='operation'>;</keyword>\ncirc2<keyword class='operation'>.</keyword>vel <keyword class='operation'>-=</keyword> impulseVector <keyword class='operation'>*</keyword> circ2<keyword class='operation'>.</keyword>inverseMass <keyword class='operation'>*</keyword> deltaTime <keyword class='operation'>*</keyword> <keyword class='numbers'>60</keyword><keyword class='operation'>;</keyword>\n"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Adding Line Segments to the World"
+        },
+        {
+            "type": "paragraph",
+            "text": "After that I thought using static polygons could be difficult as shown in Gonkee's Video, as they were composed of line segments I thought to use them instead and technically could use them to make polygons. But calculating if the circle collides with the line or not was hard, but I came through this explanation that if we can find the Area of a Triangle using it's three points (Both ends of the line and center of the circle), that could be used to find the Triangle's height (or the least distance between the circle and the line). So that height could be compared to the circle's radius to know if it's overlapping with it or not?"
+        },
+        {
+            "type": "code",
+            "language": "csharp",
+            "content": "<keyword class='comment'>// Find the Area of A Triangle</keyword>\n<keyword class='reserve-1'>private float</keyword> <keyword class='function'>TriangleArea</keyword><keyword class='braces'>(</keyword><keyword class='from-class'>Vector2</keyword> a<keyword class='operation'>,</keyword> <keyword class='from-class'>Vector2</keyword> b<keyword class='operation'>,</keyword> <keyword class='from-class'>Vector2</keyword> c<keyword class='braces'>)</keyword>\n<keyword class='braces'>{</keyword>\n    <keyword class='from-class'>Vector2</keyword> AB <keyword class='operation'>=</keyword> <keyword class='reserve-1'>new</keyword> <keyword class='from-class'>Vector2</keyword><keyword class='braces'>(</keyword>b<keyword class='operation'>.</keyword>X <keyword class='operation'>-</keyword> a<keyword class='operation'>.</keyword>X<keyword class='operation'>,</keyword> b<keyword class='operation'>.</keyword>Y <keyword class='operation'>-</keyword> a<keyword class='operation'>.</keyword>Y<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n    <keyword class='from-class'>Vector2</keyword> AC <keyword class='operation'>=</keyword> <keyword class='reserve-1'>new</keyword> <keyword class='from-class'>Vector2</keyword><keyword class='braces'>(</keyword>c<keyword class='operation'>.</keyword>X <keyword class='operation'>-</keyword> a<keyword class='operation'>.</keyword>X<keyword class='operation'>,</keyword> c<keyword class='operation'>.</keyword>Y <keyword class='operation'>-</keyword> a<keyword class='operation'>.</keyword>Y<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n                        \n    <keyword class='reserve-1'>float</keyword> crossProduct <keyword class='operation'>=</keyword> AB<keyword class='operation'>.</keyword>X <keyword class='operation'>*</keyword> AC<keyword class='operation'>.</keyword>Y <keyword class='operation'>-</keyword> AB<keyword class='operation'>.</keyword>Y <keyword class='operation'>*</keyword> AC<keyword class='operation'>.</keyword>X<keyword class='operation'>;</keyword>\n                        \n    <keyword class='reserve-2'>if</keyword> <keyword class='braces'>(</keyword>crossProduct <keyword class='operation'>>=</keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword>\n    <keyword class='braces'>{</keyword>\n        <keyword class='reserve-2'>return</keyword> crossProduct <keyword class='operation'>/</keyword> <keyword class='numbers'>2</keyword><keyword class='operation'>;</keyword>\n    <keyword class='braces'>}</keyword><keyword class='reserve-2'>else</keyword>\n    <keyword class='braces'>{</keyword>\n        <keyword class='reserve-2'>return</keyword> crossProduct <keyword class='operation'>*</keyword> <keyword class='numbers'>-1</keyword> <keyword class='operation'>/</keyword> <keyword class='numbers'>2</keyword><keyword class='operation'>;</keyword>\n    <keyword class='braces'>}</keyword><keyword class='operation'>;</keyword>\n<keyword class='braces'>}</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Even with Line Segments the same approach of collision response was used, penetration resolution and elasticity resolution. This works completely fine but the problem occurs when the ball slides of the Line Segment, technically it never slides of the Line, even when it should."
+        },
+        {
+            "type": "image",
+            "src": "../images/Balls-not-Sliding-off.gif",
+            "alt": "Balls not Sliding off"
+        },
+        {
+            "type": "paragraph",
+            "text": "To solve this problem I calculated four vectors, two of which are unit vectors of the line segment heading in direction of the other point of Segment, whereas the other two vectors are pointing from two sides of line segment to center of circle. This is much better explained by <a href='https://www.youtube.com/watch?v=F7WnRxNLmZM' class='showcase'>Andrew Weller</a>."
+        },
+        {
+            "type": "code",
+            "language": "csharp",
+            "content": "<keyword class='from-class'>Vector2</keyword> v1 <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword>l<keyword class='operation'>.</keyword>p <keyword class='operation'>-</keyword> l<keyword class='operation'>.</keyword>q<keyword class='braces'>)</keyword> <keyword class='operation'>/</keyword> l<keyword class='operation'>.</keyword>length<keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> v2 <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword>l<keyword class='operation'>.</keyword>q <keyword class='operation'>-</keyword> l<keyword class='operation'>.</keyword>p<keyword class='braces'>)</keyword> <keyword class='operation'>/</keyword> l<keyword class='operation'>.</keyword>length<keyword class='operation'>;</keyword>\n                        \n<keyword class='from-class'>Vector2</keyword> v3 <keyword class='operation'>=</keyword> circ<keyword class='operation'>.</keyword>pos <keyword class='operation'>-</keyword> l<keyword class='operation'>.</keyword>p<keyword class='operation'>;</keyword>\n<keyword class='from-class'>Vector2</keyword> v4 <keyword class='operation'>=</keyword> circ<keyword class='operation'>.</keyword>pos <keyword class='operation'>-</keyword> l<keyword class='operation'>.</keyword>q<keyword class='operation'>;</keyword>\n                        \n<keyword class='reserve-2'>if</keyword> <keyword class='braces'>(</keyword><keyword class='from-class'>Vector2</keyword><keyword class='operation'>.</keyword><keyword class='function'>Dot</keyword><keyword class='braces'>(</keyword>v2<keyword class='operation'>,</keyword> v3<keyword class='braces'>)</keyword> <keyword class='operation'>></keyword> <keyword class='numbers'>0</keyword> <keyword class='operation'>&&</keyword> <keyword class='from-class'>Vector2</keyword><keyword class='operation'>.</keyword><keyword class='function'>Dot</keyword><keyword class='braces'>(</keyword>v1<keyword class='operation'>,</keyword> v4<keyword class='braces'>)</keyword> <keyword class='operation'>></keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword>\n<keyword class='braces'>{</keyword>\n    <keyword class='from-class'>Vector2</keyword> dist <keyword class='operation'>=</keyword> l<keyword class='operation'>.</keyword>p <keyword class='operation'>-</keyword> l<keyword class='operation'>.</keyword>q<keyword class='operation'>;</keyword>\n    <keyword class='reserve-1'>float</keyword> Base <keyword class='operation'>=</keyword> <keyword class='braces'>(</keyword><keyword class='reserve-1'>float</keyword><keyword class='braces'></keyword> <keyword class='from-class'>Math</keyword><keyword class='operation'>.</keyword><keyword class='function'>Sqrt</keyword><keyword class='braces'>(</keyword>dist<keyword class='operation'>.</keyword>X <keyword class='operation'>*</keyword> dist<keyword class='operation'>.</keyword>X <keyword class='operation'>+</keyword> dist<keyword class='operation'>.</keyword>Y <keyword class='operation'>*</keyword> dist<keyword class='operation'>.</keyword>Y<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n    <keyword class='reserve-1'>float</keyword> height <keyword class='operation'>=</keyword> <keyword class='function'>TriangleArea</keyword><keyword class='braces'>(</keyword>l<keyword class='operation'>.</keyword>p<keyword class='operation'>,</keyword> l<keyword class='operation'>.</keyword>q<keyword class='operation'>,</keyword> circ<keyword class='operation'>.</keyword>pos<keyword class='braces'>)</keyword><keyword class='operation'>;</keyword>\n    <keyword class='reserve-2'>return</keyword> height<keyword class='operation'>;</keyword>\n<keyword class='braces'>}</keyword><keyword class='reserve-2'>else</keyword>\n<keyword class='braces'>{</keyword>\n    <keyword class='reserve-2'>return</keyword> circ<keyword class='operation'>.</keyword>radius <keyword class='operation'>*</keyword> <keyword class='numbers'>2</keyword><keyword class='operation'>;</keyword>\n<keyword class='braces'>}</keyword>"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Attempt at Verlet Integration"
+        },
+        {
+            "type": "paragraph",
+            "text": "My real motivation for using Verlet Integration was to make a cloth simulation, because I got to know that I couldn't implement joints between circles without using the Verlet integration. This was mostly inspired by <a href='https://www.youtube.com/watch?v=lS_qeBy3aQI' class='showcase'>Pezzza's Work</a> Video on Verlet Physics Engine."
+        },
+        {
+            "type": "paragraph",
+            "text": "Switching from Euler's to Verlet Integration was nor going to be easy and neither promising in the start, so I made a branch in the local git repository to work on it. After removing all of the stuff from Euler's Integration and attempting to implement Verlet integration, the result seemed to be saddening, even after having a lot of tweaks and making a lot of small changes from some undefined reasons the results were not going as expected. These consequences pushed me to just delete that branch and continue working on just Euler's Integration, which don't support implementing Joints but it does supports implementing Springs."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Springs, Foundation of Soft Body"
+        },
+        {
+            "type": "paragraph",
+            "text": "This is where I had to watch Gonkee's Video again to grab the concept of implementing springs in the simulation. It eventually turned out to be easier than I thought it would be. Just after few steps springs turn out to work perfectly fine. And that is where I started to do multiple experimentation on springs. The first thing I wanted to do with springs was obviously a Soft Body Simulation inspired by Gonkee. I had a hard time figuring out the algorithm to connect circles horizontally, vertically and even diagonally. So that is why I decided to use a circular soft body instead. I spawned a Central Circle and spawned few smaller Circles around it and tried to connect each of them to the Central Circle through a Spring and connect each of those smaller circles with their neighbouring circle through a spring."
+        },
+        {
+            "type": "image",
+            "src": "../images/Soft-Body.png",
+            "alt": "Circular Soft Body"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Elastic Cloth"
+        },
+        {
+            "type": "paragraph",
+            "text": "After making a soft body, I thought if I could make a Cloth Simulation too. I tried Verlet Integration because I wanted to make a Cloth Simulation, but it failed. What if I could make one without using Verlet Integration. The only difference could be that instead of being Normal Cloth Simulation it would be an Elastic Cloth Simulation."
+        },
+        {
+            "type": "paragraph",
+            "text": "So I spawned some Circles in row by column manner, and the circles on the top row were given a mass of zero, so that they could not move and help other Circles hang. Connecting the Circles with each other was a difficult job but was done by a bit of trail and error. It didn't looked good due to the circles being so visible, I decided to turn their radius to zero and even stop rendering them to reduce a minor effort of processing. It looks good but a cloth being perfectly square felt odd, so a simple step was taken to increase the length of vertical Spring by 50% by that of horizontal Spring's Length and the circles were also being spawned with vertically more distant then their horizontal distance. Much Better!"
+        },
+        {
+            "type": "paragraph",
+            "text": "I also added another small feature to show the effect of wind."
+        },
+        {
+            "type": "code",
+            "language": "csharp",
+            "content": "<keyword class='comment'>// Iterating through the List of Balls/Circles</keyword>\n<keyword class='reserve-2'>foreach</keyword> <keyword class='braces'>(</keyword><keyword class='from-class'>Circle</keyword> circle <keyword class='reserve-2'>in</keyword> circles)\n<keyword class='braces'>{</keyword>\n    <keyword class='comment'>// Applying Force to Circles (Wind Force) to Showcase the Cloth Simulation Effect</keyword>\n    <keyword class='reserve-2'>if</keyword> <keyword class='braces'>(</keyword><keyword class='from-class'>Raylib</keyword><keyword class='operation'>.</keyword><keyword class='function'>IsMouseButtonDown</keyword><keyword class='braces'>(</keyword><keyword class='from-class'>MouseButton</keyword><keyword class='operation'>.</keyword><keyword class='reserve-1'>MOUSE_BUTTON_LEFT</keyword><keyword class='braces'>))</keyword>\n    <keyword class='braces'>{</keyword>\n        circle<keyword class='operation'>.</keyword>force<keyword class='operation'>.</keyword>X <keyword class='operation'>+=</keyword> <keyword class='numbers'>0.05f</keyword> <keyword class='operation'>*</keyword> circle<keyword class='operation'>.</keyword>mass<keyword class='operation'>;</keyword>\n    <keyword class='braces'>}</keyword><keyword class='reserve-2'>else if</keyword> <keyword class='braces'>(</keyword><keyword class='from-class'>Raylib</keyword><keyword class='operation'>.</keyword><keyword class='function'>IsMouseButtonDown</keyword><keyword class='braces'>(</keyword><keyword class='from-class'>MouseButton</keyword><keyword class='operation'>.</keyword><keyword class='reserve-1'>MOUSE_BUTTON_RIGHT</keyword><keyword class='braces'>))</keyword>\n    <keyword class='braces'>{</keyword>\n        circle<keyword class='operation'>.</keyword>force<keyword class='operation'>.</keyword>X <keyword class='operation'>-=</keyword> <keyword class='numbers'>0.05f</keyword> <keyword class='operation'>*</keyword> circle<keyword class='operation'>.</keyword>mass<keyword class='operation'>;</keyword>\n    <keyword class='braces'>}</keyword>\n<keyword class='braces'>}</keyword>"
+        },
+        {
+            "type": "image",
+            "src": "../images/Cloth-Simulation.png",
+            "alt": "Simple Cloth Simulation"
+        },
+        {
+            "type": "paragraph",
+            "text": "This is how much Radius2D currently have been developed, it's source code is hosted on <a href='https://github.com/IshaqJunejo/Radius2D' class='showcase'>Github</a>. It might not be possible to keep working on it consistently nowadays due to studies. But hopefully would work on it in future."
+        }
+    ]
+}

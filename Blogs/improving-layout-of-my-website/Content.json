@@ -1,0 +1,102 @@
+{
+    "title": "Improving the Layout of my Portfolio Website",
+    "date": "29-March-2023",
+    "bannerImage": "../images/project-container-before-and-after.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "It had been a few weeks since I last worked on my portfolio website, especially on its design. So I decided to try if I could improve it or not."
+        },
+        {
+            "type": "paragraph",
+            "text": "So, I opened up Figma, copied the design of my website, and started looking for where I could improve the design. I made a bunch of changes in the layout, and most of them seem to make a positive difference in the design."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Removing Contact Section"
+        },
+        {
+            "type": "paragraph",
+            "text": "I simply removed the contact section from the bottom of my website for the simple reason, that it was not needed. Having ways to contact you on your website is pretty obvious, but having a whole section allocated for the purpose didn't feel like a good idea."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Narrowing Nav-Bar"
+        },
+        {
+            "type": "paragraph",
+            "text": "Previously, the Navigation Bar looked invasive and took up a lot of space. So it made sense to simply reduce the space between elements of the Navigation Bar. Also, the button to the Contact Section was removed because the Contact Section was removed."
+        },
+        {
+            "type": "image",
+            "src": "../images/navbar-before-and-after.png",
+            "alt": "Changes in Nav-bar"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Changing Project Container"
+        },
+        {
+            "type": "paragraph",
+            "text": "I changed the Layout of the Project Container because it was taking up a lot of unnecessary horizontal space."
+        },
+        {
+            "type": "image",
+            "src": "../images/project-container-before.png",
+            "alt": "Project Container Before Improvements"
+        },
+        {
+            "type": "paragraph",
+            "text": "So I reduced the container's width so that unused horizontal space on the sides of the Project's Image was reduced and changed the <em>'flex-direction'</em>.It does take up more vertical space, but unused space is reduced significantly."
+        },
+        {
+            "type": "image",
+            "src": "../images/project-container-after.png",
+            "alt": "Project Container After Improvements"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Changing Blog Container"
+        },
+        {
+            "type": "paragraph",
+            "text": "I changed the layout of the Blog Container because of one reason, the banner images look unnecessarily massive on desktop screens or screens with wider viewports."
+        },
+        {
+            "type": "image",
+            "src": "../images/blog-container-before.png",
+            "alt": "Blog Container Before Improvements"
+        },
+        {
+            "type": "paragraph",
+            "text": "So I took a similar approach which I took with Project Container, limiting the width and changing the <em>'flex-direction'</em>. Limiting its width gave much better results as the Banner Image was no longer looking massive. Another small change made to the Blog Container was that I added its <em>'date of being published'</em> on it."
+        },
+        {
+            "type": "image",
+            "src": "../images/blog-container-after.png",
+            "alt": "Blog Container after Improvements"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Reducing Blog's Width"
+        },
+        {
+            "type": "paragraph",
+            "text": "I also made this change in my website's design without designing it in Figma. I simply limited the width of the blog's content column, because it feels kind of difficult to read the content of wider columns. I also the width of the Banner Image above the Content Column because it also looks unnecessarily massive on wider viewports just like the banner images on the Blog Container."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Few Minor Changes"
+        },
+        {
+            "type": "paragraph",
+            "text": "I made a few more minor changes to the website, some of those were Removing the Name of Pixel Art from its image holder as it served no purpose. I also reduced the <em>'border-radius'</em> of some containers on the Home Page. Another change I made to the Home Page was to add links to my social media accounts in the Top Section of the website."
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "title": "Making a Flashcards App",
+    "date": "28-April-2024",
+    "bannerImage": "../images/Flashcards-app-Banner.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "It has been a little less than two months since I started working on a new project. The idea for this project was quite straightforward, it was supposed to be an app that displays a few Flashcards, and they change every day, I also had the plan to add a notification mechanism, that will remind you to check your deck of Flashcards for today."
+        },
+        {
+            "type": "paragraph",
+            "text": "The first thing to be decided was the purpose for which I would use this Flashcards app. It was pretty simple to come up with the decision, as I have been learning German for a while now, why not make this Flashcards app for improving my German Vocabulary?"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Executing the Plan"
+        },
+        {
+            "type": "paragraph",
+            "text": "Then came the design phase, using Figma to design the basic structure for the web app. It was also simple, as I was not planning some very sophisticated design, it was meant to be a minimalist design in the first place."
+        },
+        {
+            "type": "image",
+            "src": "../images/Flashcard-Design-in-Figma.png",
+            "alt": "Figma Design for the Flashcards App"
+        },
+        {
+            "type": "paragraph",
+            "text": "It was now time for some coding and getting some real results. I simply used HTML, CSS, and Javascript for the project. The idea was simple, whenever someone opens the webpage, we look in the Local Storage, if Today's Date is not stored there as a value of a specific Key, we will show the user randomly selected words from our lists, and we store Today's Date and Indexes of those words in the lists. If someone opens the webpage and these things are already stored in the Local Storage, we will get these Indexes and use them to display those words. Hence different words won't be shown on the same day."
+        },
+        {
+            "type": "paragraph",
+            "text": "Coding the complete project was a bit challenging, but still relatively easy. The problem came with its design of how to hide the German Word and show its Meaning when we are clicking on the card but it came in the first place because of bad code-writing practices, it too was solved."
+        },
+        {
+            "type": "paragraph",
+            "text": "Now the only part remaining was sending a Notification every day to remind the User to check the new Deck of Flashcards. To be fair, I had no idea how Notifications are sent, so I searched for it. I came to know such Notifications are called Push Notifications and Google-owned Service Firebase supports Push Notifications, so I decided to give it a try."
+        },
+        {
+            "type": "paragraph",
+            "text": "Learning Firebase without any Javascript Library is quite difficult because almost everyone on the internet is using it with either React or Angular. It has been almost a month now and I have learned how to use Firebase Database and Firebase Authentication, I also have attempted to build a chat app, but I still haven't understood how Notifications work, so I have decided to leave that idea, and just turn it from a prototype to a web-app with a bigger German Vocabulary."
+        }
+    ]
+}

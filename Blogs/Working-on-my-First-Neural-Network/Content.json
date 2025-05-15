@@ -1,0 +1,253 @@
+{
+    "title": "Working on my First Neural Network",
+    "date": "26-September-2023",
+    "bannerImage": "../images/First-Neural-Network-Banner.png",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "I recently tried to make a pretty simple and small Neural Network to understand how Neural Networks work, specifically how Neural Networks are Trained with Backpropagation."
+        },
+        {
+            "type": "paragraph",
+            "text": "The Code that was written is mainly from a YouTube Video by <a href='https://youtu.be/w8yWXqWQYmU?si=V5BtzgJ24HABIUsu'>Samson Zhang</a> explaining how Neural Networks can be built from Scratch without using Libraries like Tensorflow."
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Main Program"
+        },
+        {
+            "type": "paragraph",
+            "text": "So the Neural Network was for Identifying Digits of 28 by 28 pixels from the MNIST Dataset (Modified National Institute of Standards and Technology Dataset). They have thousands of Labeled Hand Written Digits that can be used for Training my Neural Network and also for Testing it."
+        },
+        {
+            "type": "paragraph",
+            "text": "The structure of this Neural Network is 784 inputs 10 Neurons in the Hidden Layer and 10 Neurons in the Output Layer."
+        },
+        {
+            "type": "paragraph",
+            "text": "What we now need to do is to Read the Data from a CSV file and convert it into a NumPy Array."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Importing the Dataset</keyword>\ndata <keyword class='operation'>=</keyword> <keyword class='from-class'>pd</keyword><keyword class='operation'>.</keyword><keyword class='function'>read_csv</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Data/mnist_train.csv'</keyword><keyword class='braces'>)</keyword>\n\ndata <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>data<keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Shuffle It and divide it into Training Data and Testing Data."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "m<keyword class='operation'>,</keyword> n <keyword class='operation'>=</keyword> data<keyword class='operation'>.</keyword>shape\n<keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>shuffle</keyword><keyword class='braces'>(</keyword>data<keyword class='braces'>)</keyword>\n\ndata_test <keyword class='operation'>=</keyword> data<keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='operation'>:</keyword>1000<keyword class='braces'>]</keyword><keyword class='operation'>.T</keyword>\nY_test <keyword class='operation'>=</keyword> data_test<keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='braces'>]</keyword>\nX_test <keyword class='operation'>=</keyword> data_test<keyword class='braces'>[</keyword><keyword class='numbers'>1</keyword><keyword class='operation'>:</keyword>n<keyword class='braces'>]</keyword>\nX_test <keyword class='operation'>=</keyword> X_test <keyword class='operation'>/</keyword> <keyword class='numbers'>255</keyword>\n                        \ndata_train <keyword class='operation'>=</keyword> data<keyword class='braces'>[</keyword><keyword class='numbers'>1000</keyword><keyword class='operation'>:</keyword>m<keyword class='braces'>]</keyword><keyword class='operation'>.T</keyword>\nY_train <keyword class='operation'>=</keyword> data_train<keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='braces'>]</keyword>\nX_train <keyword class='operation'>=</keyword> data_train<keyword class='braces'>[</keyword><keyword class='numbers'>1</keyword><keyword class='operation'>:</keyword>n<keyword class='braces'>]</keyword>\nX_train <keyword class='operation'>=</keyword> X_train <keyword class='operation'>/</keyword> <keyword class='numbers'>255</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Define ReLU (Rectified Linear Unit) and SoftMax Activations."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Activation Function Rectified Linear Unit (ReLU)</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>ReLU</keyword><keyword class='braces'>(</keyword>x<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>return</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>maximum</keyword><keyword class='braces'>(</keyword>x<keyword class='operation'>,</keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Activation Function Softmax</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>softmax</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    a <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>exp</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>)</keyword> <keyword class='operation'>/</keyword> <keyword class='function'>sum</keyword><keyword class='braces'>(</keyword><keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>exp</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>))</keyword>\n    <keyword class='reserve-2'>return</keyword> a\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Initialize the Weights and Biases in the form of NumPy Arrays at random."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Function to Initialize the Parameters at Random</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>init_parameters</keyword><keyword class='braces'>()</keyword><keyword class='operation'>:</keyword>\n    weights_01 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>rand</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>10</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>784</keyword><keyword class='braces'>)</keyword> <keyword class='operation'>-</keyword> <keyword class='numbers'>0.5</keyword>\n    biases_01 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>rand</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>10</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>1</keyword><keyword class='braces'>)</keyword> <keyword class='operation'>-</keyword> <keyword class='numbers'>0.5</keyword>\n    weights_02 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>rand</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>10</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>10</keyword><keyword class='braces'>)</keyword> <keyword class='operation'>-</keyword> <keyword class='numbers'>0.5</keyword>\n    biases_02 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>rand</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>10</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>1</keyword><keyword class='braces'>)</keyword> <keyword class='operation'>-</keyword> <keyword class='numbers'>0.5</keyword>\n    <keyword class='reserve-2'>return</keyword> weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Perform Forward Propagation."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Function for Forward Propagation</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>forward_propagation</keyword><keyword class='braces'>(</keyword>weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02<keyword class='operation'>,</keyword> x<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    z1 <keyword class='operation'>=</keyword> weights_01<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>x<keyword class='braces'>)</keyword> <keyword class='operation'>+</keyword> biases_01\n    a1 <keyword class='operation'>=</keyword> <keyword class='function'>ReLU</keyword><keyword class='braces'>(</keyword>z1<keyword class='braces'>)</keyword>\n    z2 <keyword class='operation'>=</keyword> weights_02<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>a1<keyword class='braces'>)</keyword> <keyword class='operation'>+</keyword> biases_02\n    a2 <keyword class='operation'>=</keyword> <keyword class='function'>softmax</keyword><keyword class='braces'>(</keyword>z2<keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>return</keyword> z1<keyword class='operation'>,</keyword> a1<keyword class='operation'>,</keyword> z2<keyword class='operation'>,</keyword> a2\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Derivative of ReLU Activation and a Function for One Hot Encoding would be needed for Performing Back Propagation."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Derivative of Activation function ReLU</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>ReLU_derivative</keyword><keyword class='braces'>(</keyword>x<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>return</keyword> x <keyword class='operation'>></keyword> <keyword class='numbers'>0</keyword>\n\n<keyword class='comment'># Function for One Hot Encoding</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>one_hot</keyword><keyword class='braces'>(</keyword>y<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    one_hot_y <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>zeros</keyword><keyword class='braces'>((</keyword>y<keyword class='operation'>.</keyword>size<keyword class='operation'>,</keyword> y<keyword class='operation'>.</keyword><keyword class='function'>max</keyword><keyword class='braces'>()</keyword> <keyword class='operation'>+</keyword> <keyword class='numbers'>1</keyword><keyword class='braces'>))</keyword>\n    one_hot_y<keyword class='braces'>[</keyword><keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>arange</keyword><keyword class='braces'>(</keyword>y<keyword class='operation'>.</keyword>size<keyword class='braces'>)</keyword><keyword class='operation'>,</keyword> y<keyword class='braces'>]</keyword> <keyword class='operation'>=</keyword> 1\n    one_hot_y <keyword class='operation'>=</keyword> one_hot_y<keyword class='operation'>.T</keyword>\n    <keyword class='reserve-2'>return</keyword> one_hot_y\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Perform Back Propagation."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Function for Back Propagation</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>back_propagation</keyword><keyword class='braces'>(</keyword>z1<keyword class='operation'>,</keyword> a1<keyword class='operation'>,</keyword> z2<keyword class='operation'>,</keyword> a2<keyword class='operation'>,</keyword> weights_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> x<keyword class='operation'>,</keyword> y<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    one_hot_y <keyword class='operation'>=</keyword> one_hot<keyword class='braces'>(</keyword>y<keyword class='braces'>)</keyword>\n    dz2 <keyword class='operation'>=</keyword> a2 <keyword class='operation'>-</keyword> one_hot_y\n    dweights_02 <keyword class='operation'>=</keyword> <keyword class='numbers'>1</keyword> <keyword class='operation'>/</keyword> m <keyword class='operation'>*</keyword> dz2<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>a1<keyword class='operation'>.T</keyword><keyword class='braces'>)</keyword>\n    dbiases_02 <keyword class='operation'>=</keyword> <keyword class='numbers'>1</keyword> <keyword class='operation'>/</keyword> m <keyword class='operation'>*</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>sum</keyword><keyword class='braces'>(</keyword>dz2<keyword class='braces'>)</keyword>\n    dz1 <keyword class='operation'>=</keyword> weights_02<keyword class='operation'>.T.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>dz2<keyword class='braces'>)</keyword> <keyword class='operation'>*</keyword> <keyword class='function'>ReLU_derivative</keyword><keyword class='braces'>(</keyword>z1<keyword class='braces'>)</keyword>\n    dweights_01 <keyword class='operation'>=</keyword> <keyword class='numbers'>1</keyword> <keyword class='operation'>/</keyword> m <keyword class='operation'>*</keyword> dz1<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>x<keyword class='operation'>.T</keyword><keyword class='braces'>)</keyword>\n    dbiases_01 <keyword class='operation'>=</keyword> <keyword class='numbers'>1</keyword> <keyword class='operation'>/</keyword> m <keyword class='operation'>*</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>sum</keyword><keyword class='braces'>(</keyword>dz1<keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>return</keyword> dweights_01<keyword class='operation'>,</keyword> dbiases_01<keyword class='operation'>,</keyword> dweights_02<keyword class='operation'>,</keyword> dbiases_02\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "As we now have Derivatives of Weights and Biases, we can use them to Update Our Weights and Biases."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Function for Updating Parameters based on Derivatives of Weights and Biases Computed through Back Propagation</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>update_parameters</keyword><keyword class='braces'>(</keyword>weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02<keyword class='operation'>,</keyword> dweights_01<keyword class='operation'>,</keyword> dbiases_01<keyword class='operation'>,</keyword> dweights_02<keyword class='operation'>,</keyword> dbiases_02<keyword class='operation'>,</keyword> alpha<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    weights_01 <keyword class='operation'>=</keyword> weights_01 <keyword class='operation'>-</keyword> alpha <keyword class='operation'>*</keyword> dweights_01\n    biases_01 <keyword class='operation'>=</keyword> biases_01 <keyword class='operation'>-</keyword> alpha <keyword class='operation'>*</keyword> dbiases_01\n    weights_02 <keyword class='operation'>=</keyword> weights_02 <keyword class='operation'>-</keyword> alpha <keyword class='operation'>*</keyword> dweights_02\n    biases_02 <keyword class='operation'>=</keyword> biases_02 <keyword class='operation'>-</keyword> alpha <keyword class='operation'>*</keyword> dbiases_02\n    <keyword class='reserve-2'>return</keyword> weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "All we now have to do is repeat this process just enough times to get our Neural Network to Fit enough but not Overfit."
+        },
+        {
+            "type": "paragraph",
+            "text": "Accuracy of the Network can also be monitored in between the Training Iterations. For that we will need a simple function that will get us all the predictions our Neural Network made, and also a simple function that can compare our predictions with the actual answers to calculate the accuracy of our predictions."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Function to get all Prediction Neural Network has made</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>get_predictions(</keyword>A2<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>return</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>argmax</keyword><keyword class='braces'>(</keyword>A2<keyword class='operation'>,</keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Function to get Accuracy of Neural Network by comparing Predictions and Actual Answers</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>get_accuracy</keyword><keyword class='braces'>(</keyword>predictions<keyword class='operation'>,</keyword> y<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='function'>print</keyword><keyword class='braces'>(</keyword>predictions<keyword class='operation'>,</keyword> y<keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>return</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>sum</keyword><keyword class='braces'>(</keyword>predictions <keyword class='operation'>==</keyword> y<keyword class='braces'>)</keyword> <keyword class='operation'>/</keyword> y<keyword class='operation'>.</keyword>size\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Now Accuracy of our Neural Network can be printed after every certain Number of Iterations during Training."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Initialize Parameters</keyword>\nweights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02 <keyword class='operation'>=</keyword> <keyword class='function'>init_parameters</keyword><keyword class='braces'>()</keyword>\n<keyword class='comment'># Iterating our Neural Network for Training</keyword>\nfor i in range<keyword class='braces'>(</keyword>iterations<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='comment'># Forward Propagation</keyword>\n    z1<keyword class='operation'>,</keyword> a1<keyword class='operation'>,</keyword> z2<keyword class='operation'>,</keyword> a2 <keyword class='operation'>=</keyword> <keyword class='function'>forward_propagation</keyword><keyword class='braces'>(</keyword>weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02<keyword class='operation'>,</keyword> x<keyword class='braces'>)</keyword>\n    <keyword class='comment'># Back Propagation</keyword>\n    dweights_01<keyword class='operation'>,</keyword> dbiases_01<keyword class='operation'>,</keyword> dweights_02<keyword class='operation'>,</keyword> dbiases_02 <keyword class='operation'>=</keyword> <keyword class='function'>back_propagation</keyword><keyword class='braces'>(</keyword>z1<keyword class='operation'>,</keyword> a1<keyword class='operation'>,</keyword> z2<keyword class='operation'>,</keyword> a2<keyword class='operation'>,</keyword> weights_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> x<keyword class='operation'>,</keyword> y<keyword class='braces'>)</keyword>\n    <keyword class='comment'># Updating Parameters</keyword>\n    weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02 <keyword class='operation'>=</keyword> <keyword class='function'>update_parameters</keyword><keyword class='braces'>(</keyword>weights_01<keyword class='operation'>,</keyword> biases_01<keyword class='operation'>,</keyword> weights_02<keyword class='operation'>,</keyword> biases_02<keyword class='operation'>,</keyword> dweights_01<keyword class='operation'>,</keyword> dbiases_01<keyword class='operation'>,</keyword> dweights_02<keyword class='operation'>,</keyword> dbiases_02<keyword class='operation'>,</keyword> alpha<keyword class='braces'>)</keyword>\n    <keyword class='comment'># After Every 50 Iterations</keyword>\n    <keyword class='reserve-2'>if</keyword> i <keyword class='operation'>%</keyword> <keyword class='numbers'>50</keyword> <keyword class='operation'>==</keyword> <keyword class='numbers'>0</keyword><keyword class='operation'>:</keyword>\n        <keyword class='comment'># Print Iteration Count and Accuracy our Neural Network has Achieved</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Iteration: '</keyword><keyword class='operation'>,</keyword> i<keyword class='braces'>)</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Accuracy: '</keyword><keyword class='operation'>,</keyword> <keyword class='function'>get_accuracy</keyword><keyword class='braces'>(</keyword><keyword class='function'>get_predictions</keyword><keyword class='braces'>(</keyword>a2<keyword class='braces'>)</keyword><keyword class='operation'>,</keyword> y<keyword class='braces'>))</keyword>\n"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Storing the Parameters"
+        },
+        {
+            "type": "paragraph",
+            "text": "Another thing I did in this project was to store the parameters of this Neural Network in a JSON file, and I used them in another Python File to test the accuracy of this Neural Network."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Storing the Parameters in JSON, so can be used for Testing in any Other Program</keyword>\n<keyword class='comment'># (.tolist() function is used because Json can't store Numpy Arrays, for testing, it has to be converted into Numpy Arrays again)</keyword>\ndata <keyword class='operation'>=</keyword> <keyword class='braces'>{</keyword>\n    <keyword class='quotes'>'Weights-01'</keyword><keyword class='operation'>:</keyword> weights_01.<keyword class='function'>tolist</keyword><keyword class='braces'>()</keyword><keyword class='operation'>,</keyword>\n    <keyword class='quotes'>'Biases-01'</keyword><keyword class='operation'>:</keyword> biases_01.<keyword class='function'>tolist</keyword><keyword class='braces'>()</keyword><keyword class='operation'>,</keyword>\n    <keyword class='quotes'>'Weights-02'</keyword><keyword class='operation'>:</keyword> weights_02.<keyword class='function'>tolist</keyword><keyword class='braces'>()</keyword><keyword class='operation'>,</keyword>\n    <keyword class='quotes'>'Biases-02'</keyword><keyword class='operation'>:</keyword> biases_02.<keyword class='function'>tolist</keyword><keyword class='braces'>()</keyword>\n<keyword class='braces'>}</keyword>\n<keyword class='reserve-2'>with</keyword> <keyword class='function'>open</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Parameters.json'</keyword><keyword class='operation'>,</keyword> <keyword class='quotes'>'w'</keyword><keyword class='braces'>)</keyword> <keyword class='reserve-2'>as</keyword> file<keyword class='operation'>:</keyword>\n    <keyword class='from-class'>json</keyword><keyword class='operation'>.</keyword><keyword class='function'>dump</keyword><keyword class='braces'>(</keyword>data<keyword class='operation'>,</keyword> file<keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Visualizing the Digits"
+        },
+        {
+            "type": "paragraph",
+            "text": "I also wrote a small Python Program just to Visualize a random digit from the Dataset onto the Console."
+        },
+        {
+            "type": "paragraph",
+            "text": "All it does is take the Dataset, convert it into a NumPy Array, select a random number from 0 to the length of the Dataset, and Draw the Digit of that Index onto the Console using different characters for different ranges of Brightness."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Selecting a Random Number as Index</keyword>\nindex <keyword class='operation'>=</keyword> <keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>randrange</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>0</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>4997</keyword><keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Drawing the Digit of that Index on the Console</keyword>\n<keyword class='reserve-2'>for</keyword> i <keyword class='reserve-2'>in</keyword> <keyword class='from-class'>range</keyword><keyword class='braces'>(</keyword><keyword class='numbers'>1</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>785</keyword><keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>if</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>0</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>30</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>' '</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>31</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>60</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'.'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>61</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>90</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>','</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>91</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>120</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'`'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>121</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>150</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'*'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>151</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>180</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'!'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>181</keyword> <keyword class='reserve-1'>and</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'><=</keyword> <keyword class='numbers'>210</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'#'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>elif</keyword> data<keyword class='braces'>[</keyword>index<keyword class='braces'>]</keyword><keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> <keyword class='numbers'>211</keyword><keyword class='operation'>:</keyword>\n\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'@'</keyword><keyword class='operation'>,</keyword> end<keyword class='operation'>=</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n    <keyword class='reserve-2'>if</keyword> <keyword class='braces'>(</keyword>i <keyword class='operation'>-</keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword> <keyword class='operation'>%</keyword> <keyword class='numbers'>28</keyword> <keyword class='operation'>==</keyword> <keyword class='numbers'>0</keyword><keyword class='operation'>:</keyword>\n        <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>' '</keyword><keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "heading",
+            "level": "3",
+            "text": "Testing the Accuracy"
+        },
+        {
+            "type": "paragraph",
+            "text": "I wrote a different Python file to test the accuracy of the Neural Network, in that file I initially imported the Parameters from our JSON file and turned them into NumPy Arrays."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Importing Stored Parameters from Json File</keyword>\n<keyword class='reserve-2'>with</keyword> <keyword class='function'>open</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Parameters.json'</keyword><keyword class='operation'>,</keyword> <keyword class='quotes'>'r'</keyword><keyword class='braces'>)</keyword> <keyword class='reserve-2'>as</keyword> file<keyword class='operation'>:</keyword>\n    parameters <keyword class='operation'>=</keyword> <keyword class='from-class'>json</keyword><keyword class='operation'>.</keyword><keyword class='function'>load</keyword><keyword class='braces'>(</keyword>file<keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Extracting Weights and Biases from JSON lists</keyword>\nweights_01 <keyword class='operation'>=</keyword> parameters<keyword class='braces'>[</keyword><keyword class='quotes'>'Weights-01'</keyword><keyword class='braces'>]</keyword>\nbiases_01 <keyword class='operation'>=</keyword> parameters<keyword class='braces'>[</keyword><keyword class='quotes'>'Biases-01'</keyword><keyword class='braces'>]</keyword>\nweights_02 <keyword class='operation'>=</keyword> parameters<keyword class='braces'>[</keyword><keyword class='quotes'>'Weights-02'</keyword><keyword class='braces'>]</keyword>\nbiases_02 <keyword class='operation'>=</keyword> parameters<keyword class='braces'>[</keyword><keyword class='quotes'>'Biases-02'</keyword><keyword class='braces'>]</keyword>\n\n<keyword class='comment'># Turning our Weights and Biases into Numpy Arrays</keyword>\nweights_01 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>weights_01<keyword class='braces'>)</keyword>\nbiases_01 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>biases_01<keyword class='braces'>)</keyword>\nweights_02 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>weights_02<keyword class='braces'>)</keyword>\nbiases_02 <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>biases_02<keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Import the Test Data from a different CSV file, convert it into a NumPy Array, shuffle it, and select only the first one Digit to test our Neural Network."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Importing the Dataset for Testing</keyword>\ntest_data <keyword class='operation'>=</keyword> <keyword class='from-class'>pd</keyword><keyword class='operation'>.</keyword><keyword class='function'>read_csv</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Data/mnist_test.csv'</keyword><keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Turn Dataset into Numpy Array and Shuffling it</keyword>\ntest_data <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>array</keyword><keyword class='braces'>(</keyword>test_data<keyword class='braces'>)</keyword>\nm<keyword class='operation'>,</keyword> n <keyword class='operation'>=</keyword> test_data<keyword class='operation'>.</keyword>shape\n<keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='from-class'>random</keyword><keyword class='operation'>.</keyword><keyword class='function'>shuffle</keyword><keyword class='braces'>(</keyword>test_data<keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Selecting one Digit from the Shuffled Dataset</keyword>\ndata_test <keyword class='operation'>=</keyword> test_data <keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='operation'>:</keyword><keyword class='numbers'>1</keyword><keyword class='braces'>]</keyword><keyword class='operation'>.T</keyword>\nY_test <keyword class='operation'>=</keyword> data_test <keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='braces'>]</keyword>\nX_test <keyword class='operation'>=</keyword> data_test <keyword class='braces'>[</keyword><keyword class='numbers'>1</keyword><keyword class='operation'>:</keyword><keyword class='numbers'>n</keyword><keyword class='braces'>]</keyword>\nX_test <keyword class='operation'>=</keyword> X_test <keyword class='operation'>/</keyword> <keyword class='numbers'>255</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "We will also need the Activation functions from the Main file, and use them to perform Forward Propagation."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Activation Function Rectified Linear Unit (ReLU)</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>ReLU</keyword><keyword class='braces'>(</keyword>x<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>return</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>maximum</keyword><keyword class='braces'>(</keyword>x<keyword class='operation'>,</keyword> <keyword class='numbers'>0</keyword><keyword class='braces'>)</keyword>\n\n<keyword class='comment'># Activation Function Softmax</keyword>\n<keyword class='reserve-1'>def</keyword> <keyword class='function'>softmax</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    a <keyword class='operation'>=</keyword> <keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>exp</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>)</keyword> <keyword class='operation'>/</keyword> <keyword class='function'>sum</keyword><keyword class='braces'>(</keyword><keyword class='from-class'>np</keyword><keyword class='operation'>.</keyword><keyword class='function'>exp</keyword><keyword class='braces'>(</keyword>z<keyword class='braces'>))</keyword>\n    <keyword class='reserve-2'>return</keyword> a\n\n<keyword class='comment'># Forward Propagating the Input</keyword>\nz1 <keyword class='operation'>=</keyword> weights_01<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>X_test<keyword class='braces'>)</keyword> <keyword class='operation'>+</keyword> biases_01\na1 <keyword class='operation'>=</keyword> <keyword class='function'>ReLU</keyword><keyword class='braces'>(</keyword>z1<keyword class='braces'>)</keyword>\nz2 <keyword class='operation'>=</keyword> weights_02<keyword class='operation'>.</keyword><keyword class='function'>dot</keyword><keyword class='braces'>(</keyword>a1<keyword class='braces'>)</keyword> <keyword class='operation'>+</keyword> biases_02\na2 <keyword class='operation'>=</keyword> <keyword class='function'>softmax</keyword><keyword class='braces'>(</keyword>z2<keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "Simply Calculate the Digit with the Highest Probability, print the probability of each Digit, and print the Digit with the Highest Probability as the Response of our Neural Network."
+        },
+        {
+            "type": "code",
+            "language": "python",
+            "content": "<keyword class='comment'># Finding the index of Highest Probability after Forward Propagation</keyword>\nmax_val <keyword class='operation'>=</keyword> a2<keyword class='braces'>[</keyword><keyword class='numbers'>0</keyword><keyword class='braces'>]</keyword>\nindex <keyword class='operation'>=</keyword> <keyword class='numbers'>0</keyword>\n<keyword class='reserve-2'>for</keyword> i <keyword class='reserve-2'>in</keyword> range<keyword class='braces'>(</keyword><keyword class='function'>len</keyword><keyword class='braces'>(</keyword>a2<keyword class='braces'>))</keyword><keyword class='operation'>:</keyword>\n    <keyword class='reserve-2'>if</keyword> a2<keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword> <keyword class='operation'>>=</keyword> max_val<keyword class='operation'>:</keyword>\n        index <keyword class='operation'>=</keyword> i\n        max_val <keyword class='operation'>=</keyword> a2<keyword class='braces'>[</keyword>i<keyword class='braces'>]</keyword>\n\n\n<keyword class='comment'># Listing the Probability of Each Digit being the Answer</keyword>\n<keyword class='reserve-2'>for</keyword> i <keyword class='reserve-2'>in</keyword> range<keyword class='braces'>(</keyword><keyword class='numbers'>0</keyword><keyword class='operation'>,</keyword> <keyword class='numbers'>10</keyword><keyword class='braces'>)</keyword><keyword class='operation'>:</keyword>\n    <keyword class='function'>print</keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'Probability of '</keyword><keyword class='operation'>,</keyword> i<keyword class='operation'>,</keyword> <keyword class='quotes'>' is <keyword class='reserve-1'>%.2f</keyword> percent'</keyword> <keyword class='operation'>%</keyword> <keyword class='braces'>(</keyword>a2<keyword class='braces'>[</keyword>i<keyword class='braces'>][</keyword><keyword class='numbers'>0</keyword><keyword class='braces'>]</keyword> <keyword class='operation'>*</keyword> <keyword class='numbers'>100</keyword><keyword class='braces'>))</keyword>\n\n\n<keyword class='comment'># Printing the Prediction of our Neural Network</keyword>\n<keyword class='function'>print</keyword></keyword><keyword class='braces'>(</keyword><keyword class='quotes'>'I think it is a '</keyword><keyword class='operation'>,</keyword> index<keyword class='braces'>)</keyword>\n"
+        },
+        {
+            "type": "paragraph",
+            "text": "We can also Draw the Digit on the Console before showing us the probabilities of the answer in the same way we did before."
+        },
+        {
+            "type": "paragraph",
+            "text": "Here are a few examples of Predictions that the Neural Network has made."
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-00.png",
+            "alt": ""
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-01.png",
+            "alt": ""
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-02.png",
+            "alt": ""
+        },
+        {
+            "type": "paragraph",
+            "text": "Here the Network seems to question a little whether it's a 7 or a 9."
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-03.png",
+            "alt": ""
+        },
+        {
+            "type": "paragraph",
+            "text": "Confused here about a 5 and a 6."
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-04.png",
+            "alt": ""
+        },
+        {
+            "type": "paragraph",
+            "text": "Another confusion here between a 7 and a 9."
+        },
+        {
+            "type": "image",
+            "src": "../images/Neural-Network-Prediction-05.png",
+            "alt": ""
+        },
+        {
+            "type": "paragraph",
+            "text": "Here it seems to consider 4, 5, and 6 a considerable possibility."
+        },
+        {
+            "type": "paragraph",
+            "text": "Most of the Digits I have seen it answer to are mostly Accurate other than a few that are distorted quite a bit."
+        }
+    ]
+}
