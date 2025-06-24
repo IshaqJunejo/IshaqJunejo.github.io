@@ -1,0 +1,175 @@
+[
+    {
+        "title": "Neural Network",
+        "description": "Project Neural Network is an implementation of a Multi-Layered Perceptron.<br>\nIt was built in Java from Scratch to understand the back-propagation algorithm<br>\nIt also utilizes a Java-Swing based GUI to test the model's performance on real hand-written digits.",
+        "image": "images/Neural-Network-Icon.png",
+        "imageAlt": "Project-Neural-Network",
+        "links": [
+            {
+                "url": "https://github.com/ishaqjunejo/project-neural-network",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            }
+        ]
+    },
+    {
+        "title": "Radius2D",
+        "description": "Radius2D is a Physics Engine made for experiemntal purposes.<br>\nThis currently have limited features which include,<br>\nCircle to Circle collision,<br>\nCircle to Line Collision,<br>\nAnd Spring Joints between Circles.",
+        "image": "images/Radius2D-Icon.png",
+        "imageAlt": "Radius2D",
+        "links": [
+            {
+                "url": "https://github.com/ishaqjunejo/Radius2D",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            }
+        ]
+    },
+    {
+        "title": "Galactic Battle",
+        "description": "Galactic Battle is Topdown shooter game where you play as ship and have to fight against the fleet of enemy's ship.<br>\nWhen you destroy an enemy ship, you can collect their remains to grow your ship's size.<br>\nThis was made for Kenney Jam 2022 with the theme of <em>Growth</em>.",
+        "image": "images/Galactic-Battle-Icon.png",
+        "imageAlt": "Galactic Battle",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/galactic-battle",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            },
+            {
+                "url": "https://github.com/ishaqjunejo/Galactic-Battle",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=bIqQR1eYBnI",
+                "icon": "images/Youtube-Logo.png",
+                "alt": "Presence on Youtube"
+            }
+        ]
+    },
+    {
+        "title": "Round Pong",
+        "description": "Round Pong is game where you play as Slider and you have to keep the ball inside the circle for as long as you can.<br>\nThis game was made for the purpose of learning C# as this is my first C# project.",
+        "image": "images/Round-Pong-Icon.png",
+        "imageAlt": "Round Pong",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/round-pong",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            },
+            {
+                "url": "https://github.com/ishaqjunejo/Round-Pong",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=0n0eecFfgdc",
+                "icon": "images/Youtube-Logo.png",
+                "alt": "Presence on Youtube"
+            }
+        ]
+    },
+    {
+        "title": "Seagull Survival",
+        "description": "Seagull Survival is a Topdown Game, where you as a seagull have to dodge the poles on the sea surface.<br>\nThis game is a submission to the Mini Jam 99, the theme was <em>Birds</em>.",
+        "image": "images/Seagull-Survivor-Icon.png",
+        "imageAlt": "Seagull Survival",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/seagull-survival",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            }
+        ]
+    },
+    {
+        "title": "Plankton Simulator",
+        "description": "Plankton Simulator is a game where you have to survive as a Zooplankton, you have to eat phytoplanktons around you. <br>\nBut be carefull, you are not at the top of the marine food chain. <br>\nThis game is an entry for Github Game Off, where the theme was <em>Bug</em>.",
+        "image": "images/Plankton-Simulation-Icon.png",
+        "imageAlt": "Plankton Simulator",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/plankton-simulator",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            },
+            {
+                "url": "https://github.com/IshaqJunejo/Plankton-Simulator",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            }
+        ]
+    },
+    {
+        "title": "Cream For Cone",
+        "description": "Cream for Cone is platformer where you are a cone and you have to find the ice cream machine to fill you cone.<br>\nThis is a submission to The Ice Cream Jam, as by the name the theme was <em>Ice Cream</em>.",
+        "image": "images/Cream-for-Cone-Icon.gif",
+        "imageAlt": "Cream For Cone",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/cream-for-cone",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=E9XbzGlCdRw",
+                "icon": "images/Youtube-Logo.png",
+                "alt": "Presence on Youtube"
+            }
+        ]
+    },
+    {
+        "title": "Rotating Aim",
+        "description": "Rotating Aim is platformer game where you as a ball have to reach to the star.<br>\nYou will only jump in the direction of your arrow, which is constantly Rotating.<br>\nThis Game was made for Kenney Jam 2021, with the theme of <em>Rotation</em>.",
+        "image": "images/Rotating-Aim-Icon.png",
+        "imageAlt": "Rotating Aim",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/rotating-aim",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            }
+        ]
+    },
+    {
+        "title": "Bug Runner",
+        "description": "Bug Runner is a platformer based endless runner game submitted for LowRezJam.<br>\nThis have limited pixels as the limitation of the Jam was to make a game in canvas of 32 by 32 pixels or less.<br>\nThis game is based on two themes <em>Mini Beast</em> and <em>Gravity is Your Enemy</em>.",
+        "image": "images/Bug-Runner-Icon.png",
+        "imageAlt": "Bug Runner",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/bug-runner",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            }
+        ]
+    },
+    {
+        "title": "Wrong Side Runner",
+        "description": "Wrong Side Runner is my second public game.<br>\nit is a clone of a game I used to play in childhood,<br>\nbut as I was not able to find its name one, so I gave it my own name.",
+        "image": "images/Wrong-Side-Runner-Icon.png",
+        "imageAlt": "Wrong Side Runner",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/wrong-side-runner",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            }
+        ]
+    },
+    {
+        "title": "Pong",
+        "description": "Pong is my first publicly available game, it basically is a clone of The Classic Pong. <br>\nI published this game to make myself confident enough to upload few more projects.",
+        "image": "images/Pong-Icon.png",
+        "imageAlt": "Pong Clone",
+        "links": [
+            {
+                "url": "https://mij-games.itch.io/pong",
+                "icon": "images/Itch-Logo.png",
+                "alt": "Presence on Itch"
+            }
+        ]
+    }
+]
