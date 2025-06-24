@@ -1,0 +1,82 @@
+[
+    {
+        "title": "Making a Flashcards App",
+        "banner": "images/Flashcards-app-Banner.png",
+        "altText": "Banner of Flashcards App",
+        "date": "28-April-2024",
+        "description": "It has been a little less than two months since I started working on a new project.\nThe idea for this project was quite straightforward,\nit was supposed to be an app that displays a few Flashcards...",
+        "link": "Making-a-Flashcards-app/"
+    },
+    {
+        "title": "Trying to Visualise some Maths",
+        "banner": "images/Math-Visualise-Figma-Banner.png",
+        "altText": "Banner of Math Visualisation",
+        "date": "20-March-2024",
+        "description": "It has been almost two months now, that I have been working on a new small project,\nand most of the work is done in my free time only.\nThis project is centered around visual...",
+        "link": "Trying-to-visualise-some-Maths/"
+    },
+    {
+        "title": "2023 Year in Review",
+        "banner": "images/2023-Annual-Review-Banner.png",
+        "altText": "Banner of Year in Review",
+        "date": "28-December-2023",
+        "description": "As the year 2023 is coming to an end, it is time to reflect on what the previous\ntwelve months have been like and reflect on my goals for this year.\nThis year has made me realize that some chapters of our journey don't unfold...",
+        "link": "2023-Year-in-Review/"
+    },
+    {
+        "title": "Failed Attempt to Expand a Neural Network",
+        "banner": "images/Neural-Network-Expansion.png",
+        "altText": "Banner of Blog Expanding a Neural Network",
+        "date": "03-December-2023",
+        "description": "Two months ago, I was working on a simple Neural Network project with the standard MNIST Dataset,\nBecause I made that Neural Network mostly by copying someone else's code and trying to understand it,\nI thought trying a few different things with it would be...",
+        "link": "Failed-attempt-to-expand-Neural-Network/"
+    },
+    {
+        "title": "Working on my First Neural Network",
+        "banner": "images/First-Neural-Network-Banner.png",
+        "altText": "Banner of Blog Working on Neural Network",
+        "date": "26-September-2023",
+        "description": "I recently tried to make a pretty simple and small Neural Network\nto understand how Neural Networks work, specifically how\nNeural Networks are Trained with Backpropagation....",
+        "link": "Working-on-my-First-Neural-Network/"
+    },
+    {
+        "title": "Improving the Layout of my Portfolio Website",
+        "banner": "images/project-container-before-and-after.png",
+        "altText": "Banner of Blog Updating my Website",
+        "date": "29-March-2023",
+        "description": "It had been a few weeks since I last worked on my portfolio website,\nespecially on its design. So I decided to try if I can improve it or not\nSo, I opened up Figma, copied the design of my website,\nand started looking for where I can improve the desi...",
+        "link": "improving-layout-of-my-website/"
+    },
+    {
+        "title": "A Year Long Journey",
+        "banner": "images/2022-Year-Progress-Report-Banner.png",
+        "altText": "Banner of Blog 2022 year reoprt",
+        "date": "30-December-2022",
+        "description": "This year has been pretty interesting for me in terms of the\ntime spent trying to do and find some new things or skills or hobbies.\nI tried a lot of new things this year and\nhave planned for trying out more next year hopefu...",
+        "link": "A-Year-Long-Journey/"
+    },
+    {
+        "title": "My Experience with Programming on Weekends only",
+        "banner": "images/github-contribution-on-saturdays-and-sundays.png",
+        "altText": "Banner of Blog programming on weekends",
+        "date": "03-December-2022",
+        "description": "It has been almost three months since I got admission in Higher Secondary School,\nI don't remember it by a date but by the pattern of my GitHub contribution graph.\nAfter the admission I found very little to no time for work...",
+        "link": "My-experience-with-programming-on-weekends-only/"
+    },
+    {
+        "title": "Working on my own Physics Engine",
+        "banner": "images/Physics-Engine-Banner.png",
+        "altText": "Banner of Blog Physics Engine Development",
+        "date": "08-October-2022",
+        "description": "Developing your own physics engine can be seriously hard,\nas it involves a lot of calculations, vectors usage and obviously lots of physics formulas too.\nStill I decided to give it a try because I wanted to do some experime...",
+        "link": "Working-on-physics-engine/"
+    },
+    {
+        "title": "How is it like to make One Pixel Art Piece Dailiy for 54 days Straight?",
+        "banner": "images/Pixel-Dailies-Banner.png",
+        "altText": "Banner of Blog Pixel Art",
+        "date": "14-September-2022",
+        "description": "Doing something consistently for more than a month long can take a huge motivation and a solid reason to do so.\nI also have tried doing it with pixel art. <br>\nThe story behind this lies back when I finished a game jam submissio... ",
+        "link": "Pixel-Art-for-54-days/"
+    }
+]
