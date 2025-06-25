@@ -33,7 +33,7 @@ let web_item_2 = document.createElement("li");
 web_item_2.innerHTML= "<a href='https://ishaqjunejo.github.io/Projects/'>Projects</a>";
 
 let web_item_3 = document.createElement("li");
-web_item_3.innerHTML= "<a href='https://ishaqjunejo.github.io/Pixel-Art-Collection/'>Pixel Art Collection</a>";
+web_item_3.innerHTML= "<a href='https://ishaqjunejo.github.io/Archive/'>Archive</a>";
 
 let web_item_4 = document.createElement("li");
 web_item_4.innerHTML= "<a href='https://ishaqjunejo.github.io/Blogs/'>Blogs</a>";
