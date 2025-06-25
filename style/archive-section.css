@@ -2,10 +2,22 @@
     min-height: 100vh;
 }
 
+#pixel-art p {
+    width: fit-content;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 24px;
+}
+
 #pixel-art .collection {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: min(95vw, 1200px);
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #pixel-art .collection .piece {
