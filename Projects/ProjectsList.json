@@ -1,5 +1,18 @@
 [
     {
+        "title": "Lemon Disease Detector",
+        "description": "Trained 2 Convolutional Neural Networks, one to differentiate images of Lemon Leaves from other images, and other the one to classify those images into 9 labels (Healthy, Dried, and 7 diseases).<br>Also built a Flask based API, and a simple Web Interface to display the predictions.",
+        "image": "images/Lemon-Disease-Detector-Icon.png",
+        "imageAlt": "Lemon Disease Detector Web UI Screenshot",
+        "links": [
+            {
+                "url": "https://github.com/IshaqJunejo/Lemon-Disease-Detector",
+                "icon": "images/Github-Logo.png",
+                "alt": "Presence on GitHub"
+            }
+        ]
+    },
+    {
         "title": "Neural Network",
         "description": "Project Neural Network is an implementation of a Multi-Layered Perceptron.<br>\nIt was built in Java from Scratch to understand the back-propagation algorithm<br>\nIt also utilizes a Java-Swing based GUI to test the model's performance on real hand-written digits.",
         "image": "images/Neural-Network-Icon.png",
