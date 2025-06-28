@@ -21,7 +21,8 @@
     background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
-    width: fit-content;
+    width: min(75%, 24rem);
+    flex: 1 1 auto;
     height: 500px;
     overflow: hidden;
 }
@@ -30,7 +31,7 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 350px;
+    width: min(100%, 23rem);
     border-radius: 0.2rem;
     transition: all 0.3s ease-out;
 }
@@ -58,7 +59,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 350px;
+    width: min(100%, 23rem);
+    margin: 0 auto;
 }
 
 #projects .internal-container .data .hidden-data {
