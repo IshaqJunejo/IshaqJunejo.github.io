@@ -15,18 +15,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: min(95vw, 1200px);
+    width: min(95%, 1200px);
     margin-right: auto;
     margin-left: auto;
 }
 
 #pixel-art .collection .piece {
-    width: 200px;
+    width: min(200px, 100%);
+    flex: 1 1 auto;
     height: 200px;
     background: var(--primary-color);
     border-radius: 0.5rem;
     padding: 5px;
-    margin: 10px;
+    margin: 5px;
 }
 
 #pixel-art .collection .piece img {
