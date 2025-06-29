@@ -85,6 +85,7 @@ a {
     max-height: fit-content;
     border-top: var(--divider-color) 2px solid;
     padding: 5px;
+    width: min(90vw, 1500px);
 }
 
 .title {

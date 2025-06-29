@@ -12,6 +12,8 @@
 
 #blogs .collection a {
     margin: 5px;
+    width: min(650px, 100%);
+    flex: 1 1 auto;
 }
 
 #blogs .internal-container {
@@ -21,20 +23,19 @@
     background: var(--primary-color);
     padding: 10px;
     border-radius: 0.5rem;
-    width: 650px;
     height: 450px;
     overflow: hidden;
 }
 
 #blogs .internal-container .Banner {
-    width: 100%;
+    width: min(100%, 650px);
     margin: 0 auto;
     border-radius: 0.2rem;
     transition: all 0.5s;
 }
 
 #blogs .internal-container:hover > .Banner {
-    width: 50%;
+    width: calc(min(100%, 650px) / 2);
 }
 
 #blogs .internal-container .blog-title {
